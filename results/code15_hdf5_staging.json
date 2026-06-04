@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-05-25T16:09:00",
+  "stage": "05_experimentation",
+  "experiment": "minimal_real_data_pilot",
+  "artifact": "code15_hdf5_staging",
+  "source_zip": "raw_data/code15/exams_part0.zip",
+  "source_zip_size_bytes": 2672786404,
+  "extracted_hdf5": "raw_data/code15/exams_part0.hdf5",
+  "extracted_hdf5_exists": true,
+  "extracted_hdf5_size_bytes": 3932518664,
+  "usable_for_pilot": true
+}

@@ -1,0 +1,183 @@
+{
+  "description": "PhysioCalib severity-weighted isotonic calibration on ST-MEM PTB-XL",
+  "model": "ST-MEM (M2)",
+  "dataset": "PTB-XL",
+  "seed": 42,
+  "classes": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "severity_weights": {
+    "NORM": 0.5,
+    "MI": 3.0,
+    "STTC": 2.0,
+    "CD": 1.5,
+    "HYP": 1.2
+  },
+  "n_train": 1400,
+  "n_cal": 300,
+  "n_test": 300,
+  "per_class_results": {
+    "Raw (linear probe)": {
+      "NORM": {
+        "auroc": 0.9145387520230175,
+        "ece": 0.04003163709885948,
+        "sce": 0.028522295723475456,
+        "brier": 0.11788740244976774,
+        "severity_weight": 0.5
+      },
+      "MI": {
+        "auroc": 0.9275067750677507,
+        "ece": 0.06775802802478949,
+        "sce": -0.0048808773961084365,
+        "brier": 0.0827924274261104,
+        "severity_weight": 3.0
+      },
+      "STTC": {
+        "auroc": 0.9193517391582858,
+        "ece": 0.05239312223257498,
+        "sce": 0.012453481738621796,
+        "brier": 0.09255086091241062,
+        "severity_weight": 2.0
+      },
+      "CD": {
+        "auroc": 0.8859660243407708,
+        "ece": 0.02613198791724431,
+        "sce": -0.015074316876218956,
+        "brier": 0.1006909083890046,
+        "severity_weight": 1.5
+      },
+      "HYP": {
+        "auroc": 0.9204098820887143,
+        "ece": 0.06234772202056685,
+        "sce": 0.013358468058776714,
+        "brier": 0.0680845162190037,
+        "severity_weight": 1.2
+      }
+    },
+    "Platt scaling": {
+      "NORM": {
+        "auroc": 0.9145387520230175,
+        "ece": 0.05714395308184245,
+        "sce": -0.003787946866963808,
+        "brier": 0.11984796124118453,
+        "severity_weight": 0.5
+      },
+      "MI": {
+        "auroc": 0.9275067750677507,
+        "ece": 0.10081346224428757,
+        "sce": -0.023482605290769124,
+        "brier": 0.08973326501594382,
+        "severity_weight": 3.0
+      },
+      "STTC": {
+        "auroc": 0.9193517391582858,
+        "ece": 0.05585755343972673,
+        "sce": 0.012931911944740204,
+        "brier": 0.09484704694806491,
+        "severity_weight": 2.0
+      },
+      "CD": {
+        "auroc": 0.8859660243407708,
+        "ece": 0.045605425581269364,
+        "sce": 0.010626251426653875,
+        "brier": 0.10135027195349312,
+        "severity_weight": 1.5
+      },
+      "HYP": {
+        "auroc": 0.9204098820887143,
+        "ece": 0.09594319792450047,
+        "sce": 0.04812127593044829,
+        "brier": 0.07788475786782738,
+        "severity_weight": 1.2
+      }
+    },
+    "Isotonic regression": {
+      "NORM": {
+        "auroc": 0.9106275849667326,
+        "ece": 0.04977301385881097,
+        "sce": -0.002372601031454687,
+        "brier": 0.12110988861343804,
+        "severity_weight": 0.5
+      },
+      "MI": {
+        "auroc": 0.9258130081300813,
+        "ece": 0.05992721933524817,
+        "sce": -0.024627754922208114,
+        "brier": 0.08593706293897455,
+        "severity_weight": 3.0
+      },
+      "STTC": {
+        "auroc": 0.9215617193004932,
+        "ece": 0.04422020748728891,
+        "sce": 0.01339424197119929,
+        "brier": 0.0906352698159298,
+        "severity_weight": 2.0
+      },
+      "CD": {
+        "auroc": 0.8786130831643003,
+        "ece": 0.0419503273705054,
+        "sce": 0.0018303027380311286,
+        "brier": 0.10788599173784455,
+        "severity_weight": 1.5
+      },
+      "HYP": {
+        "auroc": 0.9161987647389108,
+        "ece": 0.02884118861104951,
+        "sce": 0.0160752287800552,
+        "brier": 0.07406702274083052,
+        "severity_weight": 1.2
+      }
+    },
+    "PhysioCalib (weighted iso.)": {
+      "NORM": {
+        "auroc": 0.9106275849667326,
+        "ece": 0.09280368790188127,
+        "sce": -0.07496327224961034,
+        "brier": 0.13128170590439767,
+        "severity_weight": 0.5
+      },
+      "MI": {
+        "auroc": 0.9258130081300813,
+        "ece": 0.08516466142342095,
+        "sce": 0.07784021420276575,
+        "brier": 0.09259899239280107,
+        "severity_weight": 3.0
+      },
+      "STTC": {
+        "auroc": 0.9215617193004932,
+        "ece": 0.08704813705422687,
+        "sce": 0.08164207962708067,
+        "brier": 0.10432810703303583,
+        "severity_weight": 2.0
+      },
+      "CD": {
+        "auroc": 0.8786130831643003,
+        "ece": 0.06141387415896729,
+        "sce": 0.04948316585927626,
+        "brier": 0.11043154693073305,
+        "severity_weight": 1.5
+      },
+      "HYP": {
+        "auroc": 0.9161987647389108,
+        "ece": 0.032224662868203725,
+        "sce": 0.02759881014388186,
+        "brier": 0.07465803088323535,
+        "severity_weight": 1.2
+      }
+    }
+  },
+  "physio_calib_algorithm": {
+    "description": "Weighted isotonic regression where sample weights = severity_weight for positive class, 1.0 for negative class. Fitted on calibration split only. Higher severity classes receive proportionally more calibration correction.",
+    "severity_weights": {
+      "NORM": 0.5,
+      "MI": 3.0,
+      "STTC": 2.0,
+      "CD": 1.5,
+      "HYP": 1.2
+    }
+  }
+}

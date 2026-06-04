@@ -1,0 +1,1803 @@
+{
+  "generated_at": "2026-05-30T08:02:17",
+  "ready_for_analysis": true,
+  "result_artifacts": [
+    {
+      "category": "results",
+      "rel_path": "results/all_results_summary.csv",
+      "filename": "all_results_summary.csv",
+      "suffix": ".csv",
+      "size_bytes": 12580,
+      "updated_at": "2026-05-24T10:33:18",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "phase",
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "auroc",
+          "auprc",
+          "ece_ew",
+          "ece_em",
+          "brier",
+          "sce",
+          "recal_method"
+        ],
+        "row_count": 78
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/analysis_best_recalibrators.csv",
+      "filename": "analysis_best_recalibrators.csv",
+      "suffix": ".csv",
+      "size_bytes": 1835,
+      "updated_at": "2026-05-24T10:37:18",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "auroc",
+          "ece_ew",
+          "brier",
+          "sce"
+        ],
+        "row_count": 15
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/analysis_claim_support_matrix.csv",
+      "filename": "analysis_claim_support_matrix.csv",
+      "suffix": ".csv",
+      "size_bytes": 1697,
+      "updated_at": "2026-05-25T16:12:48",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "claim_area",
+          "evidence_class",
+          "current_status",
+          "analysis_note"
+        ],
+        "row_count": 9
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/analysis_hypothesis_verdicts.csv",
+      "filename": "analysis_hypothesis_verdicts.csv",
+      "suffix": ".csv",
+      "size_bytes": 1243,
+      "updated_at": "2026-05-24T10:37:18",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "hypothesis",
+          "synthetic_verdict",
+          "basis",
+          "paper_claim_status"
+        ],
+        "row_count": 6
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/analysis_phase_a_model_means.csv",
+      "filename": "analysis_phase_a_model_means.csv",
+      "suffix": ".csv",
+      "size_bytes": 301,
+      "updated_at": "2026-05-24T10:37:18",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "model_id",
+          "model_name",
+          "auroc",
+          "ece_ew",
+          "brier",
+          "sce"
+        ],
+        "row_count": 6
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/analysis_real_pilot_platt_deltas.csv",
+      "filename": "analysis_real_pilot_platt_deltas.csv",
+      "suffix": ".csv",
+      "size_bytes": 1358,
+      "updated_at": "2026-05-25T16:12:48",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "auroc_raw",
+          "ece_ew_raw",
+          "brier_raw",
+          "sce_raw",
+          "auroc_platt",
+          "ece_ew_platt",
+          "brier_platt",
+          "sce_platt",
+          "delta_auroc_platt_minus_raw",
+          "delta_ece_platt_minus_raw",
+          "delta_brier_platt_minus_raw",
+          "relative_ece_reduction"
+        ],
+        "row_count": 4
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/code15_hdf5_staging.json",
+      "filename": "code15_hdf5_staging.json",
+      "suffix": ".json",
+      "size_bytes": 406,
+      "updated_at": "2026-05-25T16:08:47",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "artifact",
+          "experiment",
+          "extracted_hdf5",
+          "extracted_hdf5_exists",
+          "extracted_hdf5_size_bytes",
+          "generated_at",
+          "source_zip",
+          "source_zip_size_bytes",
+          "stage",
+          "usable_for_pilot"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/dependency_install_attempt.json",
+      "filename": "dependency_install_attempt.json",
+      "suffix": ".json",
+      "size_bytes": 1234,
+      "updated_at": "2026-05-24T15:22:31",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "authorization_context",
+          "command",
+          "exit_code",
+          "experiment",
+          "failure_summary",
+          "failure_type",
+          "generated_at",
+          "impact",
+          "installed",
+          "post_attempt_import_check",
+          "requested_packages",
+          "stage",
+          "stderr_key_lines"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/dependency_network_recovery_attempt.json",
+      "filename": "dependency_network_recovery_attempt.json",
+      "suffix": ".json",
+      "size_bytes": 2034,
+      "updated_at": "2026-05-24T15:13:53",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "actions",
+          "conclusion",
+          "experiment",
+          "generated_at",
+          "local_package_search",
+          "pip_config",
+          "post_attempt_import_check",
+          "preflight_after_retry",
+          "request",
+          "stage",
+          "venv_install_attempt"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/expanded_real_pilot_delong.csv",
+      "filename": "expanded_real_pilot_delong.csv",
+      "suffix": ".csv",
+      "size_bytes": 4189,
+      "updated_at": "2026-05-29T17:48:24",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "class_name",
+          "status",
+          "platt_status",
+          "test_pos",
+          "test_neg",
+          "auc_raw",
+          "auc_platt",
+          "raw_minus_platt_auc",
+          "platt_minus_raw_auc",
+          "z_statistic",
+          "p_value",
+          "nominal_significant_degradation"
+        ],
+        "row_count": 22
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/expanded_real_pilot_results.json",
+      "filename": "expanded_real_pilot_results.json",
+      "suffix": ".json",
+      "size_bytes": 239606,
+      "updated_at": "2026-05-29T17:48:24",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "datasets",
+          "delong_raw_vs_guarded_platt",
+          "experiment",
+          "failed_datasets",
+          "fm_checkpoint",
+          "generated_at",
+          "limitations",
+          "parameters",
+          "phase_a_metrics",
+          "publication_grade",
+          "recalibration_metrics",
+          "scope",
+          "stage",
+          "status"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/expanded_real_pilot_summary.csv",
+      "filename": "expanded_real_pilot_summary.csv",
+      "suffix": ".csv",
+      "size_bytes": 1829,
+      "updated_at": "2026-05-29T17:48:24",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "phase",
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "auroc",
+          "auprc",
+          "ece_ew",
+          "ece_em",
+          "brier",
+          "sce"
+        ],
+        "row_count": 8
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_ablation_results.json",
+      "filename": "h4_ablation_results.json",
+      "suffix": ".json",
+      "size_bytes": 70433,
+      "updated_at": "2026-05-24T10:33:18",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "M1_D1",
+          "M1_D3",
+          "M2_D1",
+          "M2_D3",
+          "M3_D1",
+          "M3_D3",
+          "M4_D1",
+          "M4_D3",
+          "M5_D1",
+          "M5_D3"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_calsize_ablation_method_ranking.csv",
+      "filename": "h4_calsize_ablation_method_ranking.csv",
+      "suffix": ".csv",
+      "size_bytes": 6857,
+      "updated_at": "2026-05-29T18:45:46",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "cal_size",
+          "method",
+          "ece_rank",
+          "brier_rank",
+          "ece_ew_mean",
+          "brier_mean",
+          "best_by_ece",
+          "best_by_brier"
+        ],
+        "row_count": 74
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_calsize_ablation_raw.csv",
+      "filename": "h4_calsize_ablation_raw.csv",
+      "suffix": ".csv",
+      "size_bytes": 40499,
+      "updated_at": "2026-05-29T18:45:46",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "cal_size",
+          "rep",
+          "method",
+          "auroc",
+          "ece_ew",
+          "brier"
+        ],
+        "row_count": 480
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_calsize_ablation_results.json",
+      "filename": "h4_calsize_ablation_results.json",
+      "suffix": ".json",
+      "size_bytes": 1289,
+      "updated_at": "2026-05-29T18:45:46",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "cal_sizes_tested",
+          "datasets",
+          "experiment",
+          "generated_at",
+          "h4_small_n_finding",
+          "methods",
+          "models",
+          "n_repetitions",
+          "publication_grade",
+          "scope",
+          "source_artifacts",
+          "stage",
+          "total_recal_cells",
+          "win_summary"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_calsize_ablation_summary.csv",
+      "filename": "h4_calsize_ablation_summary.csv",
+      "suffix": ".csv",
+      "size_bytes": 10368,
+      "updated_at": "2026-05-29T18:45:46",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "cal_size",
+          "method",
+          "auroc_mean",
+          "auroc_std",
+          "ece_ew_mean",
+          "ece_ew_std",
+          "brier_mean",
+          "brier_std"
+        ],
+        "row_count": 98
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_friedman_brier_test_per_size.csv",
+      "filename": "h4_friedman_brier_test_per_size.csv",
+      "suffix": ".csv",
+      "size_bytes": 761,
+      "updated_at": "2026-05-29T19:42:22",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "cal_size",
+          "cal_size_numeric",
+          "n_blocks",
+          "friedman_statistic",
+          "friedman_pvalue",
+          "significant_at_0.05",
+          "significant_at_0.01",
+          "mean_brier_rank_temperature",
+          "mean_brier_rank_platt",
+          "mean_brier_rank_isotonic",
+          "mean_brier_rank_mlp",
+          "mlp_worst_fraction",
+          "best_method"
+        ],
+        "row_count": 7
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_friedman_brier_test_results.json",
+      "filename": "h4_friedman_brier_test_results.json",
+      "suffix": ".json",
+      "size_bytes": 10025,
+      "updated_at": "2026-05-29T19:42:22",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "experiment",
+          "friedman_per_calsize",
+          "generated_at",
+          "h4_brier_verdict",
+          "metric",
+          "mlp_rank_distribution_per_size",
+          "n_blocks_per_size",
+          "pairwise_wilcoxon_mlp_vs_others_small_n",
+          "small_n_threshold",
+          "source_csv",
+          "spearman_calsize_vs_mlp_rank",
+          "stage"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_friedman_test_per_size.csv",
+      "filename": "h4_friedman_test_per_size.csv",
+      "suffix": ".csv",
+      "size_bytes": 763,
+      "updated_at": "2026-05-29T19:31:02",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "cal_size",
+          "cal_size_numeric",
+          "n_blocks",
+          "friedman_statistic",
+          "friedman_pvalue",
+          "significant_at_0.05",
+          "significant_at_0.01",
+          "mean_ece_rank_temperature",
+          "mean_ece_rank_platt",
+          "mean_ece_rank_isotonic",
+          "mean_ece_rank_mlp",
+          "mlp_worst_fraction",
+          "best_method"
+        ],
+        "row_count": 7
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_friedman_test_results.json",
+      "filename": "h4_friedman_test_results.json",
+      "suffix": ".json",
+      "size_bytes": 11725,
+      "updated_at": "2026-05-29T19:31:02",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "experiment",
+          "friedman_per_calsize",
+          "generated_at",
+          "h4_verdict",
+          "methods_compared",
+          "mlp_rank_distribution_per_size",
+          "n_blocks_per_size",
+          "pairwise_wilcoxon_mlp_vs_others_small_n",
+          "small_n_threshold",
+          "source_csv",
+          "spearman_calsize_vs_mlp_rank",
+          "stage"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_nemenyi_pairwise_brier.csv",
+      "filename": "h4_nemenyi_pairwise_brier.csv",
+      "suffix": ".csv",
+      "size_bytes": 4760,
+      "updated_at": "2026-05-29T23:00:02",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "cal_size",
+          "method_a",
+          "method_b",
+          "mean_rank_a",
+          "mean_rank_b",
+          "rank_diff",
+          "higher_rank_method",
+          "CD_05",
+          "CD_10",
+          "sig_CD_05",
+          "sig_CD_10",
+          "wilcoxon_p",
+          "wilcoxon_sig_bonf"
+        ],
+        "row_count": 42
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_nemenyi_pairwise_ece.csv",
+      "filename": "h4_nemenyi_pairwise_ece.csv",
+      "suffix": ".csv",
+      "size_bytes": 4718,
+      "updated_at": "2026-05-29T23:00:02",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "cal_size",
+          "method_a",
+          "method_b",
+          "mean_rank_a",
+          "mean_rank_b",
+          "rank_diff",
+          "higher_rank_method",
+          "CD_05",
+          "CD_10",
+          "sig_CD_05",
+          "sig_CD_10",
+          "wilcoxon_p",
+          "wilcoxon_sig_bonf"
+        ],
+        "row_count": 42
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_nemenyi_test_results.json",
+      "filename": "h4_nemenyi_test_results.json",
+      "suffix": ".json",
+      "size_bytes": 52231,
+      "updated_at": "2026-05-29T23:00:02",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "description",
+          "experiment",
+          "generated_at",
+          "k_methods",
+          "method",
+          "metrics",
+          "q_alpha_table",
+          "sizes",
+          "stage",
+          "summary"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_size_ablation_pilot_ranking.csv",
+      "filename": "h4_size_ablation_pilot_ranking.csv",
+      "suffix": ".csv",
+      "size_bytes": 15214,
+      "updated_at": "2026-05-29T18:48:26",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "cal_size",
+          "effective_n",
+          "method",
+          "ece_ew_mean",
+          "brier_mean",
+          "ece_rank",
+          "brier_rank",
+          "best_by_ece",
+          "best_by_brier",
+          "mlp_worst_by_ece",
+          "mlp_worst_by_brier"
+        ],
+        "row_count": 112
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_size_ablation_pilot_raw.csv",
+      "filename": "h4_size_ablation_pilot_raw.csv",
+      "suffix": ".csv",
+      "size_bytes": 78187,
+      "updated_at": "2026-05-29T18:48:26",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "cal_size",
+          "effective_n",
+          "rep",
+          "seed",
+          "min_class_pos_in_cal",
+          "min_class_neg_in_cal",
+          "method",
+          "ece_ew",
+          "brier",
+          "auroc",
+          "status"
+        ],
+        "row_count": 560
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_size_ablation_pilot_results.json",
+      "filename": "h4_size_ablation_pilot_results.json",
+      "suffix": ".json",
+      "size_bytes": 58600,
+      "updated_at": "2026-05-29T18:48:26",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "ablation_sizes",
+          "experiment",
+          "generated_at",
+          "h4_analysis_by_cal_size",
+          "n_reps",
+          "publication_grade",
+          "scope",
+          "stage",
+          "summary",
+          "total_rows"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_size_ablation_pilot_summary.csv",
+      "filename": "h4_size_ablation_pilot_summary.csv",
+      "suffix": ".csv",
+      "size_bytes": 20632,
+      "updated_at": "2026-05-29T18:48:26",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "cal_size",
+          "effective_n",
+          "method",
+          "n_reps",
+          "n_valid_reps",
+          "ece_ew_mean",
+          "ece_ew_std",
+          "brier_mean",
+          "brier_std",
+          "auroc_mean",
+          "auroc_std"
+        ],
+        "row_count": 112
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_wilcoxon_brier_mlp_vs_others.csv",
+      "filename": "h4_wilcoxon_brier_mlp_vs_others.csv",
+      "suffix": ".csv",
+      "size_bytes": 1395,
+      "updated_at": "2026-05-29T19:42:22",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "cal_size",
+          "cal_size_numeric",
+          "comparison",
+          "method_a",
+          "method_b",
+          "n_pairs",
+          "wilcoxon_statistic",
+          "wilcoxon_pvalue",
+          "significant_at_0.05",
+          "mean_diff",
+          "fraction_mlp_worse"
+        ],
+        "row_count": 12
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/h4_wilcoxon_mlp_vs_others.csv",
+      "filename": "h4_wilcoxon_mlp_vs_others.csv",
+      "suffix": ".csv",
+      "size_bytes": 1518,
+      "updated_at": "2026-05-29T19:31:02",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "cal_size",
+          "cal_size_numeric",
+          "comparison",
+          "method_a",
+          "method_b",
+          "n_pairs",
+          "wilcoxon_statistic",
+          "wilcoxon_pvalue",
+          "significant_at_0.05",
+          "mean_diff",
+          "median_diff",
+          "fraction_mlp_worse"
+        ],
+        "row_count": 12
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/hypothesis_test_results.json",
+      "filename": "hypothesis_test_results.json",
+      "suffix": ".json",
+      "size_bytes": 118436,
+      "updated_at": "2026-05-24T10:33:18",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "H1",
+          "H2",
+          "H3",
+          "H3_brier",
+          "H4",
+          "H5",
+          "H6"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/local_dependency_path_check.json",
+      "filename": "local_dependency_path_check.json",
+      "suffix": ".json",
+      "size_bytes": 1203,
+      "updated_at": "2026-05-24T14:59:48",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "experiment",
+          "generated_at",
+          "impact",
+          "install_attempted",
+          "local_install_path_available",
+          "matching_package_files",
+          "package_files_found",
+          "reason_install_not_attempted",
+          "requested_packages",
+          "searched_roots",
+          "stage"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/minimal_real_pilot_results.json",
+      "filename": "minimal_real_pilot_results.json",
+      "suffix": ".json",
+      "size_bytes": 143156,
+      "updated_at": "2026-05-25T16:08:26",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "datasets",
+          "experiment",
+          "failed_datasets",
+          "fm_checkpoint",
+          "generated_at",
+          "limitations",
+          "phase_a_metrics",
+          "publication_grade",
+          "recalibration_metrics",
+          "scope",
+          "stage",
+          "status"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/minimal_real_pilot_summary.csv",
+      "filename": "minimal_real_pilot_summary.csv",
+      "suffix": ".csv",
+      "size_bytes": 1645,
+      "updated_at": "2026-05-25T16:08:26",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "phase",
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "auroc",
+          "auprc",
+          "ece_ew",
+          "ece_em",
+          "brier",
+          "sce"
+        ],
+        "row_count": 8
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/monotone_recalibration_pilot_delong.csv",
+      "filename": "monotone_recalibration_pilot_delong.csv",
+      "suffix": ".csv",
+      "size_bytes": 5144,
+      "updated_at": "2026-05-29T18:14:24",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "class_name",
+          "status",
+          "recal_status",
+          "used_method",
+          "test_pos",
+          "test_neg",
+          "auc_raw",
+          "auc_recal",
+          "raw_minus_recal_auc",
+          "recal_minus_raw_auc",
+          "z_statistic",
+          "p_value",
+          "nominal_significant_degradation"
+        ],
+        "row_count": 22
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/monotone_recalibration_pilot_params.csv",
+      "filename": "monotone_recalibration_pilot_params.csv",
+      "suffix": ".csv",
+      "size_bytes": 3991,
+      "updated_at": "2026-05-29T18:14:24",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "class_index",
+          "class_name",
+          "status",
+          "used_method",
+          "platt_slope",
+          "platt_intercept",
+          "temperature",
+          "cal_pos",
+          "cal_neg",
+          "test_pos",
+          "test_neg"
+        ],
+        "row_count": 22
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/monotone_recalibration_pilot_predictions.npz",
+      "filename": "monotone_recalibration_pilot_predictions.npz",
+      "suffix": ".npz",
+      "size_bytes": 110748,
+      "updated_at": "2026-05-29T18:14:24",
+      "schema": {
+        "source": "inferred",
+        "kind": "numpy_archive"
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/monotone_recalibration_pilot_results.json",
+      "filename": "monotone_recalibration_pilot_results.json",
+      "suffix": ".json",
+      "size_bytes": 239644,
+      "updated_at": "2026-05-29T18:14:24",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "datasets",
+          "delong_raw_vs_monotone_recalibration",
+          "experiment",
+          "failed_datasets",
+          "generated_at",
+          "parameters",
+          "phase_a_metrics",
+          "publication_grade",
+          "recalibration_metrics",
+          "s4d_source_artifact",
+          "scope",
+          "stage",
+          "status",
+          "stmem_checkpoint"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/monotone_recalibration_pilot_summary.csv",
+      "filename": "monotone_recalibration_pilot_summary.csv",
+      "suffix": ".csv",
+      "size_bytes": 1920,
+      "updated_at": "2026-05-29T18:14:24",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "phase",
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "auroc",
+          "auprc",
+          "ece_ew",
+          "ece_em",
+          "brier",
+          "sce"
+        ],
+        "row_count": 8
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/open_dataset_asset_staging_status.json",
+      "filename": "open_dataset_asset_staging_status.json",
+      "suffix": ".json",
+      "size_bytes": 3529,
+      "updated_at": "2026-05-24T15:19:45",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "all_checkpoints_staged",
+          "all_open_datasets_staged",
+          "checkpoint_mapping_loaded",
+          "checkpoint_mapping_path",
+          "checkpoints",
+          "copy_assets",
+          "datasets",
+          "experiment",
+          "generated_at",
+          "incoming_checkpoints_root",
+          "incoming_data_root",
+          "stage",
+          "workspace_root"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/open_dataset_real_run_preflight.json",
+      "filename": "open_dataset_real_run_preflight.json",
+      "suffix": ".json",
+      "size_bytes": 7298,
+      "updated_at": "2026-05-29T17:49:04",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "base_packages",
+          "blockers",
+          "checkpoints",
+          "datasets",
+          "environment",
+          "experiment",
+          "generated_at",
+          "launch",
+          "mimic_status",
+          "policy",
+          "ready_to_launch",
+          "stage"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/phase_a_results.json",
+      "filename": "phase_a_results.json",
+      "suffix": ".json",
+      "size_bytes": 601770,
+      "updated_at": "2026-05-24T10:33:18",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "D1",
+          "D3",
+          "D4"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/phase_b_results.json",
+      "filename": "phase_b_results.json",
+      "suffix": ".json",
+      "size_bytes": 2111382,
+      "updated_at": "2026-05-24T10:33:18",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "D1",
+          "D3",
+          "D4"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/real_asset_acquisition_attempt.json",
+      "filename": "real_asset_acquisition_attempt.json",
+      "suffix": ".json",
+      "size_bytes": 4981,
+      "updated_at": "2026-05-24T15:19:23",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "datasets",
+          "experiment",
+          "generated_at",
+          "models",
+          "network_available_for_public_sources",
+          "stage",
+          "summary"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/real_end_to_end_attempt.json",
+      "filename": "real_end_to_end_attempt.json",
+      "suffix": ".json",
+      "size_bytes": 2445,
+      "updated_at": "2026-05-24T15:22:31",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "blocked_steps",
+          "completed_steps",
+          "conclusion",
+          "experiment",
+          "generated_at",
+          "preflight_blockers",
+          "preflight_ready_to_launch",
+          "public_sources_network_available",
+          "real_metrics_produced",
+          "requested_sequence",
+          "stage",
+          "staged_checkpoints_available",
+          "staged_datasets_available"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/recalibration_gradient_pilot_delong.csv",
+      "filename": "recalibration_gradient_pilot_delong.csv",
+      "suffix": ".csv",
+      "size_bytes": 14294,
+      "updated_at": "2026-05-29T18:24:20",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "class_name",
+          "status",
+          "test_pos",
+          "test_neg",
+          "auc_raw",
+          "auc_recal",
+          "raw_minus_recal_auc",
+          "recal_minus_raw_auc",
+          "z_statistic",
+          "p_value",
+          "nominal_significant_degradation"
+        ],
+        "row_count": 66
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/recalibration_gradient_pilot_h3_gap_closure.csv",
+      "filename": "recalibration_gradient_pilot_h3_gap_closure.csv",
+      "suffix": ".csv",
+      "size_bytes": 1521,
+      "updated_at": "2026-05-29T18:24:20",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "fm_model_id",
+          "s4_model_id",
+          "recal_method",
+          "fm_ece_pre",
+          "fm_ece_post",
+          "s4_ece",
+          "ece_gap_closure",
+          "fm_brier_pre",
+          "fm_brier_post",
+          "s4_brier",
+          "brier_gap_closure",
+          "excluded_ece_gap_closure",
+          "excluded_brier_gap_closure"
+        ],
+        "row_count": 6
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/recalibration_gradient_pilot_method_ranking.csv",
+      "filename": "recalibration_gradient_pilot_method_ranking.csv",
+      "suffix": ".csv",
+      "size_bytes": 2102,
+      "updated_at": "2026-05-29T18:24:20",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "ece_ew",
+          "brier",
+          "auroc",
+          "ece_rank",
+          "brier_rank",
+          "best_by_ece",
+          "best_by_brier"
+        ],
+        "row_count": 12
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/recalibration_gradient_pilot_params.csv",
+      "filename": "recalibration_gradient_pilot_params.csv",
+      "suffix": ".csv",
+      "size_bytes": 3872,
+      "updated_at": "2026-05-29T18:24:20",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "class_index",
+          "class_name",
+          "status",
+          "used_method",
+          "cal_pos",
+          "cal_neg",
+          "test_pos",
+          "test_neg",
+          "n_thresholds",
+          "n_parameters"
+        ],
+        "row_count": 26
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/recalibration_gradient_pilot_predictions.npz",
+      "filename": "recalibration_gradient_pilot_predictions.npz",
+      "suffix": ".npz",
+      "size_bytes": 140980,
+      "updated_at": "2026-05-29T18:24:20",
+      "schema": {
+        "source": "inferred",
+        "kind": "numpy_archive"
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/recalibration_gradient_pilot_results.json",
+      "filename": "recalibration_gradient_pilot_results.json",
+      "suffix": ".json",
+      "size_bytes": 505481,
+      "updated_at": "2026-05-29T18:24:20",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "datasets",
+          "delong_raw_vs_recalibration",
+          "experiment",
+          "generated_at",
+          "h3_gap_closure",
+          "method_rankings",
+          "parameters",
+          "publication_grade",
+          "raw_metrics",
+          "recalibration_metrics",
+          "scope",
+          "source_artifacts",
+          "stage",
+          "status"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/recalibration_gradient_pilot_summary.csv",
+      "filename": "recalibration_gradient_pilot_summary.csv",
+      "suffix": ".csv",
+      "size_bytes": 5729,
+      "updated_at": "2026-05-29T18:24:20",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "phase",
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "auroc",
+          "auprc",
+          "ece_ew",
+          "ece_em",
+          "brier",
+          "sce",
+          "delta_auroc",
+          "delta_ece_ew",
+          "delta_ece_em",
+          "delta_brier",
+          "delta_sce",
+          "relative_ece_reduction",
+          "relative_brier_reduction"
+        ],
+        "row_count": 16
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/s4d_real_pilot_delong.csv",
+      "filename": "s4d_real_pilot_delong.csv",
+      "suffix": ".csv",
+      "size_bytes": 2216,
+      "updated_at": "2026-05-29T18:04:51",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "class_name",
+          "status",
+          "platt_status",
+          "test_pos",
+          "test_neg",
+          "auc_raw",
+          "auc_platt",
+          "raw_minus_platt_auc",
+          "platt_minus_raw_auc",
+          "z_statistic",
+          "p_value",
+          "nominal_significant_degradation"
+        ],
+        "row_count": 11
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/s4d_real_pilot_predictions.npz",
+      "filename": "s4d_real_pilot_predictions.npz",
+      "suffix": ".npz",
+      "size_bytes": 51112,
+      "updated_at": "2026-05-29T18:04:51",
+      "schema": {
+        "source": "inferred",
+        "kind": "numpy_archive"
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/s4d_real_pilot_results.json",
+      "filename": "s4d_real_pilot_results.json",
+      "suffix": ".json",
+      "size_bytes": 121410,
+      "updated_at": "2026-05-29T18:04:51",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "datasets",
+          "delong_raw_vs_guarded_platt",
+          "experiment",
+          "failed_datasets",
+          "generated_at",
+          "limitations",
+          "parameters",
+          "phase_a_metrics",
+          "prediction_archive_keys",
+          "publication_grade",
+          "recalibration_metrics",
+          "scope",
+          "stage",
+          "status"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/s4d_real_pilot_summary.csv",
+      "filename": "s4d_real_pilot_summary.csv",
+      "suffix": ".csv",
+      "size_bytes": 954,
+      "updated_at": "2026-05-29T18:04:51",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "phase",
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "auroc",
+          "auprc",
+          "ece_ew",
+          "ece_em",
+          "brier",
+          "sce"
+        ],
+        "row_count": 4
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/s4d_vs_stmem_real_pilot_comparison.csv",
+      "filename": "s4d_vs_stmem_real_pilot_comparison.csv",
+      "suffix": ".csv",
+      "size_bytes": 2113,
+      "updated_at": "2026-05-29T18:04:51",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "phase",
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "auroc",
+          "auprc",
+          "ece_ew",
+          "ece_em",
+          "brier",
+          "sce",
+          "source_artifact"
+        ],
+        "row_count": 8
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/smoke_test_real_venv.json",
+      "filename": "smoke_test_real_venv.json",
+      "suffix": ".json",
+      "size_bytes": 2609,
+      "updated_at": "2026-05-24T15:22:31",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "command",
+          "exit_code",
+          "experiment",
+          "failed",
+          "fixes_applied_before_pass",
+          "generated_at",
+          "log_path",
+          "passed",
+          "stage",
+          "stdout_tail",
+          "total"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/stage05_execution_status.json",
+      "filename": "stage05_execution_status.json",
+      "suffix": ".json",
+      "size_bytes": 14648,
+      "updated_at": "2026-05-29T18:26:20",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "attempt",
+          "available_result_evidence",
+          "configured_s4d_real_pilot",
+          "dependency_status",
+          "expanded_real_pilot",
+          "generated_at",
+          "minimal_real_pilot",
+          "monotone_recalibration_pilot",
+          "real_open_dataset_full_benchmark",
+          "recalibration_gradient_pilot",
+          "smoke_test",
+          "stage"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/stage06_analysis_manifest.json",
+      "filename": "stage06_analysis_manifest.json",
+      "suffix": ".json",
+      "size_bytes": 1465,
+      "updated_at": "2026-05-29T23:41:49",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "generated_by",
+          "inputs",
+          "outputs"
+        ]
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/stage06_claim_support_matrix.csv",
+      "filename": "stage06_claim_support_matrix.csv",
+      "suffix": ".csv",
+      "size_bytes": 1877,
+      "updated_at": "2026-05-29T23:41:48",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "claim_area",
+          "support_status",
+          "confidence",
+          "evidence_basis",
+          "avoid"
+        ],
+        "row_count": 6
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/stage06_evidence_inventory.csv",
+      "filename": "stage06_evidence_inventory.csv",
+      "suffix": ".csv",
+      "size_bytes": 1937,
+      "updated_at": "2026-05-29T23:41:48",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "evidence_class",
+          "scope",
+          "claim_use",
+          "limitations"
+        ],
+        "row_count": 7
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/stage06_h4_method_summary.csv",
+      "filename": "stage06_h4_method_summary.csv",
+      "suffix": ".csv",
+      "size_bytes": 1945,
+      "updated_at": "2026-05-29T23:41:48",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "cal_size",
+          "effective_numeric_size",
+          "mean_ece_temperature",
+          "mean_ece_platt",
+          "mean_ece_isotonic",
+          "mean_ece_mlp",
+          "best_ece_method",
+          "mean_brier_temperature",
+          "mean_brier_platt",
+          "mean_brier_isotonic",
+          "mean_brier_mlp",
+          "best_brier_method",
+          "ece_friedman_p",
+          "brier_friedman_p",
+          "mlp_ece_rank",
+          "mlp_brier_rank",
+          "mlp_ece_worst_fraction",
+          "mlp_brier_worst_fraction"
+        ],
+        "row_count": 7
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/stage06_hypothesis_verdicts.csv",
+      "filename": "stage06_hypothesis_verdicts.csv",
+      "suffix": ".csv",
+      "size_bytes": 2550,
+      "updated_at": "2026-05-29T23:41:48",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "hypothesis",
+          "current_verdict",
+          "strongest_supporting_evidence",
+          "contradictory_or_limiting_evidence",
+          "writing_guidance"
+        ],
+        "row_count": 6
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/stage06_nemenyi_key_pairs.csv",
+      "filename": "stage06_nemenyi_key_pairs.csv",
+      "suffix": ".csv",
+      "size_bytes": 1679,
+      "updated_at": "2026-05-29T23:41:48",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "metric",
+          "cal_size",
+          "better_method_by_rank",
+          "worse_method_by_rank",
+          "rank_diff",
+          "sig_cd_05",
+          "wilcoxon_p",
+          "wilcoxon_sig_bonf"
+        ],
+        "row_count": 23
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/stage06_real_pilot_recalibration_deltas.csv",
+      "filename": "stage06_real_pilot_recalibration_deltas.csv",
+      "suffix": ".csv",
+      "size_bytes": 4276,
+      "updated_at": "2026-05-29T23:41:48",
+      "schema": {
+        "source": "inferred",
+        "kind": "table",
+        "columns": [
+          "dataset_id",
+          "dataset_name",
+          "model_id",
+          "model_name",
+          "recal_method",
+          "auroc_raw",
+          "auroc_post",
+          "delta_auroc",
+          "ece_ew_raw",
+          "ece_ew_post",
+          "delta_ece_ew",
+          "relative_ece_reduction",
+          "brier_raw",
+          "brier_post",
+          "delta_brier",
+          "sce_raw",
+          "sce_post",
+          "delta_sce"
+        ],
+        "row_count": 12
+      }
+    },
+    {
+      "category": "results",
+      "rel_path": "results/venv_package_status.json",
+      "filename": "venv_package_status.json",
+      "suffix": ".json",
+      "size_bytes": 1195,
+      "updated_at": "2026-05-24T15:22:31",
+      "schema": {
+        "source": "inferred",
+        "kind": "object",
+        "keys": [
+          "experiment",
+          "generated_at",
+          "notes",
+          "packages",
+          "python",
+          "stage"
+        ]
+      }
+    }
+  ],
+  "code_artifacts": [
+    "code/__pycache__/attempt_real_asset_acquisition.cpython-311.pyc",
+    "code/__pycache__/config.cpython-311.pyc",
+    "code/__pycache__/config.cpython-314.pyc",
+    "code/__pycache__/data_pipeline.cpython-311.pyc",
+    "code/__pycache__/evaluation.cpython-311.pyc",
+    "code/__pycache__/evaluation.cpython-314.pyc",
+    "code/__pycache__/h4_ablation.cpython-311.pyc",
+    "code/__pycache__/linear_probe.cpython-311.pyc",
+    "code/__pycache__/models.cpython-311.pyc",
+    "code/__pycache__/preflight_open_dataset_real_run.cpython-311.pyc",
+    "code/__pycache__/recalibration.cpython-311.pyc",
+    "code/__pycache__/recalibration.cpython-314.pyc",
+    "code/__pycache__/run_all.cpython-311.pyc",
+    "code/__pycache__/run_expanded_real_pilot.cpython-311.pyc",
+    "code/__pycache__/run_minimal_real_pilot.cpython-311.pyc",
+    "code/__pycache__/run_monotone_recalibration_pilot.cpython-311.pyc",
+    "code/__pycache__/run_phase_a.cpython-311.pyc",
+    "code/__pycache__/run_phase_b.cpython-311.pyc",
+    "code/__pycache__/run_recalibration_gradient_pilot.cpython-311.pyc",
+    "code/__pycache__/run_s4d_real_pilot.cpython-311.pyc",
+    "code/__pycache__/run_synthetic_experiment.cpython-311.pyc",
+    "code/__pycache__/s4_baseline.cpython-311.pyc",
+    "code/__pycache__/smoke_test.cpython-311.pyc",
+    "code/__pycache__/stage_open_dataset_assets.cpython-311.pyc",
+    "code/__pycache__/statistical_tests.cpython-311.pyc",
+    "code/__pycache__/visualization.cpython-311.pyc",
+    "code/attempt_real_asset_acquisition.py",
+    "code/checkpoint_mapping.json",
+    "code/config.py",
+    "code/data_pipeline.py",
+    "code/evaluation.py",
+    "code/h4_ablation.py",
+    "code/linear_probe.py",
+    "code/models.py",
+    "code/preflight_open_dataset_real_run.py",
+    "code/recalibration.py",
+    "code/requirements.txt",
+    "code/run_all.py",
+    "code/run_expanded_real_pilot.py",
+    "code/run_h4_calsize_ablation.py",
+    "code/run_h4_cd_diagram.py",
+    "code/run_h4_friedman_brier_test.py",
+    "code/run_h4_friedman_test.py",
+    "code/run_h4_nemenyi_test.py",
+    "code/run_h4_size_ablation_pilot.py",
+    "code/run_minimal_real_pilot.py",
+    "code/run_monotone_recalibration_pilot.py",
+    "code/run_phase_a.py",
+    "code/run_phase_b.py",
+    "code/run_recalibration_gradient_pilot.py",
+    "code/run_s4d_real_pilot.py",
+    "code/run_stage06_analysis.py",
+    "code/run_synthetic_experiment.py",
+    "code/s4_baseline.py",
+    "code/smoke_test.py",
+    "code/stage_open_dataset_assets.py",
+    "code/statistical_tests.py",
+    "code/visualization.py"
+  ],
+  "note_artifacts": [
+    "notes/analysis_interpretation.md",
+    "notes/expanded_real_pilot.log",
+    "notes/experimentation_notes.md",
+    "notes/h4_calsize_ablation.log",
+    "notes/h4_friedman_brier_test.log",
+    "notes/h4_friedman_test.log",
+    "notes/h4_nemenyi_test.log",
+    "notes/h4_size_ablation_pilot.log",
+    "notes/hypothesis_derivation.md",
+    "notes/hypothesis_manifest.json",
+    "notes/implementation_notes.md",
+    "notes/intake_analysis.md",
+    "notes/minimal_real_pilot.log",
+    "notes/monotone_recalibration_pilot.log",
+    "notes/open_dataset_real_run_preflight.log",
+    "notes/recalibration_gradient_pilot.log",
+    "notes/s4d_real_pilot.log",
+    "notes/stage06_analysis_interpretation.md",
+    "notes/study_design_protocol.md"
+  ],
+  "summary": {
+    "result_artifact_count": 67,
+    "code_artifact_count": 58,
+    "note_artifact_count": 19,
+    "summary_text": "62 result artifacts, 57 code artifacts, 18 note artifacts",
+    "generated_at": "2026-05-29T19:42:22"
+  }
+}

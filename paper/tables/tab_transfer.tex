@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{Cross-dataset calibration \emph{transfer} (isotonic, one-vs-rest). A calibrator fit on a source dataset's calibration split is applied to a target dataset's test split. ECE values are means over (model, source$\to$target) pairs. Transfer success = transferred ECE within 25\% of the in-domain recalibrated ECE and below raw. Calibration transfers partially and endpoint-dependently---it does not fully substitute for local recalibration.}
+\label{tab:transfer}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Endpoint & $n$ pairs & raw ECE & in-dom.\ ECE & transf.\ ECE & success & mean $\Delta$AUROC \\
+\midrule
+  MI (PTB-XL$\leftrightarrow$MIMIC) & 12 & 0.101 & 0.055 & 0.061 & 42\% & -0.008 \\
+  AF (CODE/CPSC/MIMIC) & 32 & 0.039 & 0.026 & 0.040 & 28\% & -0.021 \\
+  Normal (all) & 66 & 0.083 & 0.045 & 0.133 & 9\% & -0.025 \\
+  RBBB (CODE/CPSC/MIMIC) & 32 & 0.032 & 0.020 & 0.036 & 41\% & -0.006 \\
+\bottomrule
+\end{tabular}
+\end{table}

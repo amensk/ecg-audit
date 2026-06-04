@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-05-24T15:22:31",
+  "stage": "05_experimentation",
+  "experiment": "runtime_dependency_install_attempt",
+  "command": "/Users/ameenk/AutoR/.venv/bin/python -m pip install torch wfdb h5py",
+  "requested_packages": [
+    "torch",
+    "wfdb",
+    "h5py"
+  ],
+  "exit_code": 1,
+  "installed": false,
+  "failure_type": "pip_reported_network_name_resolution",
+  "failure_summary": "The pip command returned exit code 1 with pypi.org DNS errors, but a post-attempt import check now finds torch, wfdb, and h5py importable in the venv. The exact versions are recorded in venv_package_status.json.",
+  "stderr_key_lines": [
+    "Failed to resolve 'pypi.org'",
+    "ERROR: Could not find a version that satisfies the requirement torch",
+    "ERROR: No matching distribution found for torch"
+  ],
+  "post_attempt_import_check": {
+    "torch": "present",
+    "wfdb": "present",
+    "h5py": "present"
+  },
+  "impact": "Core runtime dependencies are importable, but real experiments remain blocked by missing datasets, checkpoints, torchvision, and FM-specific packages.",
+  "authorization_context": "User explicitly authorized installing missing dependencies inside /Users/ameenk/AutoR/.venv during Stage 05 refinement."
+}

@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-05-30T16:25:35.542834",
+  "checkpoints": {
+    "M1_MERL": {
+      "status": "ok",
+      "n_params": 114280478,
+      "path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/merl/merl_checkpoint.pth"
+    },
+    "M2_ST_MEM": {
+      "status": "ok",
+      "n_params": 85150614,
+      "path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/st_mem/st_mem_vit_base_encoder.pth"
+    },
+    "M3_HuBERT": {
+      "status": "ERROR",
+      "error": "invalid load key, '\\x08'.",
+      "path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/hubert_ecg/hubert_ecg_checkpoint.pth"
+    },
+    "M4_ECGFMKED": {
+      "status": "ok",
+      "n_params": 45710083,
+      "path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/ecgfm_ked/ecgfm_ked_checkpoint.pth"
+    },
+    "M5_ECG_FM": {
+      "status": "ok",
+      "n_params": 90883072,
+      "path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/ecg_fm/ecg_fm_checkpoint.pth"
+    }
+  },
+  "datasets": {
+    "D1_PTB_XL": {
+      "status": "ok",
+      "paths": {
+        "csv": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptb-xl/1.0.3/ptbxl_database.csv",
+        "wav_dir": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptb-xl/1.0.3"
+      }
+    },
+    "D3_CODE15": {
+      "status": "ok",
+      "paths": {
+        "hdf5": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/code15/exams_part0.hdf5",
+        "csv": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/code15/exams.csv"
+      }
+    },
+    "D4_CPSC2018": {
+      "status": "ok",
+      "paths": {
+        "ref": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/cpsc2018/REFERENCE.csv",
+        "wav_dir": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/cpsc2018/Training_WFDB"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+dataset_id,dataset_name,model_id,model_name,recal_method,class_index,class_name,status,used_method,cal_pos,cal_neg,test_pos,test_neg,n_thresholds,n_parameters
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,0,NORM,fit_isotonic,isotonic_regression,122,81,108,85,20,
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,1,MI,fit_isotonic,isotonic_regression,28,175,25,168,14,
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,2,STTC,fit_isotonic,isotonic_regression,38,165,45,148,16,
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,3,CD,fit_isotonic,isotonic_regression,48,155,40,153,22,
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,4,HYP,fit_isotonic,isotonic_regression,13,190,18,175,9,
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,learned_mlp_head,,__all__,fit_mlp,learned_mlp_head,,,,,,709
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,0,NORM,fit_isotonic,isotonic_regression,122,81,108,85,16,
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,1,MI,fit_isotonic,isotonic_regression,28,175,25,168,14,
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,2,STTC,fit_isotonic,isotonic_regression,38,165,45,148,16,
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,3,CD,fit_isotonic,isotonic_regression,48,155,40,153,24,
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,4,HYP,fit_isotonic,isotonic_regression,13,190,18,175,18,
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,learned_mlp_head,,__all__,fit_mlp,learned_mlp_head,,,,,,709
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,0,1dAVb,fit_isotonic,isotonic_regression,17,184,11,189,10,
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,1,RBBB,fit_isotonic,isotonic_regression,24,177,19,181,8,
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,2,LBBB,fit_isotonic,isotonic_regression,20,181,15,185,8,
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,3,SB,fit_isotonic,isotonic_regression,15,186,14,186,8,
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,4,ST,fit_isotonic,isotonic_regression,18,183,19,181,14,
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,isotonic_regression,5,AF,fit_isotonic,isotonic_regression,22,179,21,179,16,
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,learned_mlp_head,,__all__,fit_mlp,learned_mlp_head,,,,,,838
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,0,1dAVb,fit_isotonic,isotonic_regression,17,184,11,189,12,
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,1,RBBB,fit_isotonic,isotonic_regression,24,177,19,181,16,
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,2,LBBB,fit_isotonic,isotonic_regression,20,181,15,185,10,
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,3,SB,fit_isotonic,isotonic_regression,15,186,14,186,8,
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,4,ST,fit_isotonic,isotonic_regression,18,183,19,181,8,
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,isotonic_regression,5,AF,fit_isotonic,isotonic_regression,22,179,21,179,8,
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,learned_mlp_head,,__all__,fit_mlp,learned_mlp_head,,,,,,838

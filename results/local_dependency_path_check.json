@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-24T14:59:48",
+  "stage": "05_experimentation",
+  "experiment": "local_dependency_path_check",
+  "requested_packages": [
+    "torch",
+    "wfdb",
+    "h5py"
+  ],
+  "searched_roots": [
+    "/var/folders/t7/lvww52n55hgc6yc3jmxpwmdr0000gn/T/autor_codex_workspaces/20260523_210450_aa0c3401c535/workspace/incoming_assets/wheels",
+    "/var/folders/t7/lvww52n55hgc6yc3jmxpwmdr0000gn/T/autor_codex_workspaces/20260523_210450_aa0c3401c535/workspace/wheelhouse",
+    "/var/folders/t7/lvww52n55hgc6yc3jmxpwmdr0000gn/T/autor_codex_workspaces/20260523_210450_aa0c3401c535/workspace/incoming_assets/packages",
+    "/var/folders/t7/lvww52n55hgc6yc3jmxpwmdr0000gn/T/autor_codex_workspaces/20260523_210450_aa0c3401c535/workspace"
+  ],
+  "package_files_found": [],
+  "matching_package_files": {
+    "torch": [],
+    "wfdb": [],
+    "h5py": []
+  },
+  "local_install_path_available": false,
+  "install_attempted": false,
+  "reason_install_not_attempted": "No local wheel/source distribution set for all requested packages was found under workspace; network pip install had already failed on DNS resolution.",
+  "impact": "Runtime dependency blockers remain for the real D1/D3/D4 experiment."
+}

@@ -1,0 +1,68 @@
+{
+  "description": "Feature geometry analysis for PTB-XL (5 FMs: MERL, ST-MEM, HuBERT-ECG, ECGFM-KED, ECG-FM)",
+  "seed": 42,
+  "classes": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "models": {
+    "MERL": {
+      "model": "MERL",
+      "n_samples": 2000,
+      "feature_dim": 512,
+      "feature_spread_std_l2norm": 34.77290344238281,
+      "within_class_cosine_mean": 0.9853619443048471,
+      "across_class_cosine_mean": 0.981780710770688,
+      "cosine_separation": 0.0035812335341591783,
+      "ece": 0.0871,
+      "auroc": 0.828
+    },
+    "ST-MEM": {
+      "model": "ST-MEM",
+      "n_samples": 2000,
+      "feature_dim": 768,
+      "feature_spread_std_l2norm": 0.2273503839969635,
+      "within_class_cosine_mean": 0.8883031500666395,
+      "across_class_cosine_mean": 0.8718279704851956,
+      "cosine_separation": 0.016475179581443955,
+      "ece": 0.1239,
+      "auroc": 0.838
+    },
+    "HuBERT-ECG": {
+      "model": "HuBERT-ECG",
+      "n_samples": 2000,
+      "feature_dim": 768,
+      "feature_spread_std_l2norm": 0.6333665251731873,
+      "within_class_cosine_mean": 0.7505105220884157,
+      "across_class_cosine_mean": 0.7046261030914126,
+      "cosine_separation": 0.04588441899700313,
+      "ece": 0.1365,
+      "auroc": 0.787
+    },
+    "ECGFM-KED": {
+      "model": "ECGFM-KED",
+      "n_samples": 2000,
+      "feature_dim": 256,
+      "feature_spread_std_l2norm": 0.11952430009841919,
+      "within_class_cosine_mean": 0.9737784544384945,
+      "across_class_cosine_mean": 0.9682848818989753,
+      "cosine_separation": 0.005493572539519209,
+      "ece": 0.0792,
+      "auroc": 0.769
+    },
+    "ECG-FM": {
+      "model": "ECG-FM",
+      "n_samples": 2000,
+      "feature_dim": 256,
+      "feature_spread_std_l2norm": 0.752017080783844,
+      "within_class_cosine_mean": 0.9198911996349286,
+      "across_class_cosine_mean": 0.9039800868749038,
+      "cosine_separation": 0.01591111276002477,
+      "ece": 0.0882,
+      "auroc": 0.815
+    }
+  }
+}

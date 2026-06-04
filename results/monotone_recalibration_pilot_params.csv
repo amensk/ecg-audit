@@ -1,0 +1,23 @@
+dataset_id,dataset_name,model_id,model_name,class_index,class_name,status,used_method,platt_slope,platt_intercept,temperature,cal_pos,cal_neg,test_pos,test_neg
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,0,NORM,fit_platt_nonnegative_slope,platt_scaling,1.14337800934654,0.033258301089619594,,122,81,108,85
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,1,MI,fit_platt_nonnegative_slope,platt_scaling,0.9211916296891889,-0.13500789021388535,,28,175,25,168
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,2,STTC,fit_platt_nonnegative_slope,platt_scaling,0.5462053304141452,-0.8651367828707729,,38,165,45,148
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,3,CD,fit_platt_nonnegative_slope,platt_scaling,1.122940699095723,0.48076319398192263,,48,155,40,153
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,4,HYP,fit_platt_nonnegative_slope,platt_scaling,0.5920838848138642,-1.2943379252694682,,13,190,18,175
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,0,NORM,fit_platt_nonnegative_slope,platt_scaling,1.0220872170478283,0.5233390063662496,,122,81,108,85
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,1,MI,fit_platt_nonnegative_slope,platt_scaling,0.5686363543314813,-1.290683029600634,,28,175,25,168
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,2,STTC,fit_platt_nonnegative_slope,platt_scaling,0.8006798462000922,-1.216162031604737,,38,165,45,148
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,3,CD,fit_platt_nonnegative_slope,platt_scaling,0.6587150207860929,-0.9335738887553239,,48,155,40,153
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,4,HYP,fit_platt_nonnegative_slope,platt_scaling,0.6107677158208087,-1.9780172532882005,,13,190,18,175
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,0,1dAVb,fit_platt_nonnegative_slope,platt_scaling,0.038716594277729374,-2.243547115532887,,17,184,11,189
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,1,RBBB,fallback_temperature_negative_platt_slope,temperature_scaling,-1.1169544965407074,-4.640242644552604,1.1906681520676108,24,177,19,181
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,2,LBBB,fallback_temperature_negative_platt_slope,temperature_scaling,-0.02163393637843608,-2.2551582964101184,1.1070368546461093,20,181,15,185
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,3,SB,fit_platt_nonnegative_slope,platt_scaling,0.13965959537669417,-2.1091346455660043,,15,186,14,186
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,4,ST,fit_platt_nonnegative_slope,platt_scaling,0.9007137117186108,-0.2677794751591841,,18,183,19,181
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,5,AF,fit_platt_nonnegative_slope,platt_scaling,0.451255914076614,-1.1902488622725211,,22,179,21,179
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,0,1dAVb,fit_platt_nonnegative_slope,platt_scaling,0.6256431671777134,-1.1706549808255449,,17,184,11,189
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,1,RBBB,fit_platt_nonnegative_slope,platt_scaling,0.7127263690834343,-0.9013865960848221,,24,177,19,181
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,2,LBBB,fit_platt_nonnegative_slope,platt_scaling,0.8769037375438775,-1.2074192679298215,,20,181,15,185
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,3,SB,fit_platt_nonnegative_slope,platt_scaling,1.2757331558605243,-1.7000548340963586,,15,186,14,186
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,4,ST,fit_platt_nonnegative_slope,platt_scaling,1.3848096112132264,-2.7443862796565646,,18,183,19,181
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,5,AF,fit_platt_nonnegative_slope,platt_scaling,1.0193817065712978,-1.0115262552212783,,22,179,21,179

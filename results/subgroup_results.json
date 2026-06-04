@@ -1,0 +1,115 @@
+{
+  "description": "Subgroup calibration analysis for PTB-XL (MERL and ST-MEM only)",
+  "seed": 42,
+  "classes": [
+    "NORM",
+    "MI",
+    "STTC",
+    "CD",
+    "HYP"
+  ],
+  "n_total": 2000,
+  "note": "Linear probe trained on 70% of the 2000-record sample; subgroup metrics computed on the remaining 30% (test split). Sample sizes per subgroup shown.",
+  "models": {
+    "MERL": {
+      "overall": {
+        "macro_auroc": 0.8770219230682799,
+        "macro_ece": 0.04351381207195421,
+        "macro_sce": 0.0028160867821425207,
+        "macro_brier": 0.10294732004404068,
+        "n_classes_evaluated": 5,
+        "n": 600
+      },
+      "age<55": {
+        "macro_auroc": 0.9103785894048876,
+        "macro_ece": 0.05258406723721646,
+        "macro_sce": 0.0043350195165212276,
+        "macro_brier": 0.07410570457577706,
+        "n_classes_evaluated": 5,
+        "n": 204
+      },
+      "age55-70": {
+        "macro_auroc": 0.8608351981217515,
+        "macro_ece": 0.06640764185786248,
+        "macro_sce": -0.0032847994565963724,
+        "macro_brier": 0.10715053230524063,
+        "n_classes_evaluated": 5,
+        "n": 200
+      },
+      "age>=70": {
+        "macro_auroc": 0.8418988685193944,
+        "macro_ece": 0.0797245771529115,
+        "macro_sce": 0.0074605375300256585,
+        "macro_brier": 0.12867714762687682,
+        "n_classes_evaluated": 5,
+        "n": 196
+      },
+      "male": {
+        "macro_auroc": 0.880640684794008,
+        "macro_ece": 0.06113493531542337,
+        "macro_sce": 0.011322684031004875,
+        "macro_brier": 0.10802654474973679,
+        "n_classes_evaluated": 5,
+        "n": 298
+      },
+      "female": {
+        "macro_auroc": 0.877290450121661,
+        "macro_ece": 0.054397134413782335,
+        "macro_sce": -0.005577843108319288,
+        "macro_brier": 0.09793536961078644,
+        "n_classes_evaluated": 5,
+        "n": 302
+      }
+    },
+    "ST-MEM": {
+      "overall": {
+        "macro_auroc": 0.9019352143001063,
+        "macro_ece": 0.039112301282895105,
+        "macro_sce": 0.002630774401438733,
+        "macro_brier": 0.09536992162466049,
+        "n_classes_evaluated": 5,
+        "n": 600
+      },
+      "age<55": {
+        "macro_auroc": 0.9278273952721097,
+        "macro_ece": 0.05458962608895758,
+        "macro_sce": 0.0037677665934989285,
+        "macro_brier": 0.07141186520457268,
+        "n_classes_evaluated": 5,
+        "n": 204
+      },
+      "age55-70": {
+        "macro_auroc": 0.8987419715886652,
+        "macro_ece": 0.06456141010299325,
+        "macro_sce": -0.007489102147519586,
+        "macro_brier": 0.09690059944987298,
+        "n_classes_evaluated": 5,
+        "n": 200
+      },
+      "age>=70": {
+        "macro_auroc": 0.8685310767659514,
+        "macro_ece": 0.07499867238636526,
+        "macro_sce": 0.011773790841047859,
+        "macro_brier": 0.11874394118785858,
+        "n_classes_evaluated": 5,
+        "n": 196
+      },
+      "male": {
+        "macro_auroc": 0.9048575626341053,
+        "macro_ece": 0.0574892329877155,
+        "macro_sce": 0.007652705521541551,
+        "macro_brier": 0.09910096228122711,
+        "n_classes_evaluated": 5,
+        "n": 298
+      },
+      "female": {
+        "macro_auroc": 0.8997408582954167,
+        "macro_ece": 0.05066972718148536,
+        "macro_sce": -0.002324638877754771,
+        "macro_brier": 0.09168830141425133,
+        "n_classes_evaluated": 5,
+        "n": 302
+      }
+    }
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "generated_at": "2026-05-29T19:31:02.444201",
+  "stage": "05_experimentation",
+  "experiment": "h4_friedman_rank_test",
+  "source_csv": "results/h4_size_ablation_pilot_raw.csv",
+  "methods_compared": [
+    "temperature_scaling",
+    "monotone_platt",
+    "isotonic_regression",
+    "learned_mlp_head"
+  ],
+  "small_n_threshold": 75,
+  "n_blocks_per_size": 20,
+  "friedman_per_calsize": [
+    {
+      "cal_size": "10",
+      "cal_size_numeric": 10,
+      "n_blocks": 20,
+      "friedman_statistic": 3.1837,
+      "friedman_pvalue": 0.364164,
+      "significant_at_0.05": false,
+      "significant_at_0.01": false,
+      "mean_ece_rank_temperature": 2.2,
+      "mean_ece_rank_platt": 2.4,
+      "mean_ece_rank_isotonic": 2.5,
+      "mean_ece_rank_mlp": 2.9,
+      "mlp_worst_fraction": 0.55,
+      "best_method": "temperature_scaling"
+    },
+    {
+      "cal_size": "20",
+      "cal_size_numeric": 20,
+      "n_blocks": 20,
+      "friedman_statistic": 15.7839,
+      "friedman_pvalue": 0.001256,
+      "significant_at_0.05": true,
+      "significant_at_0.01": true,
+      "mean_ece_rank_temperature": 2.275,
+      "mean_ece_rank_platt": 1.775,
+      "mean_ece_rank_isotonic": 2.6,
+      "mean_ece_rank_mlp": 3.35,
+      "mlp_worst_fraction": 0.65,
+      "best_method": "monotone_platt"
+    },
+    {
+      "cal_size": "50",
+      "cal_size_numeric": 50,
+      "n_blocks": 20,
+      "friedman_statistic": 8.7,
+      "friedman_pvalue": 0.033557,
+      "significant_at_0.05": true,
+      "significant_at_0.01": false,
+      "mean_ece_rank_temperature": 2.45,
+      "mean_ece_rank_platt": 1.9,
+      "mean_ece_rank_isotonic": 2.55,
+      "mean_ece_rank_mlp": 3.1,
+      "mlp_worst_fraction": 0.5,
+      "best_method": "monotone_platt"
+    },
+    {
+      "cal_size": "75",
+      "cal_size_numeric": 75,
+      "n_blocks": 20,
+      "friedman_statistic": 9.06,
+      "friedman_pvalue": 0.028504,
+      "significant_at_0.05": true,
+      "significant_at_0.01": false,
+      "mean_ece_rank_temperature": 2.8,
+      "mean_ece_rank_platt": 2.05,
+      "mean_ece_rank_isotonic": 2.1,
+      "mean_ece_rank_mlp": 3.05,
+      "mlp_worst_fraction": 0.45,
+      "best_method": "monotone_platt"
+    },
+    {
+      "cal_size": "100",
+      "cal_size_numeric": 100,
+      "n_blocks": 20,
+      "friedman_statistic": 6.78,
+      "friedman_pvalue": 0.079251,
+      "significant_at_0.05": false,
+      "significant_at_0.01": false,
+      "mean_ece_rank_temperature": 2.85,
+      "mean_ece_rank_platt": 2.15,
+      "mean_ece_rank_isotonic": 2.1,
+      "mean_ece_rank_mlp": 2.9,
+      "mlp_worst_fraction": 0.3,
+      "best_method": "isotonic_regression"
+    },
+    {
+      "cal_size": "150",
+      "cal_size_numeric": 150,
+      "n_blocks": 20,
+      "friedman_statistic": 12.6,
+      "friedman_pvalue": 0.005587,
+      "significant_at_0.05": true,
+      "significant_at_0.01": true,
+      "mean_ece_rank_temperature": 3.15,
+      "mean_ece_rank_platt": 2.05,
+      "mean_ece_rank_isotonic": 1.95,
+      "mean_ece_rank_mlp": 2.85,
+      "mlp_worst_fraction": 0.25,
+      "best_method": "isotonic_regression"
+    },
+    {
+      "cal_size": "full",
+      "cal_size_numeric": 200,
+      "n_blocks": 20,
+      "friedman_statistic": 12.0,
+      "friedman_pvalue": 0.007383,
+      "significant_at_0.05": true,
+      "significant_at_0.01": true,
+      "mean_ece_rank_temperature": 3.0,
+      "mean_ece_rank_platt": 2.0,
+      "mean_ece_rank_isotonic": 2.0,
+      "mean_ece_rank_mlp": 3.0,
+      "mlp_worst_fraction": 0.5,
+      "best_method": "monotone_platt"
+    }
+  ],
+  "pairwise_wilcoxon_mlp_vs_others_small_n": [
+    {
+      "cal_size": "10",
+      "cal_size_numeric": 10,
+      "comparison": "mlp_vs_temperature_scaling",
+      "method_a": "learned_mlp_head",
+      "method_b": "temperature_scaling",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 129.0,
+      "wilcoxon_pvalue": 0.194188,
+      "significant_at_0.05": false,
+      "mean_diff": 0.00808,
+      "median_diff": 0.011522,
+      "fraction_mlp_worse": 0.6
+    },
+    {
+      "cal_size": "10",
+      "cal_size_numeric": 10,
+      "comparison": "mlp_vs_monotone_platt",
+      "method_a": "learned_mlp_head",
+      "method_b": "monotone_platt",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 119.0,
+      "wilcoxon_pvalue": 0.310757,
+      "significant_at_0.05": false,
+      "mean_diff": 0.002842,
+      "median_diff": 0.013512,
+      "fraction_mlp_worse": 0.6
+    },
+    {
+      "cal_size": "10",
+      "cal_size_numeric": 10,
+      "comparison": "mlp_vs_isotonic_regression",
+      "method_a": "learned_mlp_head",
+      "method_b": "isotonic_regression",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 125.0,
+      "wilcoxon_pvalue": 0.237453,
+      "significant_at_0.05": false,
+      "mean_diff": 0.000527,
+      "median_diff": 0.011285,
+      "fraction_mlp_worse": 0.7
+    },
+    {
+      "cal_size": "20",
+      "cal_size_numeric": 20,
+      "comparison": "mlp_vs_temperature_scaling",
+      "method_a": "learned_mlp_head",
+      "method_b": "temperature_scaling",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 179.0,
+      "wilcoxon_pvalue": 0.00211,
+      "significant_at_0.05": true,
+      "mean_diff": 0.02584,
+      "median_diff": 0.021265,
+      "fraction_mlp_worse": 0.85
+    },
+    {
+      "cal_size": "20",
+      "cal_size_numeric": 20,
+      "comparison": "mlp_vs_monotone_platt",
+      "method_a": "learned_mlp_head",
+      "method_b": "monotone_platt",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 187.0,
+      "wilcoxon_pvalue": 0.000605,
+      "significant_at_0.05": true,
+      "mean_diff": 0.028276,
+      "median_diff": 0.021738,
+      "fraction_mlp_worse": 0.8
+    },
+    {
+      "cal_size": "20",
+      "cal_size_numeric": 20,
+      "comparison": "mlp_vs_isotonic_regression",
+      "method_a": "learned_mlp_head",
+      "method_b": "isotonic_regression",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 163.0,
+      "wilcoxon_pvalue": 0.014788,
+      "significant_at_0.05": true,
+      "mean_diff": 0.020127,
+      "median_diff": 0.019243,
+      "fraction_mlp_worse": 0.7
+    },
+    {
+      "cal_size": "50",
+      "cal_size_numeric": 50,
+      "comparison": "mlp_vs_temperature_scaling",
+      "method_a": "learned_mlp_head",
+      "method_b": "temperature_scaling",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 110.0,
+      "wilcoxon_pvalue": 0.434744,
+      "significant_at_0.05": false,
+      "mean_diff": 0.003878,
+      "median_diff": 0.00525,
+      "fraction_mlp_worse": 0.65
+    },
+    {
+      "cal_size": "50",
+      "cal_size_numeric": 50,
+      "comparison": "mlp_vs_monotone_platt",
+      "method_a": "learned_mlp_head",
+      "method_b": "monotone_platt",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 179.0,
+      "wilcoxon_pvalue": 0.00211,
+      "significant_at_0.05": true,
+      "mean_diff": 0.017264,
+      "median_diff": 0.010012,
+      "fraction_mlp_worse": 0.85
+    },
+    {
+      "cal_size": "50",
+      "cal_size_numeric": 50,
+      "comparison": "mlp_vs_isotonic_regression",
+      "method_a": "learned_mlp_head",
+      "method_b": "isotonic_regression",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 135.0,
+      "wilcoxon_pvalue": 0.138678,
+      "significant_at_0.05": false,
+      "mean_diff": 0.01185,
+      "median_diff": 0.003996,
+      "fraction_mlp_worse": 0.6
+    },
+    {
+      "cal_size": "75",
+      "cal_size_numeric": 75,
+      "comparison": "mlp_vs_temperature_scaling",
+      "method_a": "learned_mlp_head",
+      "method_b": "temperature_scaling",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 94.0,
+      "wilcoxon_pvalue": 0.662889,
+      "significant_at_0.05": false,
+      "mean_diff": -0.005687,
+      "median_diff": -0.000157,
+      "fraction_mlp_worse": 0.5
+    },
+    {
+      "cal_size": "75",
+      "cal_size_numeric": 75,
+      "comparison": "mlp_vs_monotone_platt",
+      "method_a": "learned_mlp_head",
+      "method_b": "monotone_platt",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 183.0,
+      "wilcoxon_pvalue": 0.001163,
+      "significant_at_0.05": true,
+      "mean_diff": 0.009794,
+      "median_diff": 0.009084,
+      "fraction_mlp_worse": 0.8
+    },
+    {
+      "cal_size": "75",
+      "cal_size_numeric": 75,
+      "comparison": "mlp_vs_isotonic_regression",
+      "method_a": "learned_mlp_head",
+      "method_b": "isotonic_regression",
+      "n_pairs": 20,
+      "wilcoxon_statistic": 149.0,
+      "wilcoxon_pvalue": 0.052699,
+      "significant_at_0.05": false,
+      "mean_diff": 0.007454,
+      "median_diff": 0.010456,
+      "fraction_mlp_worse": 0.75
+    }
+  ],
+  "spearman_calsize_vs_mlp_rank": {
+    "spearman_rho": -0.3964,
+    "spearman_pvalue": 0.378635,
+    "interpretation": "Negative rho means MLP rank improves (lower rank number = better) as cal_size grows. Positive rho means MLP rank worsens as cal_size grows.",
+    "n_points": 7
+  },
+  "mlp_rank_distribution_per_size": {
+    "10": {
+      "cal_size_numeric": 10,
+      "n_blocks": 20,
+      "rank_counts": {
+        "1": 5,
+        "2": 3,
+        "3": 1,
+        "4": 11
+      },
+      "fraction_rank_4": 0.55,
+      "fraction_rank_4_or_3": 0.6
+    },
+    "20": {
+      "cal_size_numeric": 20,
+      "n_blocks": 20,
+      "rank_counts": {
+        "1": 2,
+        "2": 2,
+        "3": 3,
+        "4": 13
+      },
+      "fraction_rank_4": 0.65,
+      "fraction_rank_4_or_3": 0.8
+    },
+    "50": {
+      "cal_size_numeric": 50,
+      "n_blocks": 20,
+      "rank_counts": {
+        "1": 3,
+        "2": 2,
+        "3": 5,
+        "4": 10
+      },
+      "fraction_rank_4": 0.5,
+      "fraction_rank_4_or_3": 0.75
+    },
+    "75": {
+      "cal_size_numeric": 75,
+      "n_blocks": 20,
+      "rank_counts": {
+        "1": 4,
+        "2": 0,
+        "3": 7,
+        "4": 9
+      },
+      "fraction_rank_4": 0.45,
+      "fraction_rank_4_or_3": 0.8
+    },
+    "100": {
+      "cal_size_numeric": 100,
+      "n_blocks": 20,
+      "rank_counts": {
+        "1": 2,
+        "2": 4,
+        "3": 8,
+        "4": 6
+      },
+      "fraction_rank_4": 0.3,
+      "fraction_rank_4_or_3": 0.7
+    },
+    "150": {
+      "cal_size_numeric": 150,
+      "n_blocks": 20,
+      "rank_counts": {
+        "1": 3,
+        "2": 2,
+        "3": 10,
+        "4": 5
+      },
+      "fraction_rank_4": 0.25,
+      "fraction_rank_4_or_3": 0.75
+    },
+    "full": {
+      "cal_size_numeric": 200,
+      "n_blocks": 20,
+      "rank_counts": {
+        "1": 5,
+        "2": 0,
+        "3": 5,
+        "4": 10
+      },
+      "fraction_rank_4": 0.5,
+      "fraction_rank_4_or_3": 0.75
+    }
+  },
+  "h4_verdict": {
+    "small_n_sizes_tested": [
+      "10",
+      "20",
+      "50",
+      "75"
+    ],
+    "large_n_sizes_tested": [
+      "100",
+      "150",
+      "full"
+    ],
+    "friedman_significant_at_small_n_p05": 3,
+    "friedman_significant_at_small_n_p01": 1,
+    "total_small_n_sizes": 4,
+    "friedman_significant_at_large_n_p05": 2,
+    "total_large_n_sizes": 3,
+    "spearman_calsize_vs_mlp_rank": {
+      "spearman_rho": -0.3964,
+      "spearman_pvalue": 0.378635,
+      "interpretation": "Negative rho means MLP rank improves (lower rank number = better) as cal_size grows. Positive rho means MLP rank worsens as cal_size grows.",
+      "n_points": 7
+    },
+    "wilcoxon_mlp_vs_others_significant_pairs": 5,
+    "total_wilcoxon_pairs_tested": 12,
+    "mlp_rank_last_fraction_n10": 0.55,
+    "mlp_rank_last_fraction_n20": 0.65,
+    "mlp_rank_last_fraction_n50": 0.5,
+    "interpretation": "Friedman tests whether method ECE rankings are non-uniform across the 20 blocks (4 model-dataset cells x 5 reps) at each calibration size. Wilcoxon signed-rank tests whether MLP ECE is specifically higher than each other method at small n (alternative=greater). Spearman rho < 0 indicates MLP rank improves as cal_size increases."
+  }
+}

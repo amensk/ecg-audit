@@ -1,0 +1,12 @@
+dataset_id,dataset_name,model_id,model_name,recal_method,class_name,status,platt_status,test_pos,test_neg,auc_raw,auc_platt,raw_minus_platt_auc,platt_minus_raw_auc,z_statistic,p_value,nominal_significant_degradation
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,NORM,computed,fit,108,85,0.7233115468409586,0.7233115468409586,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,MI,computed,fit,25,168,0.7452380952380953,0.7452380952380953,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,STTC,computed,fit,45,148,0.7253753753753754,0.7253753753753754,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,CD,computed,fit,40,153,0.6112745098039216,0.6112745098039216,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,HYP,computed,fit,18,175,0.8888888888888888,0.8888888888888888,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,1dAVb,computed,fit,11,189,0.49158249158249157,0.49158249158249157,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,RBBB,computed,fit,19,181,0.6673451584763013,0.33265484152369873,0.33469031695260254,-0.33469031695260254,2.5252003555651,0.011563234424058514,True
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,LBBB,computed,fit,15,185,0.66990990990991,0.33009009009009005,0.3398198198198199,-0.3398198198198199,3.648302966248082,0.0002639782375483502,True
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,SB,computed,fit,14,186,0.44738863287250386,0.44738863287250386,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,ST,computed,fit,19,181,0.5242803140447805,0.5242803140447805,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M6_s4d_configured,Configured S4D constrained pilot,guarded_platt_scaling,AF,computed,fit,21,179,0.48949188613993083,0.48949188613993083,0.0,-0.0,0.0,1.0,False

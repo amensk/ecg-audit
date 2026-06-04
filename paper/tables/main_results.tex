@@ -1,0 +1,40 @@
+\begin{table}[t]
+\centering
+\caption{Real ST-MEM recalibration-gradient pilot. Values are pilot estimates on PTB-XL and CODE-15\%; they are not full-benchmark results. Monotone Platt/temperature is rank-preserving, so AUROC is unchanged.}
+\label{tab:real-gradient}
+\begin{tabular}{llrrr}
+\toprule
+Dataset & Recalibrator & AUROC & ECE & Brier \\
+\midrule
+PTB-XL & Raw ST-MEM & 0.8793 & 0.1088 & 0.1096 \\
+PTB-XL & Monotone Platt/temp. & 0.8793 & 0.0482 & 0.0888 \\
+PTB-XL & Isotonic & 0.8711 & 0.0540 & 0.0923 \\
+PTB-XL & Learned MLP & 0.8675 & 0.0646 & 0.0988 \\
+CODE-15\% & Raw ST-MEM & 0.9869 & 0.0388 & 0.0261 \\
+CODE-15\% & Monotone Platt/temp. & 0.9869 & 0.0287 & 0.0207 \\
+CODE-15\% & Isotonic & 0.9757 & 0.0182 & 0.0212 \\
+CODE-15\% & Learned MLP & 0.9706 & 0.0455 & 0.0287 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{H4 micro-ablation anchors. Means are averaged over four pilot model-dataset cells and five repetitions per calibration size. Lower ECE, Brier, and rank are better.}
+\label{tab:h4-anchors}
+\begingroup
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+Cal. size & Platt $\ece$ & MLP $\ece$ & Platt $\brier$ & MLP $\brier$ & MLP $\ece$ rank & MLP $\brier$ rank \\
+\midrule
+10 & 0.0964 & 0.0992 & 0.1036 & 0.1117 & 2.90 & 3.20 \\
+20 & 0.0727 & 0.1010 & 0.0938 & 0.1138 & 3.35 & 3.35 \\
+50 & 0.0579 & 0.0752 & 0.0882 & 0.0994 & 3.10 & 2.95 \\
+100 & 0.0490 & 0.0568 & 0.0853 & 0.0901 & 2.90 & 2.65 \\
+Full ($\approx 200$) & 0.0430 & 0.0519 & 0.0834 & 0.0875 & 3.00 & 2.75 \\
+\bottomrule
+\end{tabular}
+\endgroup
+\end{table}

@@ -1,0 +1,13 @@
+cal_size,cal_size_numeric,comparison,method_a,method_b,n_pairs,wilcoxon_statistic,wilcoxon_pvalue,significant_at_0.05,mean_diff,fraction_mlp_worse
+10,10,mlp_vs_temperature_scaling,learned_mlp_head,temperature_scaling,20,171.0,0.00604,True,0.013126,0.75
+10,10,mlp_vs_monotone_platt,learned_mlp_head,monotone_platt,20,152.0,0.041275,True,0.00805,0.8
+10,10,mlp_vs_isotonic_regression,learned_mlp_head,isotonic_regression,20,129.0,0.194188,False,0.00336,0.65
+20,20,mlp_vs_temperature_scaling,learned_mlp_head,temperature_scaling,20,200.0,4.1e-05,True,0.01987,0.95
+20,20,mlp_vs_monotone_platt,learned_mlp_head,monotone_platt,20,190.0,0.000354,True,0.020006,0.8
+20,20,mlp_vs_isotonic_regression,learned_mlp_head,isotonic_regression,20,160.0,0.019995,True,0.01496,0.6
+50,50,mlp_vs_temperature_scaling,learned_mlp_head,temperature_scaling,20,171.0,0.00604,True,0.008132,0.65
+50,50,mlp_vs_monotone_platt,learned_mlp_head,monotone_platt,20,180.0,0.001827,True,0.011187,0.75
+50,50,mlp_vs_isotonic_regression,learned_mlp_head,isotonic_regression,20,127.0,0.215217,False,0.006925,0.55
+75,75,mlp_vs_temperature_scaling,learned_mlp_head,temperature_scaling,20,124.0,0.249004,False,0.002714,0.5
+75,75,mlp_vs_monotone_platt,learned_mlp_head,monotone_platt,20,169.0,0.007656,True,0.007815,0.7
+75,75,mlp_vs_isotonic_regression,learned_mlp_head,isotonic_regression,20,138.0,0.115256,False,0.004152,0.5

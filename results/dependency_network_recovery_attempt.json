@@ -1,0 +1,47 @@
+{
+  "stage": "05_experimentation",
+  "experiment": "dependency_network_recovery_attempt",
+  "generated_at": "2026-05-24T15:13:53",
+  "request": "Enable DNS/network access or mount local mirror/wheelhouse for torch, wfdb, h5py, and FM-specific packages, then rerun venv install and preflight.",
+  "actions": [
+    "Checked pip config for configured package indexes or mirrors.",
+    "Searched workspace, /tmp, and AutoR run directories for local wheelhouse/package archives.",
+    "Retried /Users/ameenk/AutoR/.venv/bin/python -m pip install torch wfdb h5py.",
+    "Reran asset staging with checkpoint mapping.",
+    "Reran real open-dataset preflight with venv Python."
+  ],
+  "pip_config": {
+    "custom_index_or_find_links_detected": false
+  },
+  "local_package_search": {
+    "wheelhouse_or_mirror_found": false,
+    "matching_installable_packages_found": false,
+    "notes": "Only unrelated paper/submission zip/tar archives were found; no .whl or source distributions for torch, wfdb, h5py, or FM-specific packages were present."
+  },
+  "venv_install_attempt": {
+    "command": "/Users/ameenk/AutoR/.venv/bin/python -m pip install torch wfdb h5py",
+    "exit_code": 1,
+    "installed": false,
+    "failure_type": "network_name_resolution",
+    "stderr_key_lines": [
+      "Failed to resolve 'pypi.org'",
+      "ERROR: Could not find a version that satisfies the requirement torch",
+      "ERROR: No matching distribution found for torch"
+    ]
+  },
+  "post_attempt_import_check": {
+    "torch": "missing",
+    "wfdb": "missing",
+    "h5py": "missing",
+    "numpy": "present",
+    "pandas": "present",
+    "sklearn": "present",
+    "scipy": "present"
+  },
+  "preflight_after_retry": {
+    "ready_to_launch": false,
+    "blocker_count": 11,
+    "unchanged_from_prior": true
+  },
+  "conclusion": "The requested network/mirror recovery cannot be completed inside the current sandboxed environment because DNS/network settings cannot be changed here and no local mirror/wheelhouse is mounted. Real-data experiments remain blocked."
+}

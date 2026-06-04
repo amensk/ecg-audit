@@ -1,0 +1,141 @@
+{
+  "stage": "05_experimentation",
+  "experiment": "real_asset_acquisition_attempt",
+  "generated_at": "2026-05-24T15:19:23",
+  "network_available_for_public_sources": false,
+  "datasets": {
+    "D1": {
+      "name": "PTB-XL",
+      "url": "https://physionet.org/content/ptb-xl/1.0.3/",
+      "credentialed": false,
+      "reachable": false,
+      "status": null,
+      "reason": null,
+      "final_url": "https://physionet.org/content/ptb-xl/1.0.3/",
+      "error_type": "URLError",
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "download_attempted": false,
+      "download_blocked_reason": "source_unreachable_preflight_failed"
+    },
+    "D2": {
+      "name": "MIMIC-IV-ECG",
+      "url": "https://physionet.org/content/mimic-iv-ecg/",
+      "credentialed": true,
+      "reachable": false,
+      "status": null,
+      "reason": null,
+      "final_url": "https://physionet.org/content/mimic-iv-ecg/",
+      "error_type": "URLError",
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "download_attempted": false,
+      "download_blocked_reason": "credentialed_access_required_or_unverified"
+    },
+    "D3": {
+      "name": "CODE-15%",
+      "url": "https://zenodo.org/records/4916206",
+      "credentialed": false,
+      "reachable": false,
+      "status": null,
+      "reason": null,
+      "final_url": "https://zenodo.org/records/4916206",
+      "error_type": "URLError",
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "download_attempted": false,
+      "download_blocked_reason": "source_unreachable_preflight_failed"
+    },
+    "D4": {
+      "name": "CPSC2018",
+      "url": "http://2018.icbeb.org/Challenge.html",
+      "credentialed": false,
+      "reachable": false,
+      "status": null,
+      "reason": null,
+      "final_url": "http://2018.icbeb.org/Challenge.html",
+      "error_type": "URLError",
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+      "download_attempted": false,
+      "download_blocked_reason": "source_unreachable_preflight_failed"
+    }
+  },
+  "models": {
+    "M1": {
+      "name": "MERL",
+      "repo": "https://github.com/cheliu-computation/MERL.git",
+      "reachable": false,
+      "return_code": 128,
+      "stdout_tail": "",
+      "stderr_tail": "fatal: unable to access 'https://github.com/cheliu-computation/MERL.git/': Could not resolve host: github.com\n",
+      "error_type": null,
+      "error": null,
+      "checkpoint_download_attempted": false,
+      "checkpoint_download_blocked_reason": "repository_unreachable_preflight_failed"
+    },
+    "M2": {
+      "name": "ST-MEM",
+      "repo": "https://github.com/bakqui/ST-MEM.git",
+      "reachable": false,
+      "return_code": 128,
+      "stdout_tail": "",
+      "stderr_tail": "fatal: unable to access 'https://github.com/bakqui/ST-MEM.git/': Could not resolve host: github.com\n",
+      "error_type": null,
+      "error": null,
+      "checkpoint_download_attempted": false,
+      "checkpoint_download_blocked_reason": "repository_unreachable_preflight_failed"
+    },
+    "M3": {
+      "name": "HuBERT-ECG",
+      "repo": "https://github.com/Edoar-do/HuBERT-ECG.git",
+      "reachable": false,
+      "return_code": 128,
+      "stdout_tail": "",
+      "stderr_tail": "fatal: unable to access 'https://github.com/Edoar-do/HuBERT-ECG.git/': Could not resolve host: github.com\n",
+      "error_type": null,
+      "error": null,
+      "checkpoint_download_attempted": false,
+      "checkpoint_download_blocked_reason": "repository_unreachable_preflight_failed"
+    },
+    "M4": {
+      "name": "ECGFM-KED",
+      "repo": "https://github.com/control-spiderman/ECGFM-KED.git",
+      "reachable": false,
+      "return_code": 128,
+      "stdout_tail": "",
+      "stderr_tail": "fatal: unable to access 'https://github.com/control-spiderman/ECGFM-KED.git/': Could not resolve host: github.com\n",
+      "error_type": null,
+      "error": null,
+      "checkpoint_download_attempted": false,
+      "checkpoint_download_blocked_reason": "repository_unreachable_preflight_failed"
+    },
+    "M5": {
+      "name": "ECG-FM",
+      "repo": "https://github.com/bowang-lab/ECG-FM.git",
+      "reachable": false,
+      "return_code": 128,
+      "stdout_tail": "",
+      "stderr_tail": "fatal: unable to access 'https://github.com/bowang-lab/ECG-FM.git/': Could not resolve host: github.com\n",
+      "error_type": null,
+      "error": null,
+      "checkpoint_download_attempted": false,
+      "checkpoint_download_blocked_reason": "repository_unreachable_preflight_failed"
+    }
+  },
+  "summary": {
+    "open_datasets_reachable": [],
+    "open_datasets_unreachable": [
+      "D1",
+      "D3",
+      "D4"
+    ],
+    "credentialed_datasets_deferred": [
+      "D2"
+    ],
+    "model_repositories_reachable": [],
+    "model_repositories_unreachable": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+cal_size,cal_size_numeric,n_blocks,friedman_statistic,friedman_pvalue,significant_at_0.05,significant_at_0.01,mean_brier_rank_temperature,mean_brier_rank_platt,mean_brier_rank_isotonic,mean_brier_rank_mlp,mlp_worst_fraction,best_method
+10,10,20,10.7143,0.013376,True,False,2.05,2.1,2.65,3.2,0.6,temperature_scaling
+20,20,20,17.8342,0.000476,True,True,1.975,1.875,2.8,3.35,0.6,monotone_platt
+50,50,20,9.42,0.024198,True,False,2.25,1.9,2.9,2.95,0.4,monotone_platt
+75,75,20,8.1,0.04399,True,False,2.65,1.8,2.85,2.7,0.25,monotone_platt
+100,100,20,9.42,0.024198,True,False,2.7,1.75,2.9,2.65,0.3,monotone_platt
+150,150,20,12.6,0.005587,True,True,2.85,1.65,2.95,2.55,0.3,monotone_platt
+full,200,20,16.5,0.000895,True,True,3.0,1.5,2.75,2.75,0.25,monotone_platt

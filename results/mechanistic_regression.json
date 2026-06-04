@@ -1,0 +1,104 @@
+{
+  "n_rows": 149,
+  "r2": 0.8450217791195915,
+  "target": "per-class test ECE",
+  "note": "continuous predictors standardized; feature_spread log10; ref levels: objective=contrastive, dataset=PTB-XL. multilabel collinear with PTB-XL so represented by dataset=PTB-XL ref.",
+  "coefficients": {
+    "intercept": {
+      "coef": 0.08255409748323277,
+      "ci": [
+        0.06595399379742108,
+        0.09927365897244723
+      ],
+      "significant": true
+    },
+    "AUROC": {
+      "coef": -0.009204477103648906,
+      "ci": [
+        -0.012665505300003512,
+        -0.005904395175214041
+      ],
+      "significant": true
+    },
+    "prevalence": {
+      "coef": -0.005106105986323901,
+      "ci": [
+        -0.011639523479630124,
+        0.003908868715132004
+      ],
+      "significant": false
+    },
+    "log_npos": {
+      "coef": 0.01828261013227956,
+      "ci": [
+        0.011647558894658551,
+        0.023857291411057826
+      ],
+      "significant": true
+    },
+    "log_feature_spread": {
+      "coef": 0.011105762077801113,
+      "ci": [
+        -0.0010170667389618959,
+        0.023011632132959058
+      ],
+      "significant": false
+    },
+    "obj=masked": {
+      "coef": 0.04447884394507594,
+      "ci": [
+        0.018096337528695126,
+        0.07125672881010672
+      ],
+      "significant": true
+    },
+    "obj=knowledge": {
+      "coef": 0.016343912700004643,
+      "ci": [
+        -0.01707616085882901,
+        0.04966939015939859
+      ],
+      "significant": false
+    },
+    "obj=hybrid": {
+      "coef": 0.016292134771967972,
+      "ci": [
+        -0.005520272348359433,
+        0.03856285612485285
+      ],
+      "significant": false
+    },
+    "obj=supervised": {
+      "coef": -0.017721926471773414,
+      "ci": [
+        -0.028365833297100657,
+        -0.007768236303959527
+      ],
+      "significant": true
+    },
+    "dataset=CODE-15%": {
+      "coef": -0.07364679246853523,
+      "ci": [
+        -0.08292130253377993,
+        -0.06367673868955219
+      ],
+      "significant": true
+    },
+    "dataset=CPSC2018": {
+      "coef": -0.07560498967483385,
+      "ci": [
+        -0.08654045526822926,
+        -0.06406836642405378
+      ],
+      "significant": true
+    },
+    "dataset=MIMIC-IV-ECG": {
+      "coef": -0.02021511201306093,
+      "ci": [
+        -0.03099586101388241,
+        -0.009432780326133091
+      ],
+      "significant": true
+    }
+  }
+}

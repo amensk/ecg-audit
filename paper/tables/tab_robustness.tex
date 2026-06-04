@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\caption{Multi-seed robustness (10 patient-level resplits, seeds 0--9): mean$\pm$std macro AUROC and ECE on the two multi-morbidity datasets. The PTB-XL discrimination--calibration tradeoff (S4D best-calibrated) holds in 10/10 seeds; ECG-FM trails MERL/ST-MEM on MIMIC in all seeds but is statistically tied with the S4D baseline.}
+\label{tab:robustness}
+\small
+\begin{tabular}{llcc}
+\toprule
+Dataset & Model & AUROC (mean$\pm$std) & ECE (mean$\pm$std) \\
+\midrule
+  PTB-XL & MERL & 0.844$\pm$0.013 & 0.092$\pm$0.004 \\
+   & ST-MEM & 0.852$\pm$0.015 & 0.119$\pm$0.009 \\
+   & HuBERT-ECG & 0.801$\pm$0.018 & 0.141$\pm$0.009 \\
+   & ECGFM-KED & 0.778$\pm$0.018 & 0.086$\pm$0.009 \\
+   & ECG-FM & 0.812$\pm$0.015 & 0.100$\pm$0.010 \\
+   & S4D & 0.785$\pm$0.021 & 0.062$\pm$0.004 \\
+  \midrule
+  MIMIC-IV-ECG & MERL & 0.882$\pm$0.012 & 0.063$\pm$0.004 \\
+   & ST-MEM & 0.864$\pm$0.013 & 0.077$\pm$0.005 \\
+   & HuBERT-ECG & 0.835$\pm$0.013 & 0.090$\pm$0.007 \\
+   & ECGFM-KED & 0.744$\pm$0.018 & 0.066$\pm$0.006 \\
+   & ECG-FM & 0.792$\pm$0.015 & 0.078$\pm$0.003 \\
+   & S4D & 0.777$\pm$0.019 & 0.046$\pm$0.004 \\
+\bottomrule
+\end{tabular}
+\end{table}

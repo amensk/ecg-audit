@@ -1,0 +1,134 @@
+\section{Method}
+\label{sec:method}
+
+The study has two phases. Phase~A audits discrimination and calibration before recalibration.
+Phase~B fits post-hoc calibrators on a held-out calibration split and evaluates calibrated
+probabilities on an untouched test split. We additionally define the AUROC--ECE Pareto
+frontier, composite scoring, PhysioCalib, and the net-benefit decision-curve framework.
+
+\subsection{Data and Splits}
+
+Datasets are PTB-XL~\citep{strodthoff2020ptbxl},
+CPSC2018~\citep{cpsc2018}, CODE-15\%~\citep{ribeiro2021code15}, and
+MIMIC-IV-ECG~\citep{mimicivecg2023}, the last evaluated on a 2{,}000-record subset with
+labels parsed from machine-measurement reports.
+Each dataset is split at the patient level into training (70\%), calibration (15\%), and test
+(15\%) partitions with fixed seed 42. The calibration partition is never used for fitting
+feature extractors, linear probes, or the S4D baseline. For multi-label tasks, calibration
+metrics are computed as per-class binary problems and then macro-averaged.
+
+\subsection{Models}
+
+For the five foundation models (MERL, ST-MEM, HuBERT-ECG, ECGFM-KED, ECG-FM), we evaluate
+frozen representations with a logistic linear probe. This isolates the probability map
+induced by the frozen representation and avoids confounding calibration analysis with
+fine-tuning dynamics. The supervised S4D baseline is trained end-to-end on each dataset
+\citep{gu2022s4ecg, s4d2024ecg}.
+
+\subsection{Calibration Metrics}
+\label{sec:metrics}
+
+Let $\hat{p}_i$ be the predicted probability and $y_i \in \{0,1\}$ the label.
+
+\paragraph{Brier score.}
+\[
+  \mathrm{BS} = \frac{1}{n}\sum_{i=1}^n(\hat{p}_i - y_i)^2.
+\]
+
+\paragraph{Expected calibration error (ECE).}
+With $M=15$ equal-width bins $B_1,\ldots,B_M$:
+\[
+  \mathrm{ECE} = \sum_{m=1}^{M} \frac{|B_m|}{n}
+    \left|\overline{y}_{B_m} - \overline{\hat{p}}_{B_m}\right|,
+\]
+where $\overline{y}_{B_m}$ and $\overline{\hat{p}}_{B_m}$ are the mean label and mean
+predicted probability in bin $m$.
+
+\paragraph{Signed calibration error (SCE).}
+\[
+  \mathrm{SCE} = \sum_{m=1}^{M} \frac{|B_m|}{n}
+    \left(\overline{\hat{p}}_{B_m} - \overline{y}_{B_m}\right).
+\]
+Positive SCE indicates overconfidence (mean prediction exceeds mean accuracy);
+negative SCE indicates underconfidence.
+
+\subsection{Recalibration Methods}
+
+Phase~B compares four methods fitted on the calibration split only.
+\textbf{Temperature scaling} minimizes NLL with one scalar parameter per problem.
+\textbf{Platt scaling} fits a logistic affine transformation.
+\textbf{Isotonic regression} fits a monotone non-parametric map; it is rank-preserving
+by construction, leaving AUROC unchanged.
+A \textbf{learned MLP head} uses a two-layer network with dropout and early stopping.
+
+\paragraph{Gap closure.}
+For each model--dataset pair where the foundation-model ECE exceeds S4D's ECE:
+\[
+  \Delta_{\mathrm{gap}} =
+  \frac{\mathrm{ECE}_{\mathrm{pre}} - \mathrm{ECE}_{\mathrm{post}}}
+       {\mathrm{ECE}_{\mathrm{pre}} - \mathrm{ECE}_{\mathrm{S4D}}}.
+\]
+
+\subsection{AUROC--ECE Pareto Frontier and Composite Score}
+\label{sec:pareto}
+
+We define the \emph{Pareto frontier} in AUROC--ECE space: model $j$ \emph{dominates} model
+$i$ if $\mathrm{AUROC}_j \geq \mathrm{AUROC}_i$ and $\mathrm{ECE}_j \leq \mathrm{ECE}_i$
+with strict inequality on at least one dimension. The Pareto-optimal set is the subset of
+models not dominated by any other.
+
+For practitioners who must choose a single model, we define the \emph{composite score}:
+\[
+  C(\alpha) = \alpha \cdot \mathrm{AUROC}
+            + (1-\alpha)\Bigl(1 - \frac{\mathrm{ECE}}{\mathrm{ECE}_{\max}}\Bigr),
+\]
+where $\mathrm{ECE}_{\max}$ is the maximum ECE among models in the comparison set, and
+$\alpha \in [0,1]$ encodes the practitioner's relative preference for discrimination vs
+calibration. We evaluate $\alpha \in \{0.5, 0.7, 0.9\}$, corresponding to equal weight,
+discrimination-leaning, and strongly discrimination-leaning regimes.
+
+\subsection{PhysioCalib: Severity-Weighted Isotonic Calibration}
+\label{sec:physiocalib}
+
+Standard isotonic calibration treats all classes equally. In multi-label cardiac
+classification, miscalibration on MI is more clinically consequential than miscalibration
+on NORM. We propose \emph{PhysioCalib}, which fits severity-weighted isotonic regression
+per class. The algorithm is:
+
+\begin{algorithm}[H]
+\caption{PhysioCalib}
+\label{alg:physiocalib}
+\begin{algorithmic}[1]
+\Require Per-class calibration data $\{(\hat{p}_i^c, y_i^c)\}$,
+         severity weights $\{w_c\}_{c=1}^C$
+\For{each class $c = 1, \ldots, C$}
+  \State Compute sample weights: $s_i \gets w_c$ if $y_i^c = 1$, else $1.0$
+  \State Fit IsotonicRegression$((\hat{p}^c, y^c), \mathrm{sample\_weight}=s)$
+  \State Store calibrator $g_c$
+\EndFor
+\Require Test probabilities $\hat{P} \in [0,1]^{n \times C}$
+\For{each class $c$}
+  \State $\tilde{p}^c \gets g_c(\hat{p}^c)$
+\EndFor
+\State \Return $\tilde{P}$
+\end{algorithmic}
+\end{algorithm}
+
+We use severity weights MI\,=\,3.0, STTC\,=\,2.0, CD\,=\,1.5, HYP\,=\,1.2, NORM\,=\,0.5,
+motivated by clinical consequence severity. Because isotonic regression is monotone,
+PhysioCalib is rank-preserving: AUROC is unchanged by construction.
+
+\subsection{Decision-Curve Analysis (DCA)}
+\label{sec:dca}
+
+The \emph{net benefit} of a model at threshold probability $t$ is:
+\[
+  \mathrm{NB}(t) = \frac{\mathrm{TP}}{N} - \frac{\mathrm{FP}}{N}\cdot\frac{t}{1-t},
+\]
+where $N$ is the total sample size. The treat-all baseline has
+$\mathrm{NB}_{\mathrm{all}}(t) = \pi - (1-\pi)\,t/(1-t)$, where $\pi$ is
+the class prevalence; treat-none has $\mathrm{NB} = 0$. A model is clinically useful at
+threshold $t$ if its net benefit exceeds both baselines. We apply DCA to the PTB-XL MI
+class, using the actual ST-MEM linear-probe predictions recovered from cached features
+(Section~\ref{sec:clinical_utility}), comparing raw, Platt-scaled, and isotonic-calibrated
+probabilities on the held-out test split.

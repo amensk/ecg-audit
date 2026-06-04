@@ -1,0 +1,1006 @@
+{
+  "seed": 42,
+  "min_pos": 10,
+  "min_neg": 10,
+  "cells": [
+    {
+      "model_id": "M1",
+      "model": "MERL",
+      "dataset_id": "D1",
+      "dataset": "PTB-XL",
+      "classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "valid_classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "n_test": 299,
+      "n_cal": 297,
+      "prevalence_test": {
+        "NORM": 0.47491639852523804,
+        "MI": 0.13377925753593445,
+        "STTC": 0.22073578834533691,
+        "CD": 0.24080267548561096,
+        "HYP": 0.08026755601167679
+      },
+      "probs_file": "probs/M1_D1.npz"
+    },
+    {
+      "model_id": "M2",
+      "model": "ST-MEM",
+      "dataset_id": "D1",
+      "dataset": "PTB-XL",
+      "classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "valid_classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "n_test": 299,
+      "n_cal": 297,
+      "prevalence_test": {
+        "NORM": 0.47491639852523804,
+        "MI": 0.13377925753593445,
+        "STTC": 0.22073578834533691,
+        "CD": 0.24080267548561096,
+        "HYP": 0.08026755601167679
+      },
+      "probs_file": "probs/M2_D1.npz"
+    },
+    {
+      "model_id": "M3",
+      "model": "HuBERT-ECG",
+      "dataset_id": "D1",
+      "dataset": "PTB-XL",
+      "classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "valid_classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "n_test": 299,
+      "n_cal": 297,
+      "prevalence_test": {
+        "NORM": 0.47491639852523804,
+        "MI": 0.13377925753593445,
+        "STTC": 0.22073578834533691,
+        "CD": 0.24080267548561096,
+        "HYP": 0.08026755601167679
+      },
+      "probs_file": "probs/M3_D1.npz"
+    },
+    {
+      "model_id": "M4",
+      "model": "ECGFM-KED",
+      "dataset_id": "D1",
+      "dataset": "PTB-XL",
+      "classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "valid_classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "n_test": 299,
+      "n_cal": 297,
+      "prevalence_test": {
+        "NORM": 0.47491639852523804,
+        "MI": 0.13377925753593445,
+        "STTC": 0.22073578834533691,
+        "CD": 0.24080267548561096,
+        "HYP": 0.08026755601167679
+      },
+      "probs_file": "probs/M4_D1.npz"
+    },
+    {
+      "model_id": "M5",
+      "model": "ECG-FM",
+      "dataset_id": "D1",
+      "dataset": "PTB-XL",
+      "classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "valid_classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "n_test": 299,
+      "n_cal": 297,
+      "prevalence_test": {
+        "NORM": 0.47491639852523804,
+        "MI": 0.13377925753593445,
+        "STTC": 0.22073578834533691,
+        "CD": 0.24080267548561096,
+        "HYP": 0.08026755601167679
+      },
+      "probs_file": "probs/M5_D1.npz"
+    },
+    {
+      "model_id": "M6",
+      "model": "S4D",
+      "dataset_id": "D1",
+      "dataset": "PTB-XL",
+      "classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "valid_classes": [
+        "NORM",
+        "MI",
+        "STTC",
+        "CD",
+        "HYP"
+      ],
+      "n_test": 299,
+      "n_cal": 297,
+      "prevalence_test": {
+        "NORM": 0.47491639852523804,
+        "MI": 0.13377925753593445,
+        "STTC": 0.22073578834533691,
+        "CD": 0.24080267548561096,
+        "HYP": 0.08026755601167679
+      },
+      "probs_file": "probs/M6_D1.npz"
+    },
+    {
+      "model_id": "M1",
+      "model": "MERL",
+      "dataset_id": "D3",
+      "dataset": "CODE-15%",
+      "classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "valid_classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "n_test": 1197,
+      "n_cal": 1200,
+      "prevalence_test": {
+        "1dAVb": 0.02005012519657612,
+        "RBBB": 0.03425229713320732,
+        "LBBB": 0.016708437353372574,
+        "SB": 0.017543859779834747,
+        "ST": 0.02005012519657612,
+        "AF": 0.014202171936631203,
+        "NORM": 0.3834586441516876
+      },
+      "probs_file": "probs/M1_D3.npz"
+    },
+    {
+      "model_id": "M2",
+      "model": "ST-MEM",
+      "dataset_id": "D3",
+      "dataset": "CODE-15%",
+      "classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "valid_classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "n_test": 1197,
+      "n_cal": 1200,
+      "prevalence_test": {
+        "1dAVb": 0.02005012519657612,
+        "RBBB": 0.03425229713320732,
+        "LBBB": 0.016708437353372574,
+        "SB": 0.017543859779834747,
+        "ST": 0.02005012519657612,
+        "AF": 0.014202171936631203,
+        "NORM": 0.3834586441516876
+      },
+      "probs_file": "probs/M2_D3.npz"
+    },
+    {
+      "model_id": "M3",
+      "model": "HuBERT-ECG",
+      "dataset_id": "D3",
+      "dataset": "CODE-15%",
+      "classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "valid_classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "n_test": 1197,
+      "n_cal": 1200,
+      "prevalence_test": {
+        "1dAVb": 0.02005012519657612,
+        "RBBB": 0.03425229713320732,
+        "LBBB": 0.016708437353372574,
+        "SB": 0.017543859779834747,
+        "ST": 0.02005012519657612,
+        "AF": 0.014202171936631203,
+        "NORM": 0.3834586441516876
+      },
+      "probs_file": "probs/M3_D3.npz"
+    },
+    {
+      "model_id": "M5",
+      "model": "ECG-FM",
+      "dataset_id": "D3",
+      "dataset": "CODE-15%",
+      "classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "valid_classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "n_test": 1197,
+      "n_cal": 1200,
+      "prevalence_test": {
+        "1dAVb": 0.02005012519657612,
+        "RBBB": 0.03425229713320732,
+        "LBBB": 0.016708437353372574,
+        "SB": 0.017543859779834747,
+        "ST": 0.02005012519657612,
+        "AF": 0.014202171936631203,
+        "NORM": 0.3834586441516876
+      },
+      "probs_file": "probs/M5_D3.npz"
+    },
+    {
+      "model_id": "M6",
+      "model": "S4D",
+      "dataset_id": "D3",
+      "dataset": "CODE-15%",
+      "classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "valid_classes": [
+        "1dAVb",
+        "RBBB",
+        "LBBB",
+        "SB",
+        "ST",
+        "AF",
+        "NORM"
+      ],
+      "n_test": 1197,
+      "n_cal": 1200,
+      "prevalence_test": {
+        "1dAVb": 0.02005012519657612,
+        "RBBB": 0.03425229713320732,
+        "LBBB": 0.016708437353372574,
+        "SB": 0.017543859779834747,
+        "ST": 0.02005012519657612,
+        "AF": 0.014202171936631203,
+        "NORM": 0.3834586441516876
+      },
+      "probs_file": "probs/M6_D3.npz"
+    },
+    {
+      "model_id": "M1",
+      "model": "MERL",
+      "dataset_id": "D4",
+      "dataset": "CPSC2018",
+      "classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "valid_classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "n_test": 1031,
+      "n_cal": 1031,
+      "prevalence_test": {
+        "Normal": 0.1290009766817093,
+        "AF": 0.15615907311439514,
+        "IAVB": 0.10572259873151779,
+        "LBBB": 0.026188166812062263,
+        "RBBB": 0.27546072006225586,
+        "PAC": 0.10475266724824905,
+        "PVC": 0.10669253021478653,
+        "STD": 0.1319107711315155,
+        "STE": 0.03200776129961014
+      },
+      "probs_file": "probs/M1_D4.npz"
+    },
+    {
+      "model_id": "M2",
+      "model": "ST-MEM",
+      "dataset_id": "D4",
+      "dataset": "CPSC2018",
+      "classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "valid_classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "n_test": 1031,
+      "n_cal": 1031,
+      "prevalence_test": {
+        "Normal": 0.1290009766817093,
+        "AF": 0.15615907311439514,
+        "IAVB": 0.10572259873151779,
+        "LBBB": 0.026188166812062263,
+        "RBBB": 0.27546072006225586,
+        "PAC": 0.10475266724824905,
+        "PVC": 0.10669253021478653,
+        "STD": 0.1319107711315155,
+        "STE": 0.03200776129961014
+      },
+      "probs_file": "probs/M2_D4.npz"
+    },
+    {
+      "model_id": "M3",
+      "model": "HuBERT-ECG",
+      "dataset_id": "D4",
+      "dataset": "CPSC2018",
+      "classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "valid_classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "n_test": 1031,
+      "n_cal": 1031,
+      "prevalence_test": {
+        "Normal": 0.1290009766817093,
+        "AF": 0.15615907311439514,
+        "IAVB": 0.10572259873151779,
+        "LBBB": 0.026188166812062263,
+        "RBBB": 0.27546072006225586,
+        "PAC": 0.10475266724824905,
+        "PVC": 0.10669253021478653,
+        "STD": 0.1319107711315155,
+        "STE": 0.03200776129961014
+      },
+      "probs_file": "probs/M3_D4.npz"
+    },
+    {
+      "model_id": "M4",
+      "model": "ECGFM-KED",
+      "dataset_id": "D4",
+      "dataset": "CPSC2018",
+      "classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "valid_classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "n_test": 1031,
+      "n_cal": 1031,
+      "prevalence_test": {
+        "Normal": 0.1290009766817093,
+        "AF": 0.15615907311439514,
+        "IAVB": 0.10572259873151779,
+        "LBBB": 0.026188166812062263,
+        "RBBB": 0.27546072006225586,
+        "PAC": 0.10475266724824905,
+        "PVC": 0.10669253021478653,
+        "STD": 0.1319107711315155,
+        "STE": 0.03200776129961014
+      },
+      "probs_file": "probs/M4_D4.npz"
+    },
+    {
+      "model_id": "M5",
+      "model": "ECG-FM",
+      "dataset_id": "D4",
+      "dataset": "CPSC2018",
+      "classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "valid_classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "n_test": 1031,
+      "n_cal": 1031,
+      "prevalence_test": {
+        "Normal": 0.1290009766817093,
+        "AF": 0.15615907311439514,
+        "IAVB": 0.10572259873151779,
+        "LBBB": 0.026188166812062263,
+        "RBBB": 0.27546072006225586,
+        "PAC": 0.10475266724824905,
+        "PVC": 0.10669253021478653,
+        "STD": 0.1319107711315155,
+        "STE": 0.03200776129961014
+      },
+      "probs_file": "probs/M5_D4.npz"
+    },
+    {
+      "model_id": "M6",
+      "model": "S4D",
+      "dataset_id": "D4",
+      "dataset": "CPSC2018",
+      "classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "valid_classes": [
+        "Normal",
+        "AF",
+        "IAVB",
+        "LBBB",
+        "RBBB",
+        "PAC",
+        "PVC",
+        "STD",
+        "STE"
+      ],
+      "n_test": 1031,
+      "n_cal": 1031,
+      "prevalence_test": {
+        "Normal": 0.1290009766817093,
+        "AF": 0.15615907311439514,
+        "IAVB": 0.10572259873151779,
+        "LBBB": 0.026188166812062263,
+        "RBBB": 0.27546072006225586,
+        "PAC": 0.10475266724824905,
+        "PVC": 0.10669253021478653,
+        "STD": 0.1319107711315155,
+        "STE": 0.03200776129961014
+      },
+      "probs_file": "probs/M6_D4.npz"
+    },
+    {
+      "model_id": "M1",
+      "model": "MERL",
+      "dataset_id": "D5",
+      "dataset": "MIMIC-IV-ECG",
+      "classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LBBB",
+        "LVH",
+        "MI"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "valid_classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LVH",
+        "MI"
+      ],
+      "n_test": 301,
+      "n_cal": 298,
+      "prevalence_test": {
+        "SR": 0.8936877250671387,
+        "AF": 0.13289035856723785,
+        "RBBB": 0.09302325546741486,
+        "LBBB": 0.029900332912802696,
+        "LVH": 0.07308970391750336,
+        "MI": 0.2059800624847412
+      },
+      "probs_file": "probs/M1_D5.npz"
+    },
+    {
+      "model_id": "M2",
+      "model": "ST-MEM",
+      "dataset_id": "D5",
+      "dataset": "MIMIC-IV-ECG",
+      "classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LBBB",
+        "LVH",
+        "MI"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "valid_classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LVH",
+        "MI"
+      ],
+      "n_test": 301,
+      "n_cal": 298,
+      "prevalence_test": {
+        "SR": 0.8936877250671387,
+        "AF": 0.13289035856723785,
+        "RBBB": 0.09302325546741486,
+        "LBBB": 0.029900332912802696,
+        "LVH": 0.07308970391750336,
+        "MI": 0.2059800624847412
+      },
+      "probs_file": "probs/M2_D5.npz"
+    },
+    {
+      "model_id": "M3",
+      "model": "HuBERT-ECG",
+      "dataset_id": "D5",
+      "dataset": "MIMIC-IV-ECG",
+      "classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LBBB",
+        "LVH",
+        "MI"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "valid_classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LVH",
+        "MI"
+      ],
+      "n_test": 301,
+      "n_cal": 298,
+      "prevalence_test": {
+        "SR": 0.8936877250671387,
+        "AF": 0.13289035856723785,
+        "RBBB": 0.09302325546741486,
+        "LBBB": 0.029900332912802696,
+        "LVH": 0.07308970391750336,
+        "MI": 0.2059800624847412
+      },
+      "probs_file": "probs/M3_D5.npz"
+    },
+    {
+      "model_id": "M4",
+      "model": "ECGFM-KED",
+      "dataset_id": "D5",
+      "dataset": "MIMIC-IV-ECG",
+      "classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LBBB",
+        "LVH",
+        "MI"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "valid_classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LVH",
+        "MI"
+      ],
+      "n_test": 301,
+      "n_cal": 298,
+      "prevalence_test": {
+        "SR": 0.8936877250671387,
+        "AF": 0.13289035856723785,
+        "RBBB": 0.09302325546741486,
+        "LBBB": 0.029900332912802696,
+        "LVH": 0.07308970391750336,
+        "MI": 0.2059800624847412
+      },
+      "probs_file": "probs/M4_D5.npz"
+    },
+    {
+      "model_id": "M5",
+      "model": "ECG-FM",
+      "dataset_id": "D5",
+      "dataset": "MIMIC-IV-ECG",
+      "classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LBBB",
+        "LVH",
+        "MI"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "valid_classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LVH",
+        "MI"
+      ],
+      "n_test": 301,
+      "n_cal": 298,
+      "prevalence_test": {
+        "SR": 0.8936877250671387,
+        "AF": 0.13289035856723785,
+        "RBBB": 0.09302325546741486,
+        "LBBB": 0.029900332912802696,
+        "LVH": 0.07308970391750336,
+        "MI": 0.2059800624847412
+      },
+      "probs_file": "probs/M5_D5.npz"
+    },
+    {
+      "model_id": "M6",
+      "model": "S4D",
+      "dataset_id": "D5",
+      "dataset": "MIMIC-IV-ECG",
+      "classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LBBB",
+        "LVH",
+        "MI"
+      ],
+      "valid_class_idx": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "valid_classes": [
+        "SR",
+        "AF",
+        "RBBB",
+        "LVH",
+        "MI"
+      ],
+      "n_test": 301,
+      "n_cal": 298,
+      "prevalence_test": {
+        "SR": 0.8936877250671387,
+        "AF": 0.13289035856723785,
+        "RBBB": 0.09302325546741486,
+        "LBBB": 0.029900332912802696,
+        "LVH": 0.07308970391750336,
+        "MI": 0.2059800624847412
+      },
+      "probs_file": "probs/M6_D5.npz"
+    }
+  ]
+}

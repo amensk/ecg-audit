@@ -1,0 +1,127 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Why the tradeoff disappears on CPSC2018.}
+The most striking finding is the complete disappearance of the discrimination--calibration
+tradeoff on CPSC2018. We attribute this to three structural differences from PTB-XL.
+First, task type: CPSC2018 is a single-label 9-class task (each record has one dominant
+arrhythmia), while PTB-XL is a 5-class multi-label task with correlated superclasses.
+Multi-label calibration requires the linear probe to simultaneously assign valid probability
+mass to correlated outputs --- a harder geometric problem that amplifies systematic
+over- or under-confidence.
+Second, class overlap: PTB-XL superclasses (e.g., MI and CD) frequently co-occur,
+forcing the probe to partition probability across correlated classes. CPSC2018 classes
+are more mutually exclusive.
+Third, class prevalence: PTB-XL has highly variable class prevalences
+(NORM: 48\%, HYP: 8\%), requiring the probe to operate at different operating points
+for each class simultaneously. These structural differences suggest that calibration
+auditing is most important for multi-label cardiac classification tasks.
+
+\paragraph{Pretraining objective mechanism.}
+MERL's underconfidence ($\text{SCE}=-0.003$ on PTB-XL) is consistent with the
+documented behaviour of contrastive vision FMs~\citep{hekler2025beyond}. The mechanistic
+interpretation is that contrastive objectives (InfoNCE) push representations apart to
+maximise inter-class separation, producing a norm-uniform representation space with high
+feature spread (std of L2 norms: 34.8 vs 0.23 for ST-MEM). When this spread representation
+is projected through a linear probe, the probability outputs may be diffuse and underconfident
+--- the probe cannot confidently assign high probabilities because the representation space
+does not concentrate examples in tight class clusters.
+
+The two masked-prediction models behave similarly in \emph{direction} but differ in
+\emph{magnitude} of miscalibration. ST-MEM (masked patch reconstruction) and HuBERT-ECG
+(masked hidden-unit prediction) both have near-zero SCE on PTB-XL ($-0.0001$ and $-0.0007$),
+indicating no systematic over/under-confidence bias; yet both have the largest \emph{unsigned}
+calibration error (ECE 0.124 and 0.136). Feature geometry explains the distinction: HuBERT-ECG
+has the highest cosine class separation (0.046) of any model, and ST-MEM the second highest
+(0.017), whereas MERL's separation is near zero (0.004). High class separation concentrates
+predictions near 0/1, so when the empirical frequency disagrees the per-bin gap is large ---
+producing high ECE even when the signed bias cancels out. Masked-prediction objectives thus
+yield ``confidently wrong in both directions'' probabilities that recalibration is especially
+effective at fixing (HuBERT-ECG ECE drops 71\% under isotonic).
+
+ECGFM-KED (knowledge-enhanced, $+0.007$), ECG-FM (contrastive+generative, $+0.008$), and the
+supervised S4D baseline ($+0.007$) are mildly overconfident on PTB-XL, suggesting that
+decoder/generative and discriminative-supervised training shift calibration toward
+overconfidence. This graded pattern --- contrastive underconfident, masked-prediction
+neutral-but-high-ECE, knowledge/generative/supervised overconfident --- motivates further
+study of how pretraining objectives shape probability calibration.
+
+\paragraph{Recalibration recommendation.}
+Based on the calsize analysis and DCA results, we summarise deployment recommendations:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Calibration set size & Recommended method & Rationale \\
+\midrule
+$n_{\mathrm{cal}} < 63$      & Platt scaling          & Isotonic overfits; Platt is stable \\
+$63 \leq n_{\mathrm{cal}} < 200$ & Isotonic regression    & Better ECE; crossover confirmed at $n=63$ \\
+$n_{\mathrm{cal}} \geq 200$  & Isotonic regression    & Consistent 43--64\% ECE reduction \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Temperature scaling is not recommended for multi-label ECG tasks: it reduces ECE by only
+11--38\% on PTB-XL, consistently worse than Platt scaling. The MLP head is unreliable
+at $n_{\mathrm{cal}} < 100$, where it frequently underfits.
+
+\paragraph{MIMIC-IV-ECG and within-domain pretraining.}
+The MIMIC-IV-ECG results reveal a counter-intuitive finding: ECG-FM, which was pretrained
+on MIMIC-IV-ECG data, achieves AUROC 0.771 on MIMIC-IV-ECG evaluation---below MERL (0.861)
+and ST-MEM (0.854) in every resplit, and statistically tied with the supervised S4D baseline
+(0.793; below S4D in only 2/10 seeds). This demonstrates that
+backbone pretraining domain alignment is a necessary but not sufficient condition for
+downstream linear-probe performance. The phenomenon likely arises because ECG-FM's hybrid
+contrastive+generative pretraining objective optimises for self-supervised tasks (masked
+prediction, contrastive similarity) that do not directly align with the
+classification targets derived from machine-measurement reports. By contrast, MERL's
+contrastive pretraining with clinical text descriptions may produce representations
+more naturally aligned with the lexical structure of the machine measurement labels.
+This has a practical implication: practitioners should not assume that a model pretrained
+on their target cohort (e.g., in-house MIMIC-IV deployment) will automatically be the best
+choice for a given classification task without linear-probe evaluation.
+
+\paragraph{Cross-dataset calibration transfer.}
+ECE varies by a factor of up to $10.3\times$ for the same model across datasets
+(ST-MEM: CODE-15\% ECE 0.012 vs PTB-XL ECE 0.124). The MIMIC-IV-ECG dataset shows
+intermediate calibration (ECE 0.033--0.061), suggesting that the calibration difficulty
+correlates with label structure: binary single-class tasks (MIMIC machine labels, CODE-15\%)
+are easier to calibrate than correlated multi-label superclasses (PTB-XL). Models calibrated
+on CODE-15\% may be substantially miscalibrated on PTB-XL. This motivates re-calibration
+on local data from the target deployment population.
+
+\paragraph{Limitations.}
+Six limitations bound this study's scope and generalisability.
+
+\textbf{Frozen linear probes.} All evaluations use logistic linear probes on frozen
+FM representations. Full fine-tuning may alter calibration --- potentially improving
+or worsening it --- in ways not captured here. Calibration under fine-tuning is an
+important open question.
+
+\textbf{Sample sizes.} PTB-XL and MIMIC-IV-ECG use 2{,}000-record subsets and CODE-15\%
+uses ${\sim}8{,}000$ records sampled across five HDF5 parts (chosen so that every rare
+arrhythmia class clears the minimum-support threshold); the full datasets are larger still.
+Larger samples may shift absolute ECE values, though the qualitative PTB-XL vs.\ arrhythmia
+contrast is unlikely to reverse.
+
+\textbf{HuBERT-ECG preprocessing.} HuBERT-ECG is included via its public \texttt{safetensors}
+checkpoint. Following the authors' pipeline, the 12 leads are flattened into a single 1-D
+sequence and decimated before encoding; this single-channel treatment differs from the
+native multi-lead handling of the other encoders and may modestly affect its representations.
+
+\textbf{ECGFM-KED architecture.} The partial architecture reconstruction (35 missing keys)
+means ECGFM-KED results are lower bounds on true performance. The partial model likely
+underestimates what the full ECGFM-KED would achieve.
+
+\textbf{DCA scope.} The real DCA covers ST-MEM only.
+Extending to MERL and ECG-FM is straightforward from cached features but not included.
+
+\textbf{Subgroup analysis.} The age/sex subgroup analysis uses a re-trained probe
+on the same 2,000-record sample; absolute calibration values are not directly
+comparable to the main benchmark and the analysis is exploratory.
+
+\paragraph{The ecg-audit package.}
+The \texttt{ecg-audit} package provides these recalibration methods, plus the PhysioCalib
+severity-weighted variant, as a one-command API. The package is installed and tested with
+unit tests covering all recalibrators. The leaderboard scaffold allows the community to
+populate calibration scores for additional FMs as checkpoints become available.

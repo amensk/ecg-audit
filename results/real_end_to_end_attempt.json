@@ -1,0 +1,71 @@
+{
+  "stage": "05_experimentation",
+  "experiment": "real_end_to_end_attempt_after_dns_feedback",
+  "generated_at": "2026-05-24T15:22:31",
+  "requested_sequence": [
+    "install core packages",
+    "download/stage PTB-XL, CODE-15%, CPSC2018",
+    "acquire/load public FM checkpoints",
+    "map only existing checkpoints",
+    "run smallest real benchmark slice",
+    "scale to all available datasets/models"
+  ],
+  "completed_steps": {
+    "core_package_imports_available": {
+      "torch": {
+        "present": true,
+        "version": "2.12.0"
+      },
+      "wfdb": {
+        "present": true,
+        "version": "4.3.1"
+      },
+      "h5py": {
+        "present": true,
+        "version": "3.16.0"
+      },
+      "numpy": {
+        "present": true,
+        "version": "2.4.6"
+      },
+      "pandas": {
+        "present": true,
+        "version": "3.0.3"
+      },
+      "scikit-learn": {
+        "present": true,
+        "version": "1.6.1"
+      },
+      "scipy": {
+        "present": true,
+        "version": "1.17.1"
+      }
+    },
+    "checkpoint_mapping_existing_only": true,
+    "smoke_test_passed": true,
+    "asset_staging_rerun": true,
+    "preflight_rerun": true
+  },
+  "blocked_steps": {
+    "dataset_download_or_staging": "No public dataset host resolves from this shell and no local dataset metadata/signals are present.",
+    "checkpoint_acquisition": "GitHub does not resolve from this shell and no checkpoint files are present.",
+    "fm_specific_packages": "torchvision and FM-specific packages are not importable; repository hosts do not resolve.",
+    "smallest_real_benchmark_slice": "Blocked because no real dataset and no FM checkpoint are available."
+  },
+  "preflight_ready_to_launch": false,
+  "preflight_blockers": [
+    "missing_open_dataset:D1:PTB-XL",
+    "missing_open_dataset:D3:CODE-15%",
+    "missing_open_dataset:D4:CPSC2018",
+    "missing_or_unloadable_checkpoint:M1:MERL",
+    "missing_or_unloadable_checkpoint:M2:ST-MEM",
+    "missing_or_unloadable_checkpoint:M3:HuBERT-ECG",
+    "missing_or_unloadable_checkpoint:M4:ECGFM-KED",
+    "missing_or_unloadable_checkpoint:M5:ECG-FM"
+  ],
+  "staged_datasets_available": false,
+  "staged_checkpoints_available": false,
+  "public_sources_network_available": false,
+  "real_metrics_produced": false,
+  "conclusion": "Core runtime imports and smoke-test execution now pass, but real ECG benchmarking remains blocked by absent/unreachable datasets and checkpoints."
+}

@@ -1,0 +1,302 @@
+{
+  "PTB-XL": {
+    "pareto_front": [
+      "MERL",
+      "ST-MEM",
+      "S4D"
+    ],
+    "composite": {
+      "alpha_0.5": {
+        "winner": "S4D",
+        "winner_score": 0.6501,
+        "last": "HuBERT-ECG",
+        "last_score": 0.3933,
+        "ranking": [
+          "S4D",
+          "MERL",
+          "ECGFM-KED",
+          "ECG-FM",
+          "ST-MEM",
+          "HuBERT-ECG"
+        ]
+      },
+      "alpha_0.7": {
+        "winner": "S4D",
+        "winner_score": 0.6985,
+        "last": "HuBERT-ECG",
+        "last_score": 0.5506,
+        "ranking": [
+          "S4D",
+          "MERL",
+          "ECG-FM",
+          "ECGFM-KED",
+          "ST-MEM",
+          "HuBERT-ECG"
+        ]
+      },
+      "alpha_0.9": {
+        "winner": "MERL",
+        "winner_score": 0.7812,
+        "last": "HuBERT-ECG",
+        "last_score": 0.7079,
+        "ranking": [
+          "MERL",
+          "ECG-FM",
+          "ST-MEM",
+          "S4D",
+          "ECGFM-KED",
+          "HuBERT-ECG"
+        ]
+      }
+    },
+    "points": {
+      "MERL": {
+        "auroc": 0.8278,
+        "ece": 0.0871
+      },
+      "ST-MEM": {
+        "auroc": 0.8377,
+        "ece": 0.1239
+      },
+      "HuBERT-ECG": {
+        "auroc": 0.7865,
+        "ece": 0.1365
+      },
+      "ECGFM-KED": {
+        "auroc": 0.7694,
+        "ece": 0.0792
+      },
+      "ECG-FM": {
+        "auroc": 0.8148,
+        "ece": 0.0882
+      },
+      "S4D": {
+        "auroc": 0.7712,
+        "ece": 0.0643
+      }
+    }
+  },
+  "CODE-15%": {
+    "pareto_front": [
+      "MERL",
+      "ST-MEM",
+      "S4D"
+    ],
+    "composite": {
+      "alpha_0.5": {
+        "winner": "S4D",
+        "winner_score": 0.6817,
+        "last": "HuBERT-ECG",
+        "last_score": 0.4389,
+        "ranking": [
+          "S4D",
+          "MERL",
+          "ST-MEM",
+          "ECG-FM",
+          "HuBERT-ECG"
+        ]
+      },
+      "alpha_0.7": {
+        "winner": "MERL",
+        "winner_score": 0.7215,
+        "last": "ECG-FM",
+        "last_score": 0.5442,
+        "ranking": [
+          "MERL",
+          "ST-MEM",
+          "S4D",
+          "HuBERT-ECG",
+          "ECG-FM"
+        ]
+      },
+      "alpha_0.9": {
+        "winner": "ST-MEM",
+        "winner_score": 0.8658,
+        "last": "ECG-FM",
+        "last_score": 0.627,
+        "ranking": [
+          "ST-MEM",
+          "MERL",
+          "HuBERT-ECG",
+          "S4D",
+          "ECG-FM"
+        ]
+      }
+    },
+    "points": {
+      "MERL": {
+        "auroc": 0.8645,
+        "ece": 0.0199
+      },
+      "ST-MEM": {
+        "auroc": 0.9477,
+        "ece": 0.0283
+      },
+      "HuBERT-ECG": {
+        "auroc": 0.8777,
+        "ece": 0.0325
+      },
+      "ECG-FM": {
+        "auroc": 0.6684,
+        "ece": 0.0242
+      },
+      "S4D": {
+        "auroc": 0.6848,
+        "ece": 0.0104
+      }
+    }
+  },
+  "CPSC2018": {
+    "pareto_front": [
+      "MERL",
+      "ST-MEM",
+      "S4D"
+    ],
+    "composite": {
+      "alpha_0.5": {
+        "winner": "MERL",
+        "winner_score": 0.7151,
+        "last": "HuBERT-ECG",
+        "last_score": 0.4379,
+        "ranking": [
+          "MERL",
+          "S4D",
+          "ECGFM-KED",
+          "ST-MEM",
+          "ECG-FM",
+          "HuBERT-ECG"
+        ]
+      },
+      "alpha_0.7": {
+        "winner": "MERL",
+        "winner_score": 0.793,
+        "last": "HuBERT-ECG",
+        "last_score": 0.6131,
+        "ranking": [
+          "MERL",
+          "ST-MEM",
+          "ECGFM-KED",
+          "S4D",
+          "ECG-FM",
+          "HuBERT-ECG"
+        ]
+      },
+      "alpha_0.9": {
+        "winner": "ST-MEM",
+        "winner_score": 0.8881,
+        "last": "S4D",
+        "last_score": 0.7768,
+        "ranking": [
+          "ST-MEM",
+          "MERL",
+          "ECG-FM",
+          "ECGFM-KED",
+          "HuBERT-ECG",
+          "S4D"
+        ]
+      }
+    },
+    "points": {
+      "MERL": {
+        "auroc": 0.9098,
+        "ece": 0.0243
+      },
+      "ST-MEM": {
+        "auroc": 0.9501,
+        "ece": 0.0339
+      },
+      "HuBERT-ECG": {
+        "auroc": 0.8758,
+        "ece": 0.0506
+      },
+      "ECGFM-KED": {
+        "auroc": 0.8213,
+        "ece": 0.0251
+      },
+      "ECG-FM": {
+        "auroc": 0.8466,
+        "ece": 0.0323
+      },
+      "S4D": {
+        "auroc": 0.8029,
+        "ece": 0.0232
+      }
+    }
+  },
+  "MIMIC-IV-ECG": {
+    "pareto_front": [
+      "MERL",
+      "S4D"
+    ],
+    "composite": {
+      "alpha_0.5": {
+        "winner": "S4D",
+        "winner_score": 0.6923,
+        "last": "HuBERT-ECG",
+        "last_score": 0.3974,
+        "ranking": [
+          "S4D",
+          "MERL",
+          "ECGFM-KED",
+          "ST-MEM",
+          "ECG-FM",
+          "HuBERT-ECG"
+        ]
+      },
+      "alpha_0.7": {
+        "winner": "S4D",
+        "winner_score": 0.7328,
+        "last": "HuBERT-ECG",
+        "last_score": 0.5564,
+        "ranking": [
+          "S4D",
+          "MERL",
+          "ST-MEM",
+          "ECGFM-KED",
+          "ECG-FM",
+          "HuBERT-ECG"
+        ]
+      },
+      "alpha_0.9": {
+        "winner": "MERL",
+        "winner_score": 0.8049,
+        "last": "ECGFM-KED",
+        "last_score": 0.6992,
+        "ranking": [
+          "MERL",
+          "ST-MEM",
+          "S4D",
+          "ECG-FM",
+          "HuBERT-ECG",
+          "ECGFM-KED"
+        ]
+      }
+    },
+    "points": {
+      "MERL": {
+        "auroc": 0.8605,
+        "ece": 0.0738
+      },
+      "ST-MEM": {
+        "auroc": 0.8537,
+        "ece": 0.0801
+      },
+      "HuBERT-ECG": {
+        "auroc": 0.7948,
+        "ece": 0.1062
+      },
+      "ECGFM-KED": {
+        "auroc": 0.732,
+        "ece": 0.0633
+      },
+      "ECG-FM": {
+        "auroc": 0.7713,
+        "ece": 0.0756
+      },
+      "S4D": {
+        "auroc": 0.7934,
+        "ece": 0.0434
+      }
+    }
+  }
+}

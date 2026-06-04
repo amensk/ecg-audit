@@ -1,0 +1,432 @@
+{
+  "generated_at": "2026-05-29T18:26:20",
+  "stage": "05_experimentation",
+  "attempt": "recalibration_gradient_refinement",
+  "real_open_dataset_full_benchmark": {
+    "attempted": true,
+    "ready_to_launch": false,
+    "launch_executed": false,
+    "blockers": [
+      "missing_open_dataset:D4:CPSC2018",
+      "missing_or_unloadable_checkpoint:M1:MERL",
+      "missing_or_unloadable_checkpoint:M2:ST-MEM",
+      "missing_or_unloadable_checkpoint:M3:HuBERT-ECG",
+      "missing_or_unloadable_checkpoint:M4:ECGFM-KED",
+      "missing_or_unloadable_checkpoint:M5:ECG-FM"
+    ],
+    "blocker_count": 6,
+    "scope": "Full requested benchmark across PTB-XL, MIMIC-IV-ECG, CODE-15%, CPSC2018 and all five FMs remains blocked.",
+    "note": "The ST-MEM pilot checkpoint is verified through the pilot script, but the full run_all wrapper still lacks its expected ST-MEM checkpoint/package path."
+  },
+  "minimal_real_pilot": {
+    "executed": true,
+    "status": "completed",
+    "scope": "PTB-XL and CODE-15%, 120 records per dataset, S4-lite baseline, verified ST-MEM frozen linear probe, Platt recalibration",
+    "datasets": [
+      "D1:PTB-XL",
+      "D3:CODE-15%"
+    ],
+    "models": [
+      "M6_s4_lite",
+      "M2_stmem_probe"
+    ],
+    "recalibration_methods": [
+      "platt_scaling"
+    ],
+    "evidence_boundary": "Real ECG feasibility evidence only; not publication-grade and not sufficient to settle H1-H6."
+  },
+  "expanded_real_pilot": {
+    "executed": true,
+    "status": "completed",
+    "generated_at": "2026-05-29T17:45:55",
+    "scope": "PTB-XL and CODE-15%, 1000 records per dataset, S4-lite baseline, verified ST-MEM frozen linear probe, guarded Platt recalibration, per-class DeLong diagnostics",
+    "datasets": [
+      {
+        "dataset_id": "D1",
+        "dataset_name": "PTB-XL",
+        "n_loaded": 1000,
+        "n_train": 604,
+        "n_cal": 203,
+        "n_test": 193,
+        "leakage_overlap_counts": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        }
+      },
+      {
+        "dataset_id": "D3",
+        "dataset_name": "CODE-15%",
+        "n_loaded": 1000,
+        "n_train": 599,
+        "n_cal": 201,
+        "n_test": 200,
+        "leakage_overlap_counts": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        }
+      }
+    ],
+    "models": [
+      "M6_s4_lite",
+      "M2_stmem_probe"
+    ],
+    "recalibration_methods": [
+      "guarded_platt_scaling"
+    ],
+    "rare_label_guards": {
+      "min_cal_pos": 10,
+      "min_cal_neg": 10,
+      "min_test_pos": 10,
+      "min_test_neg": 10
+    },
+    "summary_rows": 8,
+    "delong_rows": 22,
+    "nominal_degradation_rows": [
+      {
+        "dataset_id": "D3",
+        "dataset_name": "CODE-15%",
+        "model_id": "M6_s4_lite",
+        "model_name": "S4-lite expanded real pilot",
+        "recal_method": "guarded_platt_scaling",
+        "class_name": "LBBB",
+        "status": "computed",
+        "platt_status": "fit",
+        "test_pos": "15",
+        "test_neg": "185",
+        "auc_raw": "0.609009009009009",
+        "auc_platt": "0.390990990990991",
+        "raw_minus_platt_auc": "0.218018018018018",
+        "platt_minus_raw_auc": "-0.218018018018018",
+        "z_statistic": "2.3476928362791627",
+        "p_value": "0.018890092117333505",
+        "nominal_significant_degradation": "True"
+      }
+    ],
+    "key_outcome": "Guarded Platt reduced ECE in all four expanded pilot cells. PTB-XL ST-MEM AUROC collapse from the 120-record pilot did not recur; one CODE-15% S4-lite LBBB class retained nominal AUROC degradation after Platt."
+  },
+  "dependency_status": {
+    "numpy": true,
+    "pandas": true,
+    "scipy": true,
+    "sklearn": true,
+    "torch": true,
+    "wfdb": true,
+    "h5py": true,
+    "matplotlib": true,
+    "note": "Core dependencies import in the current environment; remaining full-benchmark blockers are assets, checkpoints, task definitions, and model-adapter verification."
+  },
+  "smoke_test": {
+    "executed": true,
+    "passed": 8,
+    "failed": 0,
+    "checks": [
+      "splitting",
+      "normalization",
+      "evaluation",
+      "recalibration_temperature_scaling",
+      "recalibration_platt_scaling",
+      "recalibration_isotonic_regression",
+      "recalibration_learned_mlp_head",
+      "linear_probe",
+      "s4d_forward_pass",
+      "statistical_tests",
+      "visualization"
+    ],
+    "summary_line": "Results: 8 passed, 0 failed out of 8 tests",
+    "limitations": "Synthetic smoke test only; it does not establish real ECG model performance."
+  },
+  "available_result_evidence": {
+    "synthetic_phase_a_cells": 18,
+    "synthetic_phase_b_cells": 60,
+    "synthetic_h4_ablation_scope": "5 FM proxies x 2 datasets x 4 methods x 6 size settings x 5 repetitions",
+    "real_pilot_summary_rows": 8,
+    "expanded_real_pilot_summary_rows": 8,
+    "expanded_real_pilot_delong_rows": 22,
+    "real_ecg_results_available": true,
+    "publication_grade_real_ecg_results_available": false
+  },
+  "configured_s4d_real_pilot": {
+    "executed": true,
+    "status": "completed",
+    "generated_at": "2026-05-29T17:56:47",
+    "scope": "PTB-XL + CODE-15%, same 1000-record pilot, configured S4D architecture with constrained hyperparameter search, guarded Platt recalibration, per-class DeLong diagnostics",
+    "publication_grade": false,
+    "parameters": {
+      "max_records": 1000,
+      "learning_rates": [
+        0.0003,
+        0.001
+      ],
+      "weight_decays": [
+        0.0001
+      ],
+      "max_epochs": 6,
+      "patience": 2,
+      "batch_size": 64,
+      "min_cal_pos": 10,
+      "min_cal_neg": 10,
+      "min_test_pos": 10,
+      "min_test_neg": 10
+    },
+    "datasets": [
+      {
+        "dataset_id": "D1",
+        "dataset_name": "PTB-XL",
+        "n_loaded": 1000,
+        "n_train": 604,
+        "n_cal": 203,
+        "n_test": 193,
+        "leakage_overlap_counts": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        }
+      },
+      {
+        "dataset_id": "D3",
+        "dataset_name": "CODE-15%",
+        "n_loaded": 1000,
+        "n_train": 599,
+        "n_cal": 201,
+        "n_test": 200,
+        "leakage_overlap_counts": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        }
+      }
+    ],
+    "selected_configs": {
+      "D1": {
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "best_cal_auroc": 0.7053539422394374,
+        "architecture": {
+          "class": "S4DModel",
+          "n_leads": 12,
+          "d_model": 128,
+          "d_state": 64,
+          "n_layers": 4,
+          "dropout": 0.1,
+          "n_classes": 5
+        }
+      },
+      "D3": {
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "best_cal_auroc": 0.5829104009321606,
+        "architecture": {
+          "class": "S4DModel",
+          "n_leads": 12,
+          "d_model": 128,
+          "d_state": 64,
+          "n_layers": 4,
+          "dropout": 0.1,
+          "n_classes": 6
+        }
+      }
+    },
+    "summary_rows": 4,
+    "comparison_rows": 8,
+    "delong_rows": 11,
+    "nominal_degradation_rows": [
+      {
+        "dataset_id": "D3",
+        "dataset_name": "CODE-15%",
+        "model_id": "M6_s4d_configured",
+        "model_name": "Configured S4D constrained pilot",
+        "recal_method": "guarded_platt_scaling",
+        "class_name": "RBBB",
+        "status": "computed",
+        "platt_status": "fit",
+        "test_pos": "19",
+        "test_neg": "181",
+        "auc_raw": "0.6673451584763013",
+        "auc_platt": "0.33265484152369873",
+        "raw_minus_platt_auc": "0.33469031695260254",
+        "platt_minus_raw_auc": "-0.33469031695260254",
+        "z_statistic": "2.5252003555651",
+        "p_value": "0.011563234424058514",
+        "nominal_significant_degradation": "True"
+      },
+      {
+        "dataset_id": "D3",
+        "dataset_name": "CODE-15%",
+        "model_id": "M6_s4d_configured",
+        "model_name": "Configured S4D constrained pilot",
+        "recal_method": "guarded_platt_scaling",
+        "class_name": "LBBB",
+        "status": "computed",
+        "platt_status": "fit",
+        "test_pos": "15",
+        "test_neg": "185",
+        "auc_raw": "0.66990990990991",
+        "auc_platt": "0.33009009009009005",
+        "raw_minus_platt_auc": "0.3398198198198199",
+        "platt_minus_raw_auc": "-0.3398198198198199",
+        "z_statistic": "3.648302966248082",
+        "p_value": "0.0002639782375483502",
+        "nominal_significant_degradation": "True"
+      }
+    ],
+    "key_outcome": "Configured S4D improved on the earlier S4-lite pilot, but ST-MEM retained higher AUROC and Brier performance on both pilot datasets. Guarded Platt reduced CODE-15% S4D ECE but caused significant per-class AUROC degradation for RBBB and LBBB."
+  },
+  "monotone_recalibration_pilot": {
+    "executed": true,
+    "status": "completed",
+    "generated_at": "2026-05-29T18:11:55",
+    "scope": "Same 1000-record PTB-XL + CODE-15% pilot; S4D predictions reused from configured S4D run; ST-MEM probe recomputed; Platt accepted only with nonnegative slope, otherwise temperature scaling fallback",
+    "publication_grade": false,
+    "parameters": {
+      "max_records": 1000,
+      "min_cal_pos": 10,
+      "min_cal_neg": 10,
+      "min_test_pos": 10,
+      "min_test_neg": 10,
+      "min_platt_slope": 0.0
+    },
+    "summary_rows": 8,
+    "param_rows": 22,
+    "delong_rows": 22,
+    "temperature_fallback_rows": [
+      {
+        "dataset_id": "D3",
+        "dataset_name": "CODE-15%",
+        "model_id": "M6_s4d_configured",
+        "model_name": "Configured S4D constrained pilot",
+        "class_index": "1",
+        "class_name": "RBBB",
+        "status": "fallback_temperature_negative_platt_slope",
+        "used_method": "temperature_scaling",
+        "platt_slope": "-1.1169544965407074",
+        "platt_intercept": "-4.640242644552604",
+        "temperature": "1.1906681520676108",
+        "cal_pos": "24",
+        "cal_neg": "177",
+        "test_pos": "19",
+        "test_neg": "181"
+      },
+      {
+        "dataset_id": "D3",
+        "dataset_name": "CODE-15%",
+        "model_id": "M6_s4d_configured",
+        "model_name": "Configured S4D constrained pilot",
+        "class_index": "2",
+        "class_name": "LBBB",
+        "status": "fallback_temperature_negative_platt_slope",
+        "used_method": "temperature_scaling",
+        "platt_slope": "-0.02163393637843608",
+        "platt_intercept": "-2.2551582964101184",
+        "temperature": "1.1070368546461093",
+        "cal_pos": "20",
+        "cal_neg": "181",
+        "test_pos": "15",
+        "test_neg": "185"
+      }
+    ],
+    "nominal_degradation_rows": [],
+    "key_outcome": "Negative S4D CODE-15% Platt slopes for RBBB and LBBB were routed to temperature scaling; all 22 raw-vs-monotone DeLong comparisons had unchanged AUROC and no nominal significant degradation."
+  },
+  "recalibration_gradient_pilot": {
+    "executed": true,
+    "status": "completed",
+    "generated_at": "2026-05-29T18:26:20",
+    "scope": "Same 1000-record PTB-XL + CODE-15% pilot; configured S4D and ST-MEM; compares monotone Platt/temperature safety baseline, isotonic regression, and learned MLP head.",
+    "publication_grade": false,
+    "methods": [
+      "monotone_platt_or_temperature",
+      "isotonic_regression",
+      "learned_mlp_head"
+    ],
+    "summary_rows": 16,
+    "method_ranking_rows": 12,
+    "delong_rows": 66,
+    "h3_gap_closure_rows": 6,
+    "nominal_degradation_rows": [
+      {
+        "dataset_id": "D1",
+        "dataset_name": "PTB-XL",
+        "model_id": "M6_s4d_configured",
+        "model_name": "Configured S4D constrained pilot",
+        "recal_method": "isotonic_regression",
+        "class_name": "STTC",
+        "status": "computed",
+        "test_pos": "45",
+        "test_neg": "148",
+        "auc_raw": "0.7253753753753754",
+        "auc_recal": "0.7040540540540542",
+        "raw_minus_recal_auc": "0.02132132132132125",
+        "recal_minus_raw_auc": "-0.02132132132132125",
+        "z_statistic": "2.0973259130972286",
+        "p_value": "0.03596473448018194",
+        "nominal_significant_degradation": "True"
+      },
+      {
+        "dataset_id": "D1",
+        "dataset_name": "PTB-XL",
+        "model_id": "M6_s4d_configured",
+        "model_name": "Configured S4D constrained pilot",
+        "recal_method": "isotonic_regression",
+        "class_name": "HYP",
+        "status": "computed",
+        "test_pos": "18",
+        "test_neg": "175",
+        "auc_raw": "0.8888888888888888",
+        "auc_recal": "0.8457142857142858",
+        "raw_minus_recal_auc": "0.04317460317460309",
+        "recal_minus_raw_auc": "-0.04317460317460309",
+        "z_statistic": "2.3004274120260644",
+        "p_value": "0.021424017309071345",
+        "nominal_significant_degradation": "True"
+      },
+      {
+        "dataset_id": "D3",
+        "dataset_name": "CODE-15%",
+        "model_id": "M6_s4d_configured",
+        "model_name": "Configured S4D constrained pilot",
+        "recal_method": "learned_mlp_head",
+        "class_name": "LBBB",
+        "status": "computed",
+        "test_pos": "15",
+        "test_neg": "185",
+        "auc_raw": "0.66990990990991",
+        "auc_recal": "0.5304504504504504",
+        "raw_minus_recal_auc": "0.1394594594594596",
+        "recal_minus_raw_auc": "-0.1394594594594596",
+        "z_statistic": "1.986647358398567",
+        "p_value": "0.04696148919385011",
+        "nominal_significant_degradation": "True"
+      },
+      {
+        "dataset_id": "D3",
+        "dataset_name": "CODE-15%",
+        "model_id": "M2_stmem_probe",
+        "model_name": "ST-MEM frozen linear probe expanded real pilot",
+        "recal_method": "learned_mlp_head",
+        "class_name": "1dAVb",
+        "status": "computed",
+        "test_pos": "11",
+        "test_neg": "189",
+        "auc_raw": "0.9634439634439635",
+        "auc_recal": "0.8961038961038961",
+        "raw_minus_recal_auc": "0.06734006734006748",
+        "recal_minus_raw_auc": "-0.06734006734006748",
+        "z_statistic": "2.0348731108307634",
+        "p_value": "0.04186364222203575",
+        "nominal_significant_degradation": "True"
+      }
+    ],
+    "best_by_ece_counts": {
+      "isotonic_regression": 2,
+      "monotone_platt_or_temperature": 1,
+      "learned_mlp_head": 1
+    },
+    "best_by_brier_counts": {
+      "learned_mlp_head": 1,
+      "monotone_platt_or_temperature": 3
+    },
+    "key_outcome": "Monotone Platt/temperature remained the safest method for H6; isotonic and learned MLP sometimes improved ECE but introduced nominal AUROC-degradation flags in this small-calibration pilot."
+  }
+}

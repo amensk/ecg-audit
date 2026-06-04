@@ -1,0 +1,10 @@
+claim_area,evidence_class,current_status,analysis_note
+C1 calibration blind spot,literature + implemented pipeline,"supported as motivation, not dependent on pilot",Prior benchmarks omitted calibration; current code can report ECE/Brier/reliability outputs.
+H1 FMs worse calibrated than S4,real pilot,not supported in pilot; unresolved for full study,"ST-MEM had lower ECE and Brier than S4-lite on PTB-XL and CODE-15%, but baseline/sample are non-publication-grade."
+H2 FM underconfidence,real pilot,unresolved,ST-MEM SCE was near zero before Platt; sample too small and only one FM.
+H3 recalibration closes calibration gap,real pilot + synthetic validation,mechanism plausible but not established,"Platt reduced ECE in all four real pilot cells, but ST-MEM PTB-XL suffered AUROC collapse and Brier worsened after Platt."
+"H4 MLP best at large n, weak at small n",synthetic validation only,not supported by available outputs,Synthetic H4 favored Platt/isotonic; no real MLP ablation has been run.
+H5 cross-dataset generalization,synthetic validation + limited pilot,unresolved for real ECG,Two real datasets and one FM cannot establish rank/direction generalization.
+H6 AUROC preservation,real pilot + synthetic validation,actively cautioned,PTB-XL ST-MEM Platt AUROC changed from 0.727 to 0.273; synthetic tests also showed significant degradation cases.
+C2 deployable recalibration intervention,derived paper claim,unsupported for paper narrative at present,"Must wait for full-size real calibration, all methods, and DeLong/Brier sensitivity results."
+C3 S4 competitiveness,real pilot,not demonstrated by pilot,S4-lite underperformed ST-MEM on both pilot datasets; full S4D is still required.

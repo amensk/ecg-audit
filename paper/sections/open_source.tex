@@ -1,0 +1,107 @@
+\section{Open-Source Tooling: ecg-audit}
+\label{sec:open_source}
+
+We release \texttt{ecg-audit}, a pip-installable Python package that provides
+one-command calibration auditing for ECG foundation models, open-sourced at
+\url{https://github.com/amensk/ecg-audit}. The package is implemented and unit-tested
+(14 tests covering metrics, recalibration, and clinical utility); all analysis scripts are
+available in \texttt{benchmark/} and the machine-readable result artifacts in \texttt{results/}.
+
+\subsection{Package Description}
+
+\texttt{ecg-audit} provides the following functionality:
+\begin{itemize}
+  \item \textbf{Calibration metrics}: ECE (equal-width and adaptive), SCE, Brier score,
+    macro-averaged and per-class.
+  \item \textbf{Recalibration methods}: temperature scaling, Platt scaling, isotonic
+    regression, PhysioCalib (severity-weighted isotonic), MLP head.
+  \item \textbf{Decision-curve analysis}: net benefit computation at arbitrary thresholds.
+  \item \textbf{Subgroup analysis}: calibration by demographic subgroup.
+  \item \textbf{Reliability diagrams}: publication-quality reliability diagram generation.
+  \item \textbf{Leaderboard scaffold}: structured JSON output for community leaderboard
+    population.
+\end{itemize}
+
+\subsection{CLI Example}
+
+\begin{lstlisting}[language=bash, basicstyle=\ttfamily\small, frame=single]
+# Audit predictions for three conditions
+ecg-audit audit predictions.csv \
+  --conditions MI,STTC,NORM \
+  --output results/audit_report.json \
+  --plot reliability_diagrams/
+
+# Recalibrate with isotonic regression
+ecg-audit recalibrate \
+  --method isotonic \
+  --cal-data cal_predictions.csv \
+  --test-data test_predictions.csv \
+  --output recalibrated_preds.csv
+\end{lstlisting}
+
+\subsection{Python API Example}
+
+\begin{lstlisting}[language=python, basicstyle=\ttfamily\small, frame=single]
+from ecg_audit import CalibrationAuditor, PhysioCalib
+
+# Load predictions and labels
+import numpy as np
+probs = np.load("predictions.npy")   # (n, n_classes)
+labels = np.load("labels.npy")       # (n, n_classes)
+classes = ["NORM", "MI", "STTC", "CD", "HYP"]
+
+# Audit raw calibration
+auditor = CalibrationAuditor(classes=classes)
+report = auditor.audit(probs, labels)
+print(report.macro_ece, report.macro_sce)
+
+# Apply PhysioCalib
+weights = {"MI": 3.0, "STTC": 2.0, "CD": 1.5, "HYP": 1.2, "NORM": 0.5}
+pc = PhysioCalib(severity_weights=weights)
+pc.fit(probs_cal, labels_cal, classes)
+probs_calibrated = pc.predict(probs_test)
+\end{lstlisting}
+
+\subsection{Leaderboard: Current State}
+
+Table~\ref{tab:leaderboard} shows the current leaderboard state based on this benchmark.
+
+\begin{table}[h]
+\centering
+\caption{ecg-audit leaderboard (current state), PTB-XL.
+  $C(\alpha)=\alpha\cdot\mathrm{AUROC}+(1{-}\alpha)(1{-}\mathrm{ECE}/\mathrm{ECE}_{\max})$,
+  $\alpha=0.7$, $\mathrm{ECE}_{\max}=0.136$. Rows sorted by $C(0.7)$ raw, descending.
+  Note how recalibration reorders the table: ST-MEM is 5th on raw probabilities but 1st
+  after isotonic recalibration.}
+\label{tab:leaderboard}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Model & PTB-XL & PTB-XL & CPSC & $C(0.7)$ & $C(0.7)$ \\
+      & AUROC  & ECE    & AUROC & (raw)    & (post-iso) \\
+\midrule
+S4D        & 0.771 & 0.064 & 0.803 & \textbf{0.699} & 0.714 \\
+MERL       & 0.828 & 0.087 & 0.910 & 0.688 & 0.771 \\
+ECG-FM     & 0.815 & 0.088 & 0.847 & 0.676 & 0.774 \\
+ECGFM-KED  & 0.769 & 0.079 & 0.821 & 0.664 & 0.771 \\
+ST-MEM     & 0.838 & 0.124 & 0.950 & 0.614 & \textbf{0.789} \\
+HuBERT-ECG & 0.787 & 0.136 & 0.876 & 0.551 & 0.763 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Reproducibility}
+
+All frozen feature representations are cached as \texttt{.npy} files
+(e.g.\ $2000\!\times\!512$ for MERL and $2000\!\times\!768$ for ST-MEM/HuBERT-ECG on PTB-XL;
+$6877\!\times\!d$ for CPSC2018; ${\sim}8000\!\times\!d$ for the expanded CODE-15\% sample).
+Primary benchmark outputs are in \texttt{results/benchmark\_v2\_results.json} (with bootstrap
+CIs and per-class support) and \texttt{benchmark\_v2\_summary.csv}.
+Analysis scripts are in \texttt{benchmark/} and cover feature extraction (including the
+HuBERT-ECG \texttt{safetensors} loader), the consolidated benchmark, the CODE-15\% expansion,
+feature geometry, Pareto analysis, decision-curve analysis, subgroup analysis,
+calibration-set size curves, reliability diagrams, and PhysioCalib.
+
+The leaderboard accepts new model entries without code changes. Any practitioner with a
+predictions CSV can generate a leaderboard entry using the \texttt{ecg-audit submit} CLI
+command, enabling community-driven calibration reporting for new ECG FM checkpoints.

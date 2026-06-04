@@ -1,0 +1,65 @@
+% AutoR venue: jmlr
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multirow}
+\usepackage{array}
+\setlength{\emergencystretch}{4em}
+
+\input{math_commands}
+
+\title{When Better Rankings Mean Worse Probabilities:\\
+A Calibration Audit of ECG Foundation Models}
+\author{AutoR Research Workflow}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+\input{sections/abstract}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{figures/fig0_graphical_abstract.pdf}
+  \caption*{\small\textbf{Graphical Abstract.}
+    The calibration audit pipeline: ECG recordings are processed by frozen FM
+    encoders or a supervised S4D baseline to produce risk probabilities.
+    Phase~A audits discrimination (AUROC) and calibration (ECE, SCE) jointly,
+    revealing a model-specific discrimination--calibration tradeoff on multi-label PTB-XL.
+    Phase~B applies post-hoc recalibration (Platt, isotonic, PhysioCalib), improves ECE
+    by 43--71\%, and feeds the recalibrated probabilities into clinical decision-curve
+    analysis. Model selection is guided by the Pareto frontier and composite score
+    $C(\alpha)$, which changes the recommended model depending on the practitioner's
+    calibration--discrimination preference.}
+  \label{fig:graphical-abstract}
+\end{figure*}
+
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/method}
+\input{sections/experiments}
+\input{sections/results}
+\input{sections/clinical_utility}
+\input{sections/extended_analyses}
+\input{sections/open_source}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

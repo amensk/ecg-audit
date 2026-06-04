@@ -1,0 +1,23 @@
+dataset_id,dataset_name,model_id,model_name,recal_method,class_name,status,platt_status,test_pos,test_neg,auc_raw,auc_platt,raw_minus_platt_auc,platt_minus_raw_auc,z_statistic,p_value,nominal_significant_degradation
+D1,PTB-XL,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,NORM,computed,fit,108,85,0.6724400871459694,0.6724400871459694,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,MI,computed,fit,25,168,0.606904761904762,0.606904761904762,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,STTC,computed,fit,45,148,0.6993993993993994,0.6993993993993994,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,CD,computed,fit,40,153,0.5454248366013071,0.5454248366013071,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,HYP,computed,fit,18,175,0.8463492063492064,0.8463492063492064,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,NORM,computed,fit,108,85,0.930718954248366,0.930718954248366,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,MI,computed,fit,25,168,0.8438095238095238,0.8438095238095238,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,STTC,computed,fit,45,148,0.9061561561561562,0.9061561561561562,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,CD,computed,fit,40,153,0.8601307189542484,0.8601307189542484,0.0,-0.0,0.0,1.0,False
+D1,PTB-XL,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,HYP,computed,fit,18,175,0.8555555555555555,0.8555555555555555,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,1dAVb,computed,fit,11,189,0.4843674843674844,0.5156325156325157,-0.03126503126503127,0.03126503126503127,-0.1500628464746151,0.8807150322227447,False
+D3,CODE-15%,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,RBBB,computed,fit,19,181,0.45187554521663276,0.5481244547833672,-0.09624890956673449,0.09624890956673449,-0.8550980480082632,0.39249687015719414,False
+D3,CODE-15%,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,LBBB,computed,fit,15,185,0.609009009009009,0.390990990990991,0.218018018018018,-0.218018018018018,2.3476928362791627,0.018890092117333505,True
+D3,CODE-15%,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,SB,computed,fit,14,186,0.5349462365591398,0.4650537634408602,0.06989247311827956,-0.06989247311827956,0.3813313568964918,0.7029573888397491,False
+D3,CODE-15%,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,ST,computed,fit,19,181,0.542018028496656,0.542018028496656,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M6_s4_lite,S4-lite expanded real pilot,guarded_platt_scaling,AF,computed,fit,21,179,0.4208566108007449,0.4208566108007449,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,1dAVb,computed,fit,11,189,0.9634439634439635,0.9634439634439635,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,RBBB,computed,fit,19,181,0.9979645245710963,0.9979645245710963,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,LBBB,computed,fit,15,185,0.9819819819819819,0.9819819819819819,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,SB,computed,fit,14,186,0.9900153609831029,0.9900153609831029,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,ST,computed,fit,19,181,0.992148880488514,0.992148880488514,0.0,-0.0,0.0,1.0,False
+D3,CODE-15%,M2_stmem_probe,ST-MEM frozen linear probe expanded real pilot,guarded_platt_scaling,AF,computed,fit,21,179,0.9960095770151637,0.9960095770151637,0.0,-0.0,0.0,1.0,False

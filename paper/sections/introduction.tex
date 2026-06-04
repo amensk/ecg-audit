@@ -1,0 +1,107 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Consider a clinical decision support system that alerts physicians to potential myocardial
+infarction. The system reports a risk probability of 0.80 for every patient who eventually
+receives an MI diagnosis --- but it also reports 0.80 for 30\% of healthy patients. Its AUROC
+is excellent; it correctly ranks patients by risk. Yet its probabilities are useless for
+threshold-based decision making, because a physician who trusts the 0.80 output will either
+over-treat or under-treat depending on the threshold. AUROC is blind to this failure.
+Probability calibration is not. This gap --- between how models are benchmarked and how they
+are used clinically --- is the problem this paper addresses.
+
+ECG foundation models (FMs) have rapidly expanded the capability of automated cardiac
+analysis. Models such as ST-MEM~\citep{na2024stmem}, MERL~\citep{liu2024merl},
+HuBERT-ECG~\citep{hubertecg2024}, ECGFM-KED~\citep{ecgfmked2024}, and
+ECG-FM~\citep{mckeen2024ecgfm} leverage large-scale ECG pretraining to produce frozen
+representations that transfer to downstream classification tasks via simple linear probes.
+The BenchECG evaluation suite~\citep{lunelli2025benchecg} and the ``beyond accuracy''
+benchmark~\citep{filice2026beyond} have standardized AUROC and F1 comparisons across
+these models. Yet neither benchmark systematically reports calibration metrics (ECE, Brier
+score, signed calibration error) or post-hoc recalibration results. When models are
+deployed for multi-label cardiac risk stratification --- where probability outputs feed
+directly into alert thresholds --- this omission is a patient-safety concern.
+
+\paragraph{What we found.}
+This paper presents the first calibration audit of ECG FMs, spanning 24 model$\times$dataset
+cells across four public datasets. Four findings emerged from the data:
+
+\begin{enumerate}
+  \item \textbf{Higher discrimination, worse calibration on PTB-XL.} ST-MEM achieves the
+    highest AUROC (0.838) yet poor calibration (ECE 0.124), and the masked-prediction
+    HuBERT-ECG is the worst calibrated (ECE 0.136). All five foundation models beat the
+    supervised S4D baseline on AUROC but trail its calibration (ECE 0.064) by 0.015--0.072.
+    The discrimination--calibration tradeoff is systematic, not random.
+
+  \item \textbf{The tradeoff disappears on single-label arrhythmia tasks.} On CPSC2018,
+    CODE-15\%, and MIMIC-IV-ECG, all six encoders are comparatively well-calibrated and
+    high-AUROC models are \emph{also} well-calibrated. Task structure---multi-label vs.\
+    single-label---rather than model architecture drives calibration difficulty.
+
+  \item \textbf{Within-domain pretraining is not sufficient.} On MIMIC-IV-ECG, ECG-FM---
+    which was \emph{pretrained on MIMIC-IV-ECG}---reaches only AUROC 0.771, behind MERL
+    (0.861) and ST-MEM (0.854) in all 10 resplits, and merely on par with the supervised
+    S4D baseline (0.793; the two are statistically tied). Backbone domain alignment does not
+    guarantee the best linear-probe performance.
+
+  \item \textbf{Pretraining objective leaves a calibration signature.} MERL (contrastive
+    InfoNCE) shows the strongest underconfidence on PTB-XL ($\text{SCE}=-0.003$);
+    masked-prediction models (ST-MEM, HuBERT-ECG) are near-neutral ($\text{SCE}\approx0$);
+    and knowledge-enhanced, hybrid, and supervised models are mildly overconfident
+    ($\text{SCE}=+0.007$--$+0.008$). Feature geometry tracks this: MERL's contrastive
+    objective yields extreme feature spread (std of L2 norms 34.8 vs.\ 0.23 for ST-MEM),
+    while HuBERT-ECG has the highest class separation (0.046) and the highest ECE.
+\end{enumerate}
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item \textbf{Calibration benchmark:} A 24-cell AUROC--ECE--SCE--Brier evaluation of five
+    ECG FMs and a supervised S4D baseline across PTB-XL, CPSC2018, CODE-15\%, and
+    MIMIC-IV-ECG, with patient-level splits, per-class multi-label calibration evaluation,
+    minimum-support filtering, and bootstrap 95\% confidence intervals on every headline
+    metric. All results are machine-readable and reproducible from cached features.
+
+  \item \textbf{Pareto frontier and composite scoring:} We formally define the AUROC--ECE
+    Pareto frontier and a composite score $C(\alpha) = \alpha \cdot \text{AUROC}
+    + (1-\alpha)(1 - \text{ECE}/\text{ECE}_{\max})$ that lets practitioners trade off
+    discrimination and calibration explicitly. On PTB-XL, \textbf{S4D ranks first} at
+    $\alpha=0.7$ (score 0.699) and MERL at $\alpha=0.9$ (0.781), while ST-MEM---the AUROC
+    leader---falls to 5th of 6 (0.614) and HuBERT-ECG ranks \emph{last} (0.551). After
+    isotonic recalibration the ordering inverts: ST-MEM rises to \emph{first} ($C(0.7)=0.789$),
+    showing that recalibration changes the recommended model. On CODE-15\%, CPSC2018, and
+    MIMIC-IV-ECG, MERL, ST-MEM, and S4D form the Pareto front.
+
+  \item \textbf{RankSafe-Cal:} A recalibration wrapper that selects, per class, the
+    lowest-ECE calibrator whose out-of-sample AUROC loss is within a tolerance $\epsilon$,
+    turning ``calibration can hurt AUROC'' into an explicit constraint. It recovers most of
+    isotonic's ECE reduction (PTB-XL $0.097\!\to\!0.054$) at $\sim$6$\times$ smaller AUROC cost,
+    and on MIMIC-IV-ECG dominates unconstrained isotonic on both axes
+    (Section~\ref{sec:ranksafe}).
+
+  \item \textbf{Reliability stress tests:} (i) Cross-dataset calibration \emph{transfer}---a
+    calibrator ported across cohorts succeeds in only 9--42\% of endpoint/model pairs, so
+    calibration is largely deployment-context-specific; and (ii) split-conformal prediction,
+    which attains its $90\%$ coverage guarantee on every endpoint and complements recalibration
+    with finite-sample coverage. We also add proper scores (NLL), calibration slope/intercept,
+    a mechanistic ECE regression, multi-seed robustness, and all-model subgroup audits.
+
+  \item \textbf{PhysioCalib:} A severity-weighted isotonic calibration method that allocates
+    more correction to high-stakes conditions (MI, STTC) and less to routine findings (NORM),
+    formally a monotone rank-preserving method, implemented in the \texttt{ecg-audit} package.
+
+  \item \textbf{ecg-audit:} A pip-installable, unit-tested Python package (open-sourced at
+    \url{https://github.com/amensk/ecg-audit}) providing one-command calibration auditing,
+    the recalibration methods above, decision-curve analysis, subgroup calibration,
+    reliability diagrams, and a community leaderboard scaffold.
+\end{enumerate}
+
+\paragraph{Paper organisation.}
+Section~\ref{sec:related_work} reviews ECG FM benchmarks and calibration literature.
+Section~\ref{sec:method} defines all metrics, the Pareto frontier, composite score,
+PhysioCalib, and the decision-curve analysis framework.
+Section~\ref{sec:experiments} describes datasets, models, and splits.
+Section~\ref{sec:results} presents the main benchmark results.
+Section~\ref{sec:clinical_utility} presents decision-curve analysis and PhysioCalib results.
+Section~\ref{sec:open_source} describes the \texttt{ecg-audit} package.
+Section~\ref{sec:discussion} discusses mechanisms and implications.
+Section~\ref{sec:conclusion} concludes.

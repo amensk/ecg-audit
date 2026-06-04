@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-05-29T18:45:46.756498",
+  "stage": "05_experimentation",
+  "experiment": "h4_calsize_ablation_cached_logits",
+  "scope": "H4 calibration-size ablation using cached pilot logits. Tests whether MLP underperforms simpler methods at small calibration sets. Only covers small-n regime (n<=200 records). 2 datasets x 2 models x 6 sizes x 5 reps x 4 methods.",
+  "publication_grade": false,
+  "cal_sizes_tested": [
+    25,
+    50,
+    75,
+    100,
+    150,
+    200
+  ],
+  "n_repetitions": 5,
+  "datasets": [
+    "D1",
+    "D3"
+  ],
+  "models": [
+    "M6_s4d_configured",
+    "M2_stmem_probe"
+  ],
+  "methods": [
+    "raw",
+    "monotone_platt_or_temperature",
+    "isotonic",
+    "mlp_head"
+  ],
+  "win_summary": {
+    "ece_wins": {
+      "isotonic": 12,
+      "monotone_platt": 8,
+      "monotone_temperature": 2,
+      "mlp_head": 2
+    },
+    "brier_wins": {
+      "monotone_platt": 14,
+      "monotone_temperature": 4,
+      "isotonic": 6
+    }
+  },
+  "total_recal_cells": 74,
+  "h4_small_n_finding": {
+    "description": "MLP-head ECE wins vs total: 2/24 cells. Monotone Platt/temp ECE wins: 20/24. Isotonic ECE wins: 12/24."
+  },
+  "source_artifacts": [
+    "results/recalibration_gradient_pilot_predictions.npz",
+    "results/s4d_real_pilot_predictions.npz"
+  ]
+}

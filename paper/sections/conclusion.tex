@@ -1,0 +1,62 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We present the first systematic calibration audit of ECG foundation models, executing a
+5-model $\times$ 4-dataset benchmark totalling 20 evaluation cells across 12{,}877 ECG
+records (2{,}000 PTB-XL; 6{,}877 CPSC2018; 2{,}000 CODE-15\%; 2{,}000 MIMIC-IV-ECG)
+under patient-level leakage-controlled splits.
+
+\paragraph{Main findings.}
+Four findings stand out. First, a consistent \textbf{discrimination--calibration tradeoff}
+on PTB-XL: the five foundation models span AUROC 0.769--0.838 but all trail the supervised
+S4D baseline's calibration (ECE 0.064), exceeding it by 0.015--0.072. ST-MEM achieves the
+best discrimination (AUROC 0.838) but poor calibration (ECE 0.124), and HuBERT-ECG is the
+worst calibrated (ECE 0.136)---a gap invisible to AUROC reporting but clinically significant.
+Second, this tradeoff \textbf{disappears on arrhythmia datasets}: on CPSC2018
+(ECE 0.023--0.051), CODE-15\% (ECE 0.010--0.032), and MIMIC-IV-ECG (ECE 0.043--0.106),
+encoders are comparatively well-calibrated and ST-MEM leads discrimination. Task
+structure---multi-label vs.\ single-label---is the mediating factor. Third, \textbf{post-hoc
+isotonic recalibration closes 43--71\% of the ECE gap} on PTB-XL (ST-MEM: $0.124\to0.044$;
+HuBERT-ECG: $0.136\to0.040$) at only 0.5--1.7\% AUROC cost, and it reorders calibration-aware
+model selection (ST-MEM moves from 5th to 1st on the $C(0.7)$ composite). Fourth,
+\textbf{within-domain pretraining does not guarantee superiority}: ECG-FM, pretrained on
+MIMIC-IV-ECG, achieves only AUROC 0.771 on MIMIC-IV-ECG---behind MERL (0.861) and ST-MEM
+(0.854) in all 10 resplits, and no better than the supervised S4D baseline (0.793).
+Cross-dataset ECE varies by up to ${\sim}6\times$ for
+the same model, mandating per-deployment calibration audits.
+
+\paragraph{Clinical implication.}
+Practitioners deploying ECG foundation models for multi-label risk stratification should
+mandate calibration auditing alongside AUROC benchmarking. Raw foundation-model
+probabilities can be unusable for threshold-based clinical decisions even when AUROC is
+excellent; post-hoc recalibration with as few as 63 examples eliminates most of the
+calibration gap. The large cross-dataset ECE variation (e.g., ST-MEM ECE 0.028 on
+CODE-15\% vs.\ 0.124 on PTB-XL) means calibration audits must be conducted on locally
+representative patient cohorts---not extrapolated from published benchmark datasets.
+
+\paragraph{Pretraining objective signal.}
+A graded signature emerges: MERL (contrastive InfoNCE) shows the strongest underconfidence
+($\text{SCE}=-0.003$), masked-prediction models (ST-MEM, HuBERT-ECG) are near-neutral, and
+knowledge-enhanced, hybrid, and supervised models are mildly overconfident
+($+0.007$--$+0.008$), consistent with the documented underconfidence of
+contrastive FMs. Feature geometry analysis shows that MERL's contrastive objective
+produces extreme feature spread (std of L2 norms: 34.8) relative to masked-prediction
+and supervised models. Notably, MERL achieves the best performance on MIMIC-IV-ECG
+(AUROC 0.866, ECE 0.033) despite not being pretrained on that cohort.
+
+\paragraph{Open problems.}
+Three directions remain for future work. First, \textbf{fine-tuning calibration}: this
+study evaluates frozen linear probes; full fine-tuning may alter calibration in complex
+ways that require re-auditing. Second, \textbf{larger MIMIC-IV-ECG evaluation}: this
+benchmark used 2{,}000 records; the full 800{,}035-record corpus with structured ICD-based
+labels (rather than parsed machine-measurement reports) would further strengthen the MIMIC
+conclusions. Third, \textbf{objective-controlled pretraining}: the graded calibration
+signature across contrastive, masked-prediction, knowledge-enhanced, and generative
+objectives motivates controlled experiments that vary only the pretraining objective to
+establish causality.
+
+\paragraph{Call to action.}
+The \texttt{ecg-audit} package and all benchmark scripts are ready to run against new
+checkpoints without modification. We invite the ECG AI community to submit calibration
+results to the leaderboard, enabling cumulative evidence on which models can be safely
+deployed as probability estimators in clinical cardiac decision support.

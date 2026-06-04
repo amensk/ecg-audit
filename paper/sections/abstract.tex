@@ -1,0 +1,43 @@
+\begin{abstract}
+Electrocardiogram (ECG) foundation models are deployed for cardiac risk stratification, yet
+existing benchmarks measure discrimination exclusively via AUROC, leaving probability
+calibration invisible. A model that ranks patients perfectly but assigns systematically inflated
+or deflated probabilities can cause direct clinical harm when its outputs are used to drive
+treatment thresholds. We present the first systematic calibration audit of ECG foundation
+models: six encoders---five ECG foundation models (MERL, ST-MEM, HuBERT-ECG, ECGFM-KED,
+ECG-FM) and a supervised S4D baseline---across four datasets, totalling 24 model$\times$dataset
+cells over 18\,877 ECG records (2\,000 PTB-XL, 6\,877 CPSC2018, 8\,000 CODE-15\%,
+2\,000 MIMIC-IV-ECG) under patient-level leakage-controlled splits, with bootstrap
+confidence intervals on every headline metric.
+
+Our central finding is a \textbf{discrimination--calibration tradeoff} on the multi-label
+PTB-XL rhythm task: ST-MEM achieves the highest AUROC (0.838) but poor calibration
+(ECE 0.124), HuBERT-ECG is the worst calibrated (ECE 0.136), while the supervised S4D
+baseline is best calibrated (ECE 0.064) despite the lowest AUROC (0.771). All five
+foundation models exceed S4D's ECE by 0.015--0.072. Strikingly, this tradeoff
+\emph{disappears} on the single-label arrhythmia tasks---CPSC2018 (ECE 0.023--0.051),
+CODE-15\% (ECE 0.010--0.032), and MIMIC-IV-ECG (ECE 0.043--0.106)---where high-AUROC
+models are also well-calibrated. On MIMIC-IV-ECG, MERL attains the best discrimination
+(AUROC 0.861); critically, ECG-FM, which was \emph{pretrained on MIMIC-IV-ECG}, reaches
+only 0.771---behind MERL and ST-MEM (in all 10 resplits) and no better than the supervised
+S4D baseline (0.793)---demonstrating that within-domain pretraining does not guarantee
+superior linear-probe performance. We link
+the PTB-XL tradeoff to task structure: multi-label correlated classes create geometrically
+harder representation-to-probability mappings.
+
+Post-hoc isotonic recalibration reduces ECE by 43--71\% on PTB-XL (ST-MEM:
+$0.124\!\to\!0.044$; HuBERT-ECG: $0.136\!\to\!0.040$) while causing only modest AUROC
+reductions of 0.5--1.7\%. A graded pretraining-objective signature emerges: MERL
+(contrastive InfoNCE) shows the strongest underconfidence ($\text{SCE}=-0.003$),
+masked-prediction models (ST-MEM, HuBERT-ECG) are near-neutral, and knowledge-enhanced,
+hybrid, and supervised models are mildly overconfident ($\text{SCE}=+0.007$--$+0.008$),
+consistent with documented underconfidence of contrastive foundation models. Cross-dataset
+analysis reveals that the same model's ECE varies by up to roughly 6-fold across datasets,
+underscoring that calibration must be audited per deployment context.
+
+We introduce \emph{PhysioCalib}, a severity-weighted isotonic calibration method, and
+open-source \texttt{ecg-audit}, a pip-installable, unit-tested Python package for
+one-command calibration auditing, recalibration, and decision-curve analysis. Our findings
+demonstrate that probability calibration should be a first-class evaluation metric alongside
+AUROC in ECG AI benchmarks.
+\end{abstract}

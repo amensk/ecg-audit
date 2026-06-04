@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{MIMIC-IV-ECG per-class support (2{,}000 records, natural prevalence from machine-measurement reports). Classes with $\geq$10 positives and $\geq$10 negatives in the test split are included in macro metrics.}
+\label{tab:mimic-support}
+\small
+\begin{tabular}{lccc}
+\toprule
+Class & Test positives & Test negatives & Included \\
+\midrule
+  Sinus rhythm & 269 & 32 & \checkmark \\
+  Atrial fibrillation & 40 & 261 & \checkmark \\
+  RBBB & 28 & 273 & \checkmark \\
+  LBBB & 9 & 292 & -- \\
+  LVH & 22 & 279 & \checkmark \\
+  Myocardial infarction & 62 & 239 & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}

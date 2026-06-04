@@ -1,0 +1,48 @@
+\section{Related Work}
+\label{sec:related_work}
+
+\paragraph{ECG foundation model benchmarks.}
+BenchECG proposes a standardized evaluation suite for ECG foundation models and introduces xECG as a strong baseline \citep{lunelli2025benchecg}. Al-Masud et al. evaluate eight ECG foundation models across twelve datasets and 1650 targets, reporting broad variation across clinical categories and strong performance from compact structured state-space approaches \citep{almasud2025benchmarking}. Filice et al. explicitly frame their benchmark as going beyond accuracy, but their additional analyses focus on representation quality through SHAP, UMAP, kNN, centroid separation, ARI, and clustering rather than probabilistic calibration \citep{filice2026beyond}. These benchmarks motivate the present study because they leave probability reliability mostly unmeasured.
+
+\paragraph{ECG foundation models and pretraining objectives.}
+This benchmark evaluates five ECG foundation models spanning diverse pretraining objectives.
+ST-MEM uses masked spatio-temporal reconstruction (MAE-style) with a ViT encoder~\citep{na2024stmem}.
+MERL uses ECG--text contrastive alignment with InfoNCE loss~\citep{liu2024merl}.
+HuBERT-ECG uses BERT-style masked hidden-unit prediction over discretised ECG tokens,
+pretrained on 9.1M 12-lead ECGs~\citep{hubertecg2024}.
+ECGFM-KED incorporates cardiological knowledge with a decoder~\citep{ecgfmked2024}.
+ECG-FM combines contrastive and generative pretraining~\citep{mckeen2024ecgfm}.
+Pretraining objective diversity matters for calibration: contrastive, masked-prediction,
+and generative objectives differ in how they structure the representation space,
+with downstream consequences for probability estimation.
+
+\paragraph{Structured state-space ECG baselines.}
+The supervised comparator is a structured state-space model family rather than a weak control. S4 and S4D variants have shown competitive ECG classification performance with modest architectural complexity \citep{gu2022s4ecg, s4d2024ecg}. Prior benchmarking also suggests that compact state-space ECG models can remain competitive against foundation models in several task families \citep{almasud2025benchmarking}. The study therefore treats S4D as a serious supervised reference for both discrimination and calibration.
+
+\paragraph{Calibration metrics and post-hoc recalibration.}
+Expected calibration error is widely used but depends on binning and is not a proper scoring rule; Brier score is proper but can be less sensitive for rare events \citep{wang2023calibration, calibration2020measuring}. We report both, plus adaptive ECE and signed calibration error. Post-hoc methods such as temperature scaling, Platt scaling, and isotonic regression are standard calibration tools, while learned heads can represent richer mappings but can overfit small calibration sets \citep{wang2023calibration, glayers2020}. Foundation model calibration may differ from classical neural-network overconfidence:
+Hekler et al.\ report that vision FMs pretrained with contrastive objectives show systematic
+in-distribution underconfidence~\citep{hekler2025beyond}.
+Our benchmark directly tests whether this pattern extends to ECG FMs. We find a graded
+signature on PTB-XL: the contrastive model MERL shows the strongest underconfidence
+(most negative SCE, $-0.003$); the masked-prediction models (ST-MEM, HuBERT-ECG) are
+near-neutral ($\text{SCE}\approx 0$); and the knowledge-enhanced, hybrid, and supervised
+models are mildly overconfident ($\text{SCE}=+0.007$ to $+0.008$).
+
+\paragraph{Conformal prediction and reporting standards.}
+Conformal prediction provides distribution-free, finite-sample coverage guarantees on
+prediction sets and is increasingly used to quantify uncertainty in clinical
+ML~\citep{angelopoulos2023conformal}; we use it as a coverage-oriented complement to
+calibration. Clinical prediction-model reporting guidance (TRIPOD+AI~\citep{collins2024tripod})
+explicitly calls for calibration to be reported alongside discrimination, which existing ECG
+foundation-model benchmarks do not satisfy.
+
+\paragraph{Positioning.}
+Recent ECG foundation-model benchmarking efforts---BenchECG/xECG~\citep{lunelli2025benchecg},
+the eight-model reality check of \citet{almasud2025benchmarking}, and the holistic benchmark
+of \citet{filice2026beyond}---focus on discrimination, generalization, and representation
+quality. To our knowledge none systematically audits probability reliability. Our contribution
+is orthogonal and complementary: a calibration-first benchmark plus recalibration, rank-safe
+recalibration (RankSafe-Cal), cross-dataset calibration transfer, conformal coverage, and
+clinical decision-curve utility---the reliability dimension these discrimination-centric
+benchmarks omit.

@@ -1,0 +1,57 @@
+{
+  "stage": "05_experimentation",
+  "experiment": "venv_package_status_after_install_retry",
+  "generated_at": "2026-05-24T15:22:31",
+  "python": "/Users/ameenk/AutoR/.venv/bin/python",
+  "packages": {
+    "torch": {
+      "present": true,
+      "version": "2.12.0"
+    },
+    "torchvision": {
+      "present": false,
+      "version": null
+    },
+    "wfdb": {
+      "present": true,
+      "version": "4.3.1"
+    },
+    "h5py": {
+      "present": true,
+      "version": "3.16.0"
+    },
+    "numpy": {
+      "present": true,
+      "version": "2.4.6"
+    },
+    "pandas": {
+      "present": true,
+      "version": "3.0.3"
+    },
+    "scikit-learn": {
+      "present": true,
+      "version": "1.6.1"
+    },
+    "scipy": {
+      "present": true,
+      "version": "1.17.1"
+    },
+    "st_mem": {
+      "present": false,
+      "version": null
+    },
+    "hubert_ecg": {
+      "present": false,
+      "version": null
+    },
+    "ecgfm_ked": {
+      "present": false,
+      "version": null
+    },
+    "ecg_fm": {
+      "present": false,
+      "version": null
+    }
+  },
+  "notes": "Core runtime packages torch, wfdb, and h5py are importable; torchvision and FM-specific packages are not importable."
+}

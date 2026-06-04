@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\caption{Split-conformal prediction (one-vs-rest, target coverage $1-\alpha=0.90$), mean over models/datasets. Empirical coverage meets the target for all methods (finite-sample guarantee); recalibration mainly affects set-size efficiency. Temperature scaling is order-preserving so its conformal sets are identical to raw.}
+\label{tab:conformal}
+\small
+\begin{tabular}{llcc}
+\toprule
+Endpoint & Method & coverage & avg.\ set size \\
+\midrule
+  MI & raw & 0.900 & 1.209 \\
+   & platt & 0.900 & 1.183 \\
+   & isotonic & 0.900 & 1.203 \\
+   & temperature & 0.900 & 1.209 \\
+  \midrule
+  AF & raw & 0.900 & 0.990 \\
+   & platt & 0.900 & 0.980 \\
+   & isotonic & 0.900 & 1.003 \\
+   & temperature & 0.900 & 0.990 \\
+  \midrule
+  NORM & raw & 0.900 & 1.267 \\
+   & platt & 0.900 & 1.258 \\
+   & isotonic & 0.900 & 1.327 \\
+   & temperature & 0.900 & 1.267 \\
+\bottomrule
+\end{tabular}
+\end{table}

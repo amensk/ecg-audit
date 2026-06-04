@@ -1,0 +1,1070 @@
+{
+  "audit": "benchmark_integrity_leakage",
+  "generated_for": "ECG foundation-model calibration paper",
+  "workspace": "/Users/ameenk/AutoR/runs/20260523_210450/workspace",
+  "n_cells_in_manifest": 23,
+  "patient_split_disjointness": {
+    "leakage_found": false,
+    "n_cells_checked": 23,
+    "per_dataset_patient_counts": {
+      "D1": {
+        "dataset": "PTB-XL",
+        "n_patients": {
+          "train": 1381,
+          "cal": 295,
+          "test": 295,
+          "total": 1971
+        },
+        "n_records": {
+          "train": 1404,
+          "cal": 297,
+          "test": 299,
+          "total": 2000
+        }
+      },
+      "D3": {
+        "dataset": "CODE-15%",
+        "n_patients": {
+          "train": 5530,
+          "cal": 1184,
+          "test": 1184,
+          "total": 7898
+        },
+        "n_records": {
+          "train": 5603,
+          "cal": 1200,
+          "test": 1197,
+          "total": 8000
+        }
+      },
+      "D4": {
+        "dataset": "CPSC2018",
+        "n_patients": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031,
+          "total": 6877
+        },
+        "n_records": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031,
+          "total": 6877
+        }
+      },
+      "D5": {
+        "dataset": "MIMIC-IV-ECG",
+        "n_patients": {
+          "train": 1372,
+          "cal": 294,
+          "test": 294,
+          "total": 1960
+        },
+        "n_records": {
+          "train": 1401,
+          "cal": 298,
+          "test": 301,
+          "total": 2000
+        }
+      }
+    },
+    "cells": [
+      {
+        "model_id": "M1",
+        "dataset_id": "D1",
+        "dataset": "PTB-XL",
+        "n_records": {
+          "train": 1404,
+          "cal": 297,
+          "test": 299
+        },
+        "n_patients": {
+          "train": 1381,
+          "cal": 295,
+          "test": 295
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M2",
+        "dataset_id": "D1",
+        "dataset": "PTB-XL",
+        "n_records": {
+          "train": 1404,
+          "cal": 297,
+          "test": 299
+        },
+        "n_patients": {
+          "train": 1381,
+          "cal": 295,
+          "test": 295
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M3",
+        "dataset_id": "D1",
+        "dataset": "PTB-XL",
+        "n_records": {
+          "train": 1404,
+          "cal": 297,
+          "test": 299
+        },
+        "n_patients": {
+          "train": 1381,
+          "cal": 295,
+          "test": 295
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M4",
+        "dataset_id": "D1",
+        "dataset": "PTB-XL",
+        "n_records": {
+          "train": 1404,
+          "cal": 297,
+          "test": 299
+        },
+        "n_patients": {
+          "train": 1381,
+          "cal": 295,
+          "test": 295
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M5",
+        "dataset_id": "D1",
+        "dataset": "PTB-XL",
+        "n_records": {
+          "train": 1404,
+          "cal": 297,
+          "test": 299
+        },
+        "n_patients": {
+          "train": 1381,
+          "cal": 295,
+          "test": 295
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M6",
+        "dataset_id": "D1",
+        "dataset": "PTB-XL",
+        "n_records": {
+          "train": 1404,
+          "cal": 297,
+          "test": 299
+        },
+        "n_patients": {
+          "train": 1381,
+          "cal": 295,
+          "test": 295
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M1",
+        "dataset_id": "D3",
+        "dataset": "CODE-15%",
+        "n_records": {
+          "train": 5603,
+          "cal": 1200,
+          "test": 1197
+        },
+        "n_patients": {
+          "train": 5530,
+          "cal": 1184,
+          "test": 1184
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M2",
+        "dataset_id": "D3",
+        "dataset": "CODE-15%",
+        "n_records": {
+          "train": 5603,
+          "cal": 1200,
+          "test": 1197
+        },
+        "n_patients": {
+          "train": 5530,
+          "cal": 1184,
+          "test": 1184
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M3",
+        "dataset_id": "D3",
+        "dataset": "CODE-15%",
+        "n_records": {
+          "train": 5603,
+          "cal": 1200,
+          "test": 1197
+        },
+        "n_patients": {
+          "train": 5530,
+          "cal": 1184,
+          "test": 1184
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M5",
+        "dataset_id": "D3",
+        "dataset": "CODE-15%",
+        "n_records": {
+          "train": 5603,
+          "cal": 1200,
+          "test": 1197
+        },
+        "n_patients": {
+          "train": 5530,
+          "cal": 1184,
+          "test": 1184
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M6",
+        "dataset_id": "D3",
+        "dataset": "CODE-15%",
+        "n_records": {
+          "train": 5603,
+          "cal": 1200,
+          "test": 1197
+        },
+        "n_patients": {
+          "train": 5530,
+          "cal": 1184,
+          "test": 1184
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M1",
+        "dataset_id": "D4",
+        "dataset": "CPSC2018",
+        "n_records": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "n_patients": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M2",
+        "dataset_id": "D4",
+        "dataset": "CPSC2018",
+        "n_records": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "n_patients": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M3",
+        "dataset_id": "D4",
+        "dataset": "CPSC2018",
+        "n_records": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "n_patients": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M4",
+        "dataset_id": "D4",
+        "dataset": "CPSC2018",
+        "n_records": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "n_patients": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M5",
+        "dataset_id": "D4",
+        "dataset": "CPSC2018",
+        "n_records": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "n_patients": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M6",
+        "dataset_id": "D4",
+        "dataset": "CPSC2018",
+        "n_records": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "n_patients": {
+          "train": 4815,
+          "cal": 1031,
+          "test": 1031
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M1",
+        "dataset_id": "D5",
+        "dataset": "MIMIC-IV-ECG",
+        "n_records": {
+          "train": 1401,
+          "cal": 298,
+          "test": 301
+        },
+        "n_patients": {
+          "train": 1372,
+          "cal": 294,
+          "test": 294
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M2",
+        "dataset_id": "D5",
+        "dataset": "MIMIC-IV-ECG",
+        "n_records": {
+          "train": 1401,
+          "cal": 298,
+          "test": 301
+        },
+        "n_patients": {
+          "train": 1372,
+          "cal": 294,
+          "test": 294
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M3",
+        "dataset_id": "D5",
+        "dataset": "MIMIC-IV-ECG",
+        "n_records": {
+          "train": 1401,
+          "cal": 298,
+          "test": 301
+        },
+        "n_patients": {
+          "train": 1372,
+          "cal": 294,
+          "test": 294
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M4",
+        "dataset_id": "D5",
+        "dataset": "MIMIC-IV-ECG",
+        "n_records": {
+          "train": 1401,
+          "cal": 298,
+          "test": 301
+        },
+        "n_patients": {
+          "train": 1372,
+          "cal": 294,
+          "test": 294
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M5",
+        "dataset_id": "D5",
+        "dataset": "MIMIC-IV-ECG",
+        "n_records": {
+          "train": 1401,
+          "cal": 298,
+          "test": 301
+        },
+        "n_patients": {
+          "train": 1372,
+          "cal": 294,
+          "test": 294
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      },
+      {
+        "model_id": "M6",
+        "dataset_id": "D5",
+        "dataset": "MIMIC-IV-ECG",
+        "n_records": {
+          "train": 1401,
+          "cal": 298,
+          "test": 301
+        },
+        "n_patients": {
+          "train": 1372,
+          "cal": 294,
+          "test": 294
+        },
+        "overlaps": {
+          "train_cal": [],
+          "train_test": [],
+          "cal_test": []
+        },
+        "n_overlap": {
+          "train_cal": 0,
+          "train_test": 0,
+          "cal_test": 0
+        },
+        "pairwise_disjoint": true
+      }
+    ]
+  },
+  "dataset_completeness": {
+    "datasets": {
+      "PTB-XL": {
+        "id": "D1",
+        "used": 2000,
+        "available": 21799,
+        "note": "max_n=2000 sampled (seed 42) from ptbxl_database.csv"
+      },
+      "CODE-15%": {
+        "id": "D3",
+        "used": 8000,
+        "available": 345779,
+        "available_parts0_4": 100000,
+        "used_target": "~8000 across parts 0-4 (PER_PART=1600 x 5)",
+        "note": "expanded loader code15_expanded.py; per-part 1600"
+      },
+      "CPSC2018": {
+        "id": "D4",
+        "used": 6878,
+        "available": 6878,
+        "note": "full set used (max_n=None)"
+      },
+      "MIMIC-IV-ECG": {
+        "id": "D5",
+        "used": 2000,
+        "available": 800035,
+        "staged_v2_hea_files": 4000,
+        "note": "max_n=2000 loaded from a natural-prevalence pool of ~4000 staged records (pool_mult=2)"
+      }
+    },
+    "feature_caches": {
+      "M1_D1": {
+        "file": "features_M1_D1.npy",
+        "shape": [
+          2000,
+          512
+        ]
+      },
+      "M1_D3": {
+        "file": "features_M1_D3exp.npy",
+        "shape": [
+          8000,
+          512
+        ]
+      },
+      "M1_D4": {
+        "file": "features_M1_D4.npy",
+        "shape": [
+          6877,
+          512
+        ]
+      },
+      "M1_D5": {
+        "file": "features_M1_D5.npy",
+        "shape": [
+          2000,
+          512
+        ]
+      },
+      "M2_D1": {
+        "file": "features_M2_D1.npy",
+        "shape": [
+          2000,
+          768
+        ]
+      },
+      "M2_D3": {
+        "file": "features_M2_D3exp.npy",
+        "shape": [
+          8000,
+          768
+        ]
+      },
+      "M2_D4": {
+        "file": "features_M2_D4.npy",
+        "shape": [
+          6877,
+          768
+        ]
+      },
+      "M2_D5": {
+        "file": "features_M2_D5.npy",
+        "shape": [
+          2000,
+          768
+        ]
+      },
+      "M3_D1": {
+        "file": "features_M3_D1.npy",
+        "shape": [
+          2000,
+          768
+        ]
+      },
+      "M3_D3": {
+        "file": "features_M3_D3exp.npy",
+        "shape": [
+          8000,
+          768
+        ]
+      },
+      "M3_D4": {
+        "file": "features_M3_D4.npy",
+        "shape": [
+          6877,
+          768
+        ]
+      },
+      "M3_D5": {
+        "file": "features_M3_D5.npy",
+        "shape": [
+          2000,
+          768
+        ]
+      },
+      "M4_D1": {
+        "file": "features_M4_D1.npy",
+        "shape": [
+          2000,
+          256
+        ]
+      },
+      "M4_D4": {
+        "file": "features_M4_D4.npy",
+        "shape": [
+          6877,
+          256
+        ]
+      },
+      "M4_D5": {
+        "file": "features_M4_D5.npy",
+        "shape": [
+          2000,
+          256
+        ]
+      },
+      "M5_D1": {
+        "file": "features_M5_D1.npy",
+        "shape": [
+          2000,
+          256
+        ]
+      },
+      "M5_D3": {
+        "file": "features_M5_D3exp.npy",
+        "shape": [
+          8000,
+          256
+        ]
+      },
+      "M5_D4": {
+        "file": "features_M5_D4.npy",
+        "shape": [
+          6877,
+          256
+        ]
+      },
+      "M5_D5": {
+        "file": "features_M5_D5.npy",
+        "shape": [
+          2000,
+          256
+        ]
+      },
+      "M6_D1": {
+        "file": "features_M6_D1.npy",
+        "shape": [
+          2000,
+          60
+        ]
+      },
+      "M6_D3": {
+        "file": "features_M6_D3exp.npy",
+        "shape": [
+          8000,
+          60
+        ]
+      },
+      "M6_D4": {
+        "file": "features_M6_D4.npy",
+        "shape": [
+          6877,
+          60
+        ]
+      },
+      "M6_D5": {
+        "file": "features_M6_D5.npy",
+        "shape": [
+          2000,
+          60
+        ]
+      }
+    },
+    "feature_rows_match_expected": false,
+    "feature_row_mismatches": [
+      {
+        "cell": "M1_D4",
+        "file": "features_M1_D4.npy",
+        "shape": [
+          6877,
+          512
+        ],
+        "expected_rows": 6878
+      },
+      {
+        "cell": "M2_D4",
+        "file": "features_M2_D4.npy",
+        "shape": [
+          6877,
+          768
+        ],
+        "expected_rows": 6878
+      },
+      {
+        "cell": "M3_D4",
+        "file": "features_M3_D4.npy",
+        "shape": [
+          6877,
+          768
+        ],
+        "expected_rows": 6878
+      },
+      {
+        "cell": "M4_D4",
+        "file": "features_M4_D4.npy",
+        "shape": [
+          6877,
+          256
+        ],
+        "expected_rows": 6878
+      },
+      {
+        "cell": "M5_D4",
+        "file": "features_M5_D4.npy",
+        "shape": [
+          6877,
+          256
+        ],
+        "expected_rows": 6878
+      },
+      {
+        "cell": "M6_D4",
+        "file": "features_M6_D4.npy",
+        "shape": [
+          6877,
+          60
+        ],
+        "expected_rows": 6878
+      }
+    ],
+    "expected_rows_per_dataset": {
+      "D1": 2000,
+      "D3": 8000,
+      "D4": 6878,
+      "D5": 2000
+    }
+  },
+  "duplicate_signal_check": {
+    "code15_signal_dup_check": {
+      "sample_size_target": 1500,
+      "parts_used": [
+        0,
+        1
+      ],
+      "sample_size_actual": 1500,
+      "n_unique_signals": 1497,
+      "n_duplicate_signals": 3,
+      "duplicate_rate": 0.002,
+      "hash": "sha1 over signal rounded to 3 decimals",
+      "status": "ok"
+    },
+    "ptbxl_id_uniqueness": {
+      "sample_size": 2000,
+      "n_records": 2000,
+      "n_unique_ecg_id": 2000,
+      "n_unique_filename_lr": 2000,
+      "ecg_id_unique": true,
+      "filename_lr_unique": true,
+      "ecg_id_sha1_of_concat": "a7f90a985efd7bc4d59f56a214f59534e10117f1",
+      "status": "ok"
+    }
+  },
+  "checkpoint_provenance": {
+    "all_required_checkpoints_present": true,
+    "n_required": 5,
+    "checkpoints": {
+      "M1_MERL": {
+        "path": "checkpoints/merl/merl_checkpoint.pth",
+        "exists": true,
+        "size_bytes": 457260616,
+        "load_check": {
+          "format": "torch_zip",
+          "loadable": true,
+          "n_zip_entries": 341,
+          "note": "valid PyTorch (torch.save zip) archive; header-only check"
+        }
+      },
+      "M2_ST_MEM": {
+        "path": "checkpoints/st_mem/st_mem_vit_base_encoder.pth",
+        "exists": true,
+        "size_bytes": 340663413,
+        "load_check": {
+          "format": "torch_zip",
+          "loadable": true,
+          "n_zip_entries": 168,
+          "note": "valid PyTorch (torch.save zip) archive; header-only check"
+        }
+      },
+      "M3_HuBERT_ECG": {
+        "path": "checkpoints/hubert_ecg/model.safetensors",
+        "exists": true,
+        "size_bytes": 372518672,
+        "load_check": {
+          "format": "safetensors",
+          "loadable": true,
+          "n_tensors": 212,
+          "metadata": {
+            "format": "pt"
+          },
+          "note": "safetensors header parsed (weights not loaded)"
+        }
+      },
+      "M4_ECGFM_KED": {
+        "path": "checkpoints/ecgfm_ked/ecgfm_ked_checkpoint.pth",
+        "exists": true,
+        "size_bytes": 1341207980,
+        "load_check": {
+          "format": "torch_zip",
+          "loadable": true,
+          "n_zip_entries": 2402,
+          "note": "valid PyTorch (torch.save zip) archive; header-only check"
+        }
+      },
+      "M5_ECG_FM": {
+        "path": "checkpoints/ecg_fm/ecg_fm_checkpoint.pth",
+        "exists": true,
+        "size_bytes": 1090825421,
+        "load_check": {
+          "format": "torch_zip",
+          "loadable": true,
+          "n_zip_entries": 651,
+          "note": "valid PyTorch (torch.save zip) archive; header-only check"
+        }
+      },
+      "M3_HuBERT_ECG_legacy_pth": {
+        "path": "checkpoints/hubert_ecg/hubert_ecg_checkpoint.pth",
+        "exists": true,
+        "size_bytes": 372518672,
+        "load_check": {
+          "format": "non_pytorch_binary",
+          "loadable": false,
+          "first_bytes_hex": "085d0000000000007b225f5f6d657461",
+          "note": "not a torch.save zip archive; legacy/non-PyTorch binary (invalid load key)"
+        },
+        "note": "legacy .pth is a non-PyTorch binary (invalid load key); model.safetensors is the working checkpoint used"
+      },
+      "M6_S4D": {
+        "path": null,
+        "exists": false,
+        "size_bytes": null,
+        "load_check": {
+          "loadable": null,
+          "note": "handcrafted-feature baseline (60-dim per-lead statistics); no checkpoint"
+        }
+      }
+    }
+  },
+  "skipped_cells": {
+    "M4_D3_ECGFM_KED_x_CODE15": {
+      "excluded": true,
+      "probs_cache_present": false,
+      "reason": "partial architecture reconstruction; 35 missing keys; near-chance AUROC; excluded from CODE-15% and Pareto",
+      "evidence": "benchmark_v2_run.log: 'ECGFM-KED: missing=35'; checkpoint_mapping.json status 'ok_partial'"
+    },
+    "LBBB_on_MIMIC_min_support": {
+      "dataset": "MIMIC-IV-ECG",
+      "class": "LBBB",
+      "test_pos": 9,
+      "test_neg": 292,
+      "n_test": 301,
+      "min_pos_threshold": 10,
+      "excluded_by_min_support": true,
+      "in_valid_class_idx_M2_D5": false
+    }
+  },
+  "seed_and_protocol": {
+    "seed": 42,
+    "split": "70/15/15 patient-level (test 15%, cal 15%, train remainder)",
+    "split_floor": "max(30, 15%) records floor per cal/test (keystone _ps)",
+    "min_support": {
+      "min_pos": 10,
+      "min_neg": 10
+    },
+    "ece_bins": 15,
+    "ece_type": "equal-width",
+    "bootstrap": 1000,
+    "source": "analysis_common.py (SEED, MIN_POS, MIN_NEG, ece_equal_width)"
+  }
+}

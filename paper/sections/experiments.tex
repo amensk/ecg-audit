@@ -1,0 +1,75 @@
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Datasets}
+
+\paragraph{PTB-XL.}
+PTB-XL~\citep{strodthoff2020ptbxl} contains 21,799 12-lead ECG recordings at 100/500~Hz
+from 18,869 patients. We use the 5-class diagnostic superclass partition:
+NORM, MI, STTC, CD, HYP. We sample 2,000 records with patient-level splitting (seed 42):
+70\% train, 15\% calibration, 15\% test ($n_\mathrm{test}=299$).
+
+\paragraph{CPSC2018.}
+The China Physiological Signal Challenge 2018 dataset~\citep{cpsc2018} contains 6,877
+12-lead recordings labelled with 9 arrhythmia classes. All 6,877 records are used
+(patient-level split). This is a single-label task (each record has a dominant arrhythmia).
+
+\paragraph{CODE-15\%.}
+CODE-15\%~\citep{ribeiro2021code15} is a large Brazilian ECG dataset.
+We sample 2,000 records from the \texttt{exams\_part0.hdf5} partition (seed 42),
+with 6 binary arrhythmia classes: 1dAVb, RBBB, LBBB, SB, ST, AF.
+
+\paragraph{MIMIC-IV-ECG.}
+MIMIC-IV-ECG~\citep{mimicivecg2023} is a matched subset of the MIMIC-IV clinical database
+containing 800{,}035 12-lead ECG recordings from 159{,}590 patients, recorded at 500~Hz.
+Machine measurement reports provide text-based clinical interpretations. We derive 5-class
+binary labels from these reports using keyword matching: Normal (``sinus rhythm''), AF
+(``atrial fibrillation''), RBBB (``right bundle branch block''), LBBB (``left bundle branch
+block''), and LVH (``left ventricular hypertrophy''). We sample 2{,}000 records with
+at least one positive label (prevalences: Normal 98.2\%, AF 12.0\%, RBBB 8.7\%, LBBB 4.7\%,
+LVH 8.2\%). Records are staged directly from the 36.3~GB PhysioNet ZIP archive.
+ECG-FM has a publicly available checkpoint pretrained on MIMIC-IV-ECG, making this
+an in-domain evaluation for that model.
+
+\paragraph{Probe and evaluation.}
+For every foundation model we train a per-class logistic linear probe on the frozen
+representations; HuBERT-ECG is treated identically to the other encoders. The legacy
+\texttt{.pth} HuBERT checkpoint is unreadable (non-PyTorch binary), but the
+\texttt{safetensors} release loads cleanly, so HuBERT-ECG is fully included in all results.
+
+\subsection{Models}
+
+\paragraph{Foundation models.}
+\textbf{ST-MEM}~\citep{na2024stmem}: ViT-Base encoder pretrained with masked spatio-temporal
+ECG reconstruction. 768-dimensional frozen representations.
+\textbf{MERL}~\citep{liu2024merl}: ECG--text contrastive pretraining with InfoNCE loss.
+512-dimensional frozen representations.
+\textbf{ECGFM-KED}~\citep{ecgfmked2024}: knowledge-enhanced ECG FM with cardiological
+ontology integration. 256-dimensional frozen representations.
+\textbf{ECG-FM}~\citep{mckeen2024ecgfm}: combined contrastive and generative pretraining.
+256-dimensional frozen representations.
+\textbf{HuBERT-ECG}~\citep{hubertecg2024}: BERT-style masked hidden-unit prediction over
+discretised ECG tokens, pretrained on 9.1M 12-lead ECGs. We load the public
+\texttt{safetensors} checkpoint via the HuggingFace \texttt{AutoModel} interface and the
+authors' canonical preprocessing (5\,s window, 12 leads flattened and decimated by 5),
+extracting 768-dimensional frozen representations by mean-pooling the final hidden states.
+
+\paragraph{Supervised baseline.}
+\textbf{S4D}: Structured state-space model trained end-to-end on each
+dataset~\citep{gu2022s4ecg, s4d2024ecg}. Not a frozen FM; provides a calibrated
+supervised reference point.
+
+\paragraph{Linear probe.}
+For all FMs, we train a per-class logistic regression probe on frozen representations
+using the training split. Per-class binary calibration evaluation follows.
+
+\subsection{Implementation Details}
+
+All frozen feature representations are cached as \texttt{.npy} files and loaded without
+recomputing FM forward passes. Analysis scripts use Python~3.10 with
+scikit-learn, NumPy, SciPy, and matplotlib.
+Calibration set sizes range from 10 to 203 in the ablation study (Section~\ref{sec:results-calsize}).
+All experiments use random seed 42 throughout for reproducibility.
+Per-class AUROC, ECE, Brier, and SCE are computed separately for each binary class problem
+and then macro-averaged; classes with fewer than 5 positive examples in the test set
+are excluded from macro averages.

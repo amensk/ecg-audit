@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-05-24T15:19:45",
+  "stage": "05_experimentation",
+  "experiment": "real_open_dataset_asset_staging",
+  "copy_assets": true,
+  "incoming_data_root": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/incoming_assets/data",
+  "incoming_checkpoints_root": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/incoming_assets/checkpoints",
+  "checkpoint_mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+  "checkpoint_mapping_loaded": true,
+  "workspace_root": "/Users/ameenk/AutoR/runs/20260523_210450/workspace",
+  "datasets": {
+    "D1": {
+      "name": "PTB-XL",
+      "target_dir": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptb-xl",
+      "required_any": [
+        "ptbxl_database.csv"
+      ],
+      "incoming_source": null,
+      "copy_result": null,
+      "found_required_files": [],
+      "staged": false
+    },
+    "D3": {
+      "name": "CODE-15%",
+      "target_dir": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/code15",
+      "required_any": [
+        "exams.csv",
+        "annotations.csv"
+      ],
+      "incoming_source": null,
+      "copy_result": null,
+      "found_required_files": [],
+      "staged": false
+    },
+    "D4": {
+      "name": "CPSC2018",
+      "target_dir": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/cpsc2018",
+      "required_any": [
+        "REFERENCE.csv",
+        "REFERENCE-v3.csv"
+      ],
+      "incoming_source": null,
+      "copy_result": null,
+      "found_required_files": [],
+      "staged": false
+    }
+  },
+  "checkpoints": {
+    "M1": {
+      "name": "MERL",
+      "target": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/merl/merl_checkpoint.pth",
+      "mapping_entry": {},
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "incoming_candidates": [],
+      "copy_result": null,
+      "staged": false
+    },
+    "M2": {
+      "name": "ST-MEM",
+      "target": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/st_mem/st_mem_checkpoint.pth",
+      "mapping_entry": {},
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "incoming_candidates": [],
+      "copy_result": null,
+      "staged": false
+    },
+    "M3": {
+      "name": "HuBERT-ECG",
+      "target": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/hubert_ecg/hubert_ecg_checkpoint.pth",
+      "mapping_entry": {},
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "incoming_candidates": [],
+      "copy_result": null,
+      "staged": false
+    },
+    "M4": {
+      "name": "ECGFM-KED",
+      "target": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/ecgfm_ked/ecgfm_ked_checkpoint.pth",
+      "mapping_entry": {},
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "incoming_candidates": [],
+      "copy_result": null,
+      "staged": false
+    },
+    "M5": {
+      "name": "ECG-FM",
+      "target": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/ecg_fm/ecg_fm_checkpoint.pth",
+      "mapping_entry": {},
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "incoming_candidates": [],
+      "copy_result": null,
+      "staged": false
+    }
+  },
+  "all_open_datasets_staged": false,
+  "all_checkpoints_staged": false
+}

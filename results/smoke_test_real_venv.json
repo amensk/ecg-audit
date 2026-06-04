@@ -1,0 +1,16 @@
+{
+  "stage": "05_experimentation",
+  "experiment": "real_venv_smoke_test",
+  "generated_at": "2026-05-24T15:22:31",
+  "command": "MPLCONFIGDIR=workspace/.matplotlib /Users/ameenk/AutoR/.venv/bin/python smoke_test.py",
+  "exit_code": 0,
+  "passed": 8,
+  "failed": 0,
+  "total": 8,
+  "fixes_applied_before_pass": [
+    "data_pipeline.patient_stratified_split rare-strata fallback",
+    "s4_baseline.S4DLayer float/complex dtype cast"
+  ],
+  "log_path": "results/smoke_test_real_venv.log",
+  "stdout_tail": "2026-05-24 15:21:27,730 Patient split falling back to unstratified test split due to rare strata\n2026-05-24 15:21:27,731 Patient split falling back to unstratified calibration split due to rare strata\n2026-05-24 15:21:27,731 Leakage check passed: no patient overlap between splits\n2026-05-24 15:21:27,731 PASS: splitting\n2026-05-24 15:21:27,939 PASS: normalization\n2026-05-24 15:21:27,947 PASS: evaluation\n2026-05-24 15:21:28,001 PASS: recalibration temperature_scaling\n2026-05-24 15:21:28,005 PASS: recalibration platt_scaling\n2026-05-24 15:21:28,006 PASS: recalibration isotonic_regression\n2026-05-24 15:21:28,642 PASS: recalibration learned_mlp_head\n2026-05-24 15:21:28,650 PASS: linear probe\n2026-05-24 15:21:29,222 PASS: S4D forward pass\n2026-05-24 15:21:29,227 PASS: statistical tests\n\nFontconfig error: No writable cache directories\n\t/opt/homebrew/var/cache/fontconfig\n\t/Users/ameenk/.cache/fontconfig\n\t/Users/ameenk/.fontconfig\n2026-05-24 15:21:34,309 Matplotlib is building the font cache; this may take a moment.\n2026-05-24 15:21:43,771 Failed to extract font properties from /System/Library/Fonts/SFIndia.ttc: Can not load face (SFNT font table missing; error code 0x8e)\n2026-05-24 15:21:43,779 Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Could not set the fontsize (invalid pixel size; error code 0x17)\n2026-05-24 15:21:43,791 Failed to extract font properties from /System/Library/PrivateFrameworks/FontServices.framework/Resources/Reserved/PingFangUI.ttc: Can not load face (locations (loca) table missing; error code 0x90)\n2026-05-24 15:21:43,798 Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Could not set the fontsize (invalid pixel size; error code 0x17)\n2026-05-24 15:21:43,801 Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str\n2026-05-24 15:21:43,817 generated new fontManager\n2026-05-24 15:21:44,037 PASS: visualization\n2026-05-24 15:21:44,037 \nResults: 8 passed, 0 failed out of 8 tests\n"
+}

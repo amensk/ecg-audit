@@ -1,0 +1,30 @@
+{
+  "generated_by": "workspace/code/run_stage06_analysis.py",
+  "inputs": [
+    "workspace/results/experiment_manifest.json",
+    "workspace/results/stage05_execution_status.json",
+    "workspace/results/recalibration_gradient_pilot_summary.csv",
+    "workspace/results/recalibration_gradient_pilot_h3_gap_closure.csv",
+    "workspace/results/recalibration_gradient_pilot_delong.csv",
+    "workspace/results/h4_size_ablation_pilot_summary.csv",
+    "workspace/results/h4_friedman_test_per_size.csv",
+    "workspace/results/h4_friedman_brier_test_per_size.csv",
+    "workspace/results/h4_nemenyi_pairwise_ece.csv",
+    "workspace/results/h4_nemenyi_pairwise_brier.csv"
+  ],
+  "outputs": [
+    "workspace/results/stage06_evidence_inventory.csv",
+    "workspace/results/stage06_real_pilot_recalibration_deltas.csv",
+    "workspace/results/stage06_h4_method_summary.csv",
+    "workspace/results/stage06_nemenyi_key_pairs.csv",
+    "workspace/results/stage06_hypothesis_verdicts.csv",
+    "workspace/results/stage06_claim_support_matrix.csv",
+    "workspace/notes/stage06_analysis_interpretation.md",
+    "workspace/figures/stage06_hypothesis_support_map.png",
+    "workspace/figures/stage06_hypothesis_support_map.pdf",
+    "workspace/figures/stage06_h4_rank_profile.png",
+    "workspace/figures/stage06_h4_rank_profile.pdf",
+    "workspace/figures/stage06_real_pilot_recalibration_deltas.png",
+    "workspace/figures/stage06_real_pilot_recalibration_deltas.pdf"
+  ]
+}

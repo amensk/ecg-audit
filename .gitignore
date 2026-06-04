@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Large data / model artifacts (NOT redistributed; see DUAs)
+raw_data/
+checkpoints/
+*.hdf5
+*.zip
+*.dat
+*.hea
+*.safetensors
+*.pt
+*.pth
+
+# Large/regenerable cached features and predictions
+*.npy
+*.npz
+
+# OS
+.DS_Store
+
+# LaTeX build intermediates
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.log
+!**/results/*.log

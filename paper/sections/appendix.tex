@@ -1,0 +1,68 @@
+\section{Artifact Provenance and Evidence Boundary}
+\label{sec:appendix}
+\sloppy
+
+\subsection{Completed Real Benchmark}
+
+The 24-cell benchmark in Table~\ref{tab:full-benchmark} (23 evaluated cells; ECGFM-KED
+$\times$ CODE-15\% excluded) is fully executed from real ECG recordings. All numeric values
+trace to \texttt{results/benchmark\_v2\_results.json} and its summary
+\texttt{benchmark\_v2\_summary.csv}. Frozen feature representations for every model--dataset
+combination are cached as \texttt{.npy} files. Headline AUROC and ECE values carry bootstrap
+95\% confidence intervals (1{,}000 resamples). The real DCA uses actual ST-MEM linear-probe
+predictions recovered from cached features (not reconstructed proxies), saved in
+\texttt{results/stmem\_ptbxl\_mi\_predictions.npz}.
+
+\subsection{Evidence Classes}
+
+\begin{itemize}
+  \item \textbf{Full benchmark} (23 cells, primary): MERL, ST-MEM, HuBERT-ECG, ECGFM-KED,
+    ECG-FM, and S4D on PTB-XL (2{,}000 records), CPSC2018 (6{,}877), CODE-15\%
+    (${\sim}8{,}000$, parts 0--4), and MIMIC-IV-ECG (2{,}000). Patient-level splits, frozen
+    linear probes, Phase~A calibration, Phase~B recalibration, minimum-support filtering,
+    and bootstrap CIs.
+  \item \textbf{HuBERT-ECG}: loaded from the public \texttt{safetensors} checkpoint via the
+    HuggingFace \texttt{AutoModel} interface; 12 leads flattened and decimated per the
+    authors' pipeline; 768-d mean-pooled embeddings.
+  \item \textbf{DCA} (ST-MEM PTB-XL MI): net benefit from actual predictions.
+  \item \textbf{Subgroup analysis} (exploratory): re-trained probe; absolute values differ
+    from the main benchmark.
+  \item \textbf{Calibration-size curves}: from \texttt{h4\_size\_ablation\_pilot\_summary.csv};
+    extrapolations to $n\!>\!203$ are power-law projections.
+  \item \textbf{Feature geometry}: from cached \texttt{.npy} features with PTB-XL labels
+    (five foundation models).
+\end{itemize}
+
+\subsection{Remaining Limitations}
+
+\begin{itemize}
+  \item \textbf{ECGFM-KED $\times$ CODE-15\%}: partial architecture load (35 missing keys);
+    near-chance AUROC; excluded from CODE-15\% claims and Pareto analysis. ECGFM-KED is
+    retained on PTB-XL, CPSC2018, and MIMIC-IV-ECG.
+  \item \textbf{Frozen probes only}: fine-tuning calibration is not evaluated.
+  \item \textbf{MIMIC-IV-ECG labels}: parsed from machine-measurement reports on a
+    2{,}000-record subset; LBBB falls below minimum support. Structured ICD-based labels on
+    the full corpus are future work.
+  \item \textbf{HuBERT-ECG preprocessing}: the authors' single-channel lead-flattening
+    differs from the native multi-lead handling of the other encoders.
+  \item \textbf{DCA scope}: real predictions for ST-MEM only; other models require re-running
+    their probes from cached features.
+  \item \textbf{PhysioCalib}: null finding at $n_\mathrm{cal}=297$; needs
+    $n_\mathrm{cal}\!>\!500$ (estimated) for reliable minority-class improvement.
+\end{itemize}
+
+\subsection{Primary Artifact Paths}
+
+\begin{itemize}
+  \item \texttt{results/benchmark\_v2\_results.json} --- all 23 benchmark cells with CIs and
+    per-class support; \texttt{benchmark\_v2\_summary.csv} --- flat summary.
+  \item \texttt{results/features\_M\{1,2,3,4,5,6\}\_D\{1,3,4,5\}.npy} --- cached features
+    (incl.\ HuBERT-ECG = M3 and MIMIC-IV-ECG = D5); \texttt{features\_*\_D3exp.npy} ---
+    expanded CODE-15\%.
+  \item \texttt{results/pareto\_analysis\_v2.json} --- Pareto fronts and composite scores.
+  \item \texttt{results/stmem\_ptbxl\_mi\_predictions.npz} --- real DCA predictions.
+  \item Derived analyses in \texttt{results/}: \texttt{feature\_geometry.json},
+    \texttt{dca\_results.json}, \texttt{subgroup\_results.json}, and
+    \texttt{physio\_calib\_results.json}.
+  \item \texttt{results/h4\_size\_ablation\_pilot\_summary.csv} --- calsize ablation.
+\end{itemize}

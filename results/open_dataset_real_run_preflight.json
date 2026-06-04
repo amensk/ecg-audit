@@ -1,0 +1,220 @@
+{
+  "generated_at": "2026-05-30T16:05:23",
+  "stage": "05_experimentation",
+  "experiment": "real_three_open_dataset_preflight",
+  "policy": "Run D1/PTB-XL, D3/CODE-15%, and D4/CPSC2018 first; defer D2/MIMIC-IV-ECG until PhysioNet access and task definitions are verified.",
+  "environment": {
+    "python": "3.11.15 (main, May  4 2026, 21:04:48) [Clang 22.1.3 ]",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "repo_root": "/Users/ameenk/AutoR/runs/20260523_210450",
+    "data_root": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data",
+    "checkpoints_root": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints",
+    "checkpoint_mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+    "checkpoint_mapping_loaded": true
+  },
+  "base_packages": {
+    "numpy": true,
+    "scipy": true,
+    "sklearn": true,
+    "pandas": true,
+    "matplotlib": true,
+    "wfdb": true,
+    "h5py": true
+  },
+  "datasets": {
+    "D1": {
+      "name": "PTB-XL",
+      "candidate_paths": [
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptb-xl",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptbxl",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/PTB-XL"
+      ],
+      "existing_candidate_paths": [
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptb-xl",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/PTB-XL"
+      ],
+      "required_any": [
+        "ptbxl_database.csv"
+      ],
+      "found_required_files": [
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptb-xl/ptbxl_database.csv",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptb-xl/physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptb-xl/1.0.3/ptbxl_database.csv",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/PTB-XL/ptbxl_database.csv",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/PTB-XL/physionet.org/files/ptb-xl/1.0.3/ptbxl_database.csv",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/PTB-XL/1.0.3/ptbxl_database.csv"
+      ],
+      "available": true
+    },
+    "D3": {
+      "name": "CODE-15%",
+      "candidate_paths": [
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/code15",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/code-15",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/CODE-15",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/CODE15"
+      ],
+      "existing_candidate_paths": [
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/code15",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/code-15",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/CODE-15",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/CODE15"
+      ],
+      "required_any": [
+        "exams.csv",
+        "annotations.csv"
+      ],
+      "found_required_files": [
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/code15/exams.csv",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/code-15/exams.csv",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/CODE-15/exams.csv",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/CODE15/exams.csv"
+      ],
+      "available": true
+    },
+    "D4": {
+      "name": "CPSC2018",
+      "candidate_paths": [
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/cpsc2018",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/CPSC2018",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/cpsc"
+      ],
+      "existing_candidate_paths": [
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/cpsc2018",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/CPSC2018"
+      ],
+      "required_any": [
+        "REFERENCE.csv",
+        "REFERENCE-v3.csv"
+      ],
+      "found_required_files": [
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/cpsc2018/REFERENCE.csv",
+        "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/CPSC2018/REFERENCE.csv"
+      ],
+      "available": true
+    }
+  },
+  "available_dataset_ids": [
+    "D1",
+    "D3",
+    "D4"
+  ],
+  "available_dataset_count": 3,
+  "checkpoints": {
+    "M1": {
+      "name": "MERL",
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "mapping_entry": {},
+      "relative_path": "merl/merl_checkpoint.pth",
+      "expected_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/merl/merl_checkpoint.pth",
+      "checkpoint_exists": true,
+      "python_packages": {
+        "torch": true,
+        "torchvision": true
+      },
+      "available": true
+    },
+    "M2": {
+      "name": "ST-MEM",
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "mapping_entry": {},
+      "relative_path": "st_mem/st_mem_checkpoint.pth",
+      "expected_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/st_mem/st_mem_checkpoint.pth",
+      "checkpoint_exists": true,
+      "python_packages": {
+        "torch": true,
+        "st_mem": false
+      },
+      "available": false
+    },
+    "M3": {
+      "name": "HuBERT-ECG",
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "mapping_entry": {},
+      "relative_path": "hubert_ecg/hubert_ecg_checkpoint.pth",
+      "expected_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/hubert_ecg/hubert_ecg_checkpoint.pth",
+      "checkpoint_exists": true,
+      "python_packages": {
+        "torch": true,
+        "hubert_ecg": false
+      },
+      "available": false
+    },
+    "M4": {
+      "name": "ECGFM-KED",
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "mapping_entry": {},
+      "relative_path": "ecgfm_ked/ecgfm_ked_checkpoint.pth",
+      "expected_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/ecgfm_ked/ecgfm_ked_checkpoint.pth",
+      "checkpoint_exists": true,
+      "python_packages": {
+        "torch": true,
+        "ecgfm_ked": false
+      },
+      "available": false
+    },
+    "M5": {
+      "name": "ECG-FM",
+      "mapping_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/checkpoint_mapping.json",
+      "mapping_entry": {},
+      "relative_path": "ecg_fm/ecg_fm_checkpoint.pth",
+      "expected_path": "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints/ecg_fm/ecg_fm_checkpoint.pth",
+      "checkpoint_exists": true,
+      "python_packages": {
+        "torch": true,
+        "ecg_fm": false
+      },
+      "available": false
+    }
+  },
+  "available_checkpoint_ids": [
+    "M1"
+  ],
+  "available_checkpoint_count": 1,
+  "launch_policy": {
+    "require_all_datasets": false,
+    "require_all_checkpoints": false,
+    "min_ready_datasets": 1,
+    "min_ready_checkpoints": 1
+  },
+  "mimic_status": {
+    "dataset_id": "D2",
+    "name": "MIMIC-IV-ECG",
+    "included_in_this_attempt": false,
+    "reason": "Deferred by refinement request until credentialed access and BenchECG task definitions are verified."
+  },
+  "ready_to_launch": true,
+  "blockers": [],
+  "non_blocking_gaps": [
+    "missing_or_unloadable_checkpoint:M2:ST-MEM",
+    "missing_or_unloadable_checkpoint:M3:HuBERT-ECG",
+    "missing_or_unloadable_checkpoint:M4:ECGFM-KED",
+    "missing_or_unloadable_checkpoint:M5:ECG-FM"
+  ],
+  "launch": {
+    "attempt_requested": true,
+    "ready_to_launch": true,
+    "command": [
+      "/Users/ameenk/AutoR/.venv/bin/python",
+      "run_all.py",
+      "--data-root",
+      "/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data",
+      "--checkpoints-root",
+      "/Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints",
+      "--datasets",
+      "D1",
+      "D3",
+      "D4",
+      "--skip-mimic",
+      "--phase",
+      "all",
+      "--models",
+      "M1",
+      "M6"
+    ],
+    "executed": true,
+    "return_code": 1,
+    "stdout_tail": "2026-05-30 16:04:47,589 [__main__] INFO: ============================================================\n2026-05-30 16:04:47,589 [__main__] INFO: ECG FM Calibration Study \u2014 Starting\n2026-05-30 16:04:47,589 [__main__] INFO: Phase: all\n2026-05-30 16:04:47,589 [__main__] INFO: Data root: /Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data\n2026-05-30 16:04:47,589 [__main__] INFO: Checkpoints root: /Users/ameenk/AutoR/runs/20260523_210450/workspace/checkpoints\n2026-05-30 16:04:47,589 [__main__] INFO: ============================================================\n2026-05-30 16:04:53,853 [__main__] WARNING: Skipping D1: [Errno 2] No such file or directory: '/Users/ameenk/AutoR/runs/20260523_210450/workspace/raw_data/ptb-xl/1.0.3/records500/01000/01118_hr.hea'\n",
+    "stderr_tail": "Traceback (most recent call last):\n  File \"/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/run_all.py\", line 339, in <module>\n    main()\n  File \"/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/run_all.py\", line 292, in main\n    prepared = step_data(args)\n               ^^^^^^^^^^^^^^^\n  File \"/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/run_all.py\", line 100, in step_data\n    data = prepare_dataset(\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ameenk/AutoR/runs/20260523_210450/workspace/code/data_pipeline.py\", line 335, in prepare_dataset\n    split_patients = patient_stratified_split(\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: patient_stratified_split() got an unexpected keyword argument 'train'\n"
+  }
+}

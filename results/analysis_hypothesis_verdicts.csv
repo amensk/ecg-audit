@@ -1,0 +1,7 @@
+hypothesis,synthetic_verdict,basis,paper_claim_status
+H1,supported in synthetic validation,5/5 FM proxies significant vs S4 on all 3 synthetic datasets,Pipeline stress-test only; no real ECG calibration claim
+H2,supported in synthetic validation,5/5 FM proxies classified underconfident; 20/20 tasks underconfident per proxy,Supports metric/sign wiring only; real underconfidence remains untested
+H3,supported in synthetic validation,median ECE gap closure 0.967; 0 excluded pairs; Brier median 1.054,"Demonstrates gap-closure computation and recalibration plumbing, not real deployability"
+H4,not supported,MLP was not best in large-calibration regime and not worst in small-calibration regime; isotonic/platt dominated mean ECE,Weakens any default MLP-superiority narrative; real H4 needs PyTorch MLP and real logits
+H5,supported in synthetic validation,3/3 dataset-pair Kendall correlations significant and SCE direction consistent for all proxies,Only validates cross-dataset analysis code under designed synthetic consistency
+H6,not supported,18/60 recalibration comparisons showed significant AUROC degradation at alpha=0.000625,Warns writing stage to avoid saying recalibration is discrimination-preserving until real DeLong tests pass
