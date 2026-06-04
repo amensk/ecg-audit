@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-06-04",
+  "session": "extended_analyses_pass",
+  "validation_checks": {
+    "no_fabricated_results": true,
+    "method": "All extended analyses run on fixed, deterministic probability caches (results/probs/*.npz) that reproduce benchmark AUROC/ECE exactly; scripts operate only on cached real data.",
+    "latex_compile_errors": 0,
+    "undefined_references": 0,
+    "undefined_citations": 0,
+    "bibtex_warnings": 0,
+    "missing_figures": 0,
+    "overfull_hboxes_gt20pt": 2,
+    "pdf_pages": 39,
+    "csv_artifacts_reconciled": "benchmark_v2_summary.csv (23 rows) == paper_results_table.csv (23 rows); all AUROC/ECE match",
+    "ece_ci_convention_documented": true,
+    "ecg_audit_open_source_reachable": true,
+    "counts_consistent": "six encoders, four datasets, 24 planned cells, 23 evaluated, 18,877 records across abstract/intro/method/results/discussion/conclusion/appendix/tables"
+  },
+  "analyses_executed": [
+    "Full 6x4 benchmark, bootstrap CIs, min-support filtering (23 cells)",
+    "Extended metrics: NLL, adaptive ECE, classwise ECE, calibration slope/intercept",
+    "RankSafe-Cal (rank-preserving recalibration, out-of-sample AUROC-loss certified)",
+    "Cross-dataset calibration transfer (MI, AF, RBBB, NORM)",
+    "Split-conformal prediction (MI, AF, NORM; alpha 0.1 & 0.2)",
+    "Expanded decision-curve analysis (MI, AF; all models; raw vs recal)",
+    "Multi-seed robustness (10 resplits on PTB-XL and MIMIC-IV-ECG)",
+    "Mechanistic OLS regression of per-class ECE (n=149, R2=0.85)",
+    "Subgroup calibration across all 6 encoders (PTB-XL age/sex)",
+    "Integrity/leakage audit",
+    "Feature geometry across 5 FMs",
+    "Citation audit + corrections via external checker"
+  ],
+  "analyses_skipped_with_reasons": [
+    {"item": "ECGFM-KED x CODE-15%", "reason": "Partial architecture reconstruction (35 missing keys), near-chance AUROC; excluded from CODE-15 conclusions and Pareto"},
+    {"item": "LBBB on MIMIC-IV-ECG", "reason": "9 positive test examples (< min_pos=10); excluded from MIMIC macro"},
+    {"item": "Subgroup on CODE-15%/CPSC/MIMIC", "reason": "Per-record age/sex not cleanly alignable to cached features for those loaders; PTB-XL used; others future work"},
+    {"item": "Fine-tuning calibration", "reason": "Frozen linear probes only; out of scope"},
+    {"item": "MIMIC structured ICD labels", "reason": "Used report-derived labels on a 2000-record subset; full ICD-linked corpus future work"}
+  ],
+  "strongest_claims_supported_by_artifacts": [
+    "PTB-XL tradeoff robust: S4D best-calibrated in 10/10 seeds (robustness.json)",
+    "HuBERT-ECG worst-calibrated FM on PTB-XL (0.136) and MIMIC (0.106) (benchmark_v2_results.json)",
+    "RankSafe-Cal recovers most of isotonic's ECE gain at ~6x lower AUROC loss; beats isotonic on MIMIC (ranksafe_cal.json)",
+    "Calibration transfer succeeds in only 9-42% of pairs -> deployment-context-specific (transfer.json)",
+    "Conformal achieves 90% target coverage for all methods; Platt most efficient (conformal.json)",
+    "Dataset/task dominates ECE; masked-prediction raises it, supervised lowers it (mechanistic_regression.json)",
+    "Age gradient in calibration for every FM but not S4D (subgroup_expanded.json)"
+  ],
+  "claims_softened_or_unsupported": [
+    "ECG-FM 'below S4D' on MIMIC: NOT robust (2/10 seeds) -> softened to 'statistically tied with S4D' everywhere",
+    "RankSafe-Cal on CODE-15% has one rare class with large worst-case AUROC loss (0.22) -> noted as rare-class instability",
+    "Cross-dataset transfer mostly fails -> framed as a context-specific (largely negative) result"
+  ],
+  "remaining_limitations": [
+    "Frozen linear probes only (no fine-tuning)",
+    "MIMIC labels parsed from machine-measurement reports (2000-record subset)",
+    "ECGFM-KED partial on CODE-15%",
+    "HuBERT-ECG uses authors' single-channel lead-flattening preprocessing",
+    "Subgroup metadata limited to PTB-XL",
+    "2 minor (<36pt) overfull hboxes remain"
+  ],
+  "final_artifact_paths": {
+    "pdf": "workspace/artifacts/final_paper.pdf",
+    "manuscript": "workspace/writing/main.tex (+ sections/, tables/, figures/, references.bib)",
+    "benchmark": "workspace/results/benchmark_v2_results.json, benchmark_v2_summary.csv, paper_results_table.csv",
+    "extended": "workspace/results/{extended_metrics,ranksafe_cal,transfer,conformal,dca_expanded,robustness,mechanistic_regression,subgroup_expanded,integrity_audit,pareto_analysis_v2}.{json,csv}",
+    "probs_caches": "workspace/results/probs/*.npz + probs_manifest.json",
+    "package": "workspace/ecg_audit_pkg/ (installed) ; repo https://github.com/amensk/ecg-audit",
+    "manifest": "workspace/artifacts/final_artifact_manifest.json"
+  }
+}
