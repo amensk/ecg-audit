@@ -143,7 +143,7 @@ pytest -q          # 14 tests covering metrics, recalibration, and clinical util
 @article{ecgaudit2026,
   title  = {When Better Rankings Mean Worse Probabilities:
             A Calibration Audit of ECG Foundation Models},
-  author = {AutoR Research Workflow},
+  author = {Kandathil, Ameen and Torres, Adrian},
   year   = {2026}
 }
 ```
