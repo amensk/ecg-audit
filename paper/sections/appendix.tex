@@ -56,9 +56,9 @@ predictions recovered from cached features (not reconstructed proxies), saved in
 \begin{itemize}
   \item \texttt{results/benchmark\_v2\_results.json} --- all 23 benchmark cells with CIs and
     per-class support; \texttt{benchmark\_v2\_summary.csv} --- flat summary.
-  \item \texttt{results/features\_M\{1,2,3,4,5,6\}\_D\{1,3,4,5\}.npy} --- cached features
-    (incl.\ HuBERT-ECG = M3 and MIMIC-IV-ECG = D5); \texttt{features\_*\_D3exp.npy} ---
-    expanded CODE-15\%.
+  \item \texttt{results/features\_*.npy} --- cached frozen features for all six encoders on
+    all four datasets (incl.\ HuBERT-ECG and MIMIC-IV-ECG); the \texttt{\_D3exp} suffix marks
+    the expanded CODE-15\% sample.
   \item \texttt{results/pareto\_analysis\_v2.json} --- Pareto fronts and composite scores.
   \item \texttt{results/stmem\_ptbxl\_mi\_predictions.npz} --- real DCA predictions.
   \item Derived analyses in \texttt{results/}: \texttt{feature\_geometry.json},

@@ -64,7 +64,7 @@ Figure~\ref{fig:reliability-ptbxl} shows the corresponding reliability diagrams.
 \subsection{Disappearance of the Tradeoff: CPSC2018, CODE-15\%, and MIMIC-IV-ECG}
 \label{sec:results-cpsc}
 
-The tradeoff vanishes on the single-label arrhythmia datasets. On CPSC2018, ST-MEM achieves
+The tradeoff vanishes on the lower-co-occurrence endpoint datasets. On CPSC2018, ST-MEM achieves
 both the highest AUROC (0.950) and a low ECE (0.034); S4D achieves the lowest ECE (0.023).
 Every model is well-calibrated (ECE 0.023--0.051, the maximum being HuBERT-ECG). The pattern
 is consistent across all six encoders.
@@ -72,8 +72,10 @@ is consistent across all six encoders.
 We attribute this disappearance to task structure. PTB-XL is a multi-label rhythm
 classification task with five correlated superclasses (NORM, MI, STTC, CD, HYP); the linear
 probe must simultaneously output valid probabilities for correlated, partially overlapping
-classes. CPSC2018, CODE-15\%, and MIMIC-IV-ECG are effectively single-label (or
-low-co-occurrence) tasks with cleaner class boundaries. The multi-label structure creates
+classes. CPSC2018, CODE-15\%, and MIMIC-IV-ECG are support-filtered binary endpoint tasks
+with lower label co-occurrence and cleaner class boundaries; the MIMIC-IV-ECG labels are
+parsed from machine-measurement reports (not gold-standard ICD codes). The correlated
+multi-label structure of PTB-XL creates
 geometrically harder representation-to-probability mappings, where the probe must apportion
 probability mass across correlated outputs simultaneously.
 
@@ -103,9 +105,10 @@ Figure~\ref{fig:reliability-mimic}.
   \centering
   \includegraphics[width=0.90\linewidth]{figures/fig_mimic_indomain.pdf}
   \caption{MIMIC-IV-ECG benchmark results. Left: AUROC. Right: ECE. ECG-FM (gold border)
-    was pretrained on MIMIC-IV-ECG yet achieves only AUROC 0.771, behind MERL (0.861),
-    ST-MEM (0.854), and even the supervised S4D baseline (0.793). Within-domain pretraining
-    of the \emph{backbone} does not guarantee superior linear-probe performance.}
+    was pretrained on MIMIC-IV-ECG yet achieves only AUROC 0.771: it trails MERL (0.861) and
+    ST-MEM (0.854) in every resplit and does not robustly outperform the supervised S4D
+    baseline (0.793; statistically tied across seeds). Within-domain pretraining of the
+    \emph{backbone} does not guarantee superior linear-probe performance.}
   \label{fig:mimic-indomain}
 \end{figure}
 
@@ -293,7 +296,7 @@ Figure~\ref{fig:cross-dataset} shows how ECE varies across datasets for each mod
 variation is large: S4D's ECE ranges from 0.010 (CODE-15\%) to 0.064 (PTB-XL), a factor of
 ${\sim}6\times$; ST-MEM from 0.028 (CODE-15\%) to 0.124 (PTB-XL), ${\sim}4.4\times$; and
 HuBERT-ECG from 0.032 to 0.136, ${\sim}4.3\times$. PTB-XL is consistently the hardest to
-calibrate and the single-label arrhythmia datasets the easiest, with MIMIC-IV-ECG
+calibrate and the lower-co-occurrence endpoint datasets the easiest, with MIMIC-IV-ECG
 intermediate.
 
 \begin{figure}[t]

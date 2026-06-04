@@ -1,10 +1,12 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-We present the first systematic calibration audit of ECG foundation models, executing a
-5-model $\times$ 4-dataset benchmark totalling 20 evaluation cells across 12{,}877 ECG
-records (2{,}000 PTB-XL; 6{,}877 CPSC2018; 2{,}000 CODE-15\%; 2{,}000 MIMIC-IV-ECG)
-under patient-level leakage-controlled splits.
+We present a systematic calibration audit of ECG foundation models: six encoders---five ECG
+foundation models (MERL, ST-MEM, HuBERT-ECG, ECGFM-KED, ECG-FM) and a supervised S4D
+baseline---across four datasets, with 23 of 24 model--dataset cells evaluated
+(ECGFM-KED~$\times$~CODE-15\% excluded for a partial checkpoint), over 18{,}877 ECG records
+(2{,}000 PTB-XL; 6{,}877 CPSC2018; 8{,}000 CODE-15\%; 2{,}000 MIMIC-IV-ECG) under
+patient-level leakage-controlled splits with bootstrap confidence intervals.
 
 \paragraph{Main findings.}
 Four findings stand out. First, a consistent \textbf{discrimination--calibration tradeoff}
@@ -15,7 +17,7 @@ worst calibrated (ECE 0.136)---a gap invisible to AUROC reporting but clinically
 Second, this tradeoff \textbf{disappears on arrhythmia datasets}: on CPSC2018
 (ECE 0.023--0.051), CODE-15\% (ECE 0.010--0.032), and MIMIC-IV-ECG (ECE 0.043--0.106),
 encoders are comparatively well-calibrated and ST-MEM leads discrimination. Task
-structure---multi-label vs.\ single-label---is the mediating factor. Third, \textbf{post-hoc
+structure---correlated multi-label vs.\ lower-co-occurrence endpoints---is the mediating factor. Third, \textbf{post-hoc
 isotonic recalibration closes 43--71\% of the ECE gap} on PTB-XL (ST-MEM: $0.124\to0.044$;
 HuBERT-ECG: $0.136\to0.040$) at only 0.5--1.7\% AUROC cost, and it reorders calibration-aware
 model selection (ST-MEM moves from 5th to 1st on the $C(0.7)$ composite). Fourth,
@@ -24,6 +26,16 @@ MIMIC-IV-ECG, achieves only AUROC 0.771 on MIMIC-IV-ECG---behind MERL (0.861) an
 (0.854) in all 10 resplits, and no better than the supervised S4D baseline (0.793).
 Cross-dataset ECE varies by up to ${\sim}6\times$ for
 the same model, mandating per-deployment calibration audits.
+
+\paragraph{A practical recipe.}
+Beyond the audit we contribute \textbf{RankSafe-Cal}, which recovers most of isotonic's
+calibration gain (PTB-XL macro ECE $0.097\!\to\!0.054$; on MIMIC it beats unconstrained
+isotonic) at roughly $6\times$ lower AUROC cost by certifying out-of-sample ranking loss
+within a tolerance $\epsilon$. Cross-dataset transfer experiments show recalibration ports
+successfully in only 9--42\% of endpoint/model pairs, so local re-calibration remains
+necessary. Split-conformal prediction attains its $90\%$ coverage guarantee as a complement
+to calibration, and decision-curve analysis confirms positive net benefit for MI and AF
+endpoints. All headline conclusions hold across 10 patient-level resplits.
 
 \paragraph{Clinical implication.}
 Practitioners deploying ECG foundation models for multi-label risk stratification should

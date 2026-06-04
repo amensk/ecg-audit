@@ -33,10 +33,11 @@ cells across four public datasets. Four findings emerged from the data:
     supervised S4D baseline on AUROC but trail its calibration (ECE 0.064) by 0.015--0.072.
     The discrimination--calibration tradeoff is systematic, not random.
 
-  \item \textbf{The tradeoff disappears on single-label arrhythmia tasks.} On CPSC2018,
-    CODE-15\%, and MIMIC-IV-ECG, all six encoders are comparatively well-calibrated and
-    high-AUROC models are \emph{also} well-calibrated. Task structure---multi-label vs.\
-    single-label---rather than model architecture drives calibration difficulty.
+  \item \textbf{The tradeoff disappears on lower-co-occurrence endpoint tasks.} On CPSC2018,
+    CODE-15\%, and (report-labelled) MIMIC-IV-ECG, all six encoders are comparatively
+    well-calibrated and high-AUROC models are \emph{also} well-calibrated. Task
+    structure---correlated multi-label vs.\ lower-co-occurrence endpoints---rather than model
+    architecture drives calibration difficulty.
 
   \item \textbf{Within-domain pretraining is not sufficient.} On MIMIC-IV-ECG, ECG-FM---
     which was \emph{pretrained on MIMIC-IV-ECG}---reaches only AUROC 0.771, behind MERL
@@ -85,14 +86,11 @@ cells across four public datasets. Four findings emerged from the data:
     with finite-sample coverage. We also add proper scores (NLL), calibration slope/intercept,
     a mechanistic ECE regression, multi-seed robustness, and all-model subgroup audits.
 
-  \item \textbf{PhysioCalib:} A severity-weighted isotonic calibration method that allocates
-    more correction to high-stakes conditions (MI, STTC) and less to routine findings (NORM),
-    formally a monotone rank-preserving method, implemented in the \texttt{ecg-audit} package.
-
   \item \textbf{ecg-audit:} A pip-installable, unit-tested Python package (open-sourced at
     \url{https://github.com/amensk/ecg-audit}) providing one-command calibration auditing,
-    the recalibration methods above, decision-curve analysis, subgroup calibration,
-    reliability diagrams, and a community leaderboard scaffold.
+    all recalibration methods above (including RankSafe-Cal and the severity-weighted
+    PhysioCalib variant), decision-curve analysis, subgroup calibration, reliability diagrams,
+    and a community leaderboard scaffold.
 \end{enumerate}
 
 \paragraph{Paper organisation.}
